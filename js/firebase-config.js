@@ -2,32 +2,29 @@
 /* =========================================================
    INSTA CROWN 👑
    FILE: js/firebase-config.js
-   PURPOSE: Firebase Initialization & Configuration
+   FIREBASE PROJECT: insta-crown
    ========================================================= */
 
 (function () {
     "use strict";
 
-
     /* -----------------------------------------------------
        1. FIREBASE CONFIGURATION
     ----------------------------------------------------- */
 
-    const FirebaseConfig = {
+    const firebaseConfig = {
 
-        apiKey: "YOUR_FIREBASE_API_KEY",
+        apiKey: "AIzaSyDHNwXw-TbcCeZmWpt4NAXdSpv_WsQadoo",
 
-        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        authDomain: "insta-crown.firebaseapp.com",
 
-        projectId: "YOUR_PROJECT_ID",
+        projectId: "insta-crown",
 
-        storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+        storageBucket: "insta-crown.firebasestorage.app",
 
-        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        messagingSenderId: "984558664582",
 
-        appId: "YOUR_FIREBASE_APP_ID",
-
-        measurementId: "YOUR_MEASUREMENT_ID"
+        appId: "1:984558664582:web:52351cc1628e24bf264a07"
 
     };
 
@@ -40,15 +37,13 @@
 
         enabled: true,
 
-        useAuthentication: true,
+        authentication: true,
 
-        useFirestore: true,
+        firestore: true,
 
-        useAnalytics: false,
+        analytics: false,
 
-        debugMode: false,
-
-        appName: "Insta Crown"
+        sdkVersion: "10.14.1"
 
     };
 
@@ -65,8 +60,6 @@
 
         db: null,
 
-        analytics: null,
-
         initialized: false,
 
         loading: false,
@@ -75,28 +68,71 @@
 
 
         /* -------------------------------------------------
-           4. CHECK FIREBASE CONFIGURATION
+           4. LOAD FIREBASE SDK
         ------------------------------------------------- */
 
-        isConfigured: function () {
+        loadScript: function (filename) {
 
-            const requiredFields = [
-                "apiKey",
-                "authDomain",
-                "projectId",
-                "messagingSenderId",
-                "appId"
-            ];
+            const existingScript = document.querySelector(
+                'script[data-firebase-sdk="' + filename + '"]'
+            );
 
-            return requiredFields.every((field) => {
+            if (existingScript) {
 
-                const value = FirebaseConfig[field];
+                if (existingScript.dataset.loaded === "true") {
+                    return Promise.resolve();
+                }
 
-                return (
-                    typeof value === "string" &&
-                    value.trim() !== "" &&
-                    !value.startsWith("YOUR_")
-                );
+                return new Promise((resolve, reject) => {
+
+                    existingScript.addEventListener(
+                        "load",
+                        resolve,
+                        { once: true }
+                    );
+
+                    existingScript.addEventListener(
+                        "error",
+                        reject,
+                        { once: true }
+                    );
+
+                });
+
+            }
+
+            return new Promise((resolve, reject) => {
+
+                const script = document.createElement("script");
+
+                script.src =
+                    "https://www.gstatic.com/firebasejs/" +
+                    FirebaseSettings.sdkVersion + "/" +
+                    filename;
+
+                script.async = true;
+
+                script.dataset.firebaseSdk = filename;
+
+                script.onload = function () {
+
+                    script.dataset.loaded = "true";
+
+                    resolve();
+
+                };
+
+                script.onerror = function () {
+
+                    reject(
+                        new Error(
+                            "Firebase SDK failed: " + filename
+                        )
+                    );
+
+                };
+
+                document.head.appendChild(script);
 
             });
 
@@ -104,77 +140,148 @@
 
 
         /* -------------------------------------------------
-           5. LOAD FIREBASE SDK
+           5. LOAD REQUIRED SDKs
         ------------------------------------------------- */
 
         loadSDK: async function () {
 
+            await this.loadScript(
+                "firebase-app-compat.js"
+            );
+
+            await Promise.all([
+
+                this.loadScript(
+                    "firebase-auth-compat.js"
+                ),
+
+                this.loadScript(
+                    "firebase-firestore-compat.js"
+                )
+
+            ]);
+
+            return true;
+
+        },
+
+
+        /* -------------------------------------------------
+           6. INITIALIZE FIREBASE APP
+        ------------------------------------------------- */
+
+        initializeApp: function () {
+
+            if (!window.firebase) {
+
+                throw new Error(
+                    "Firebase SDK not available."
+                );
+
+            }
+
             if (
-                window.firebase &&
-                window.firebase.initializeApp
+                window.firebase.apps &&
+                window.firebase.apps.length > 0
             ) {
+
+                this.app = window.firebase.app();
+
+            } else {
+
+                this.app = window.firebase.initializeApp(
+                    firebaseConfig
+                );
+
+            }
+
+            return this.app;
+
+        },
+
+
+        /* -------------------------------------------------
+           7. INITIALIZE AUTHENTICATION
+        ------------------------------------------------- */
+
+        initializeAuth: function () {
+
+            if (!FirebaseSettings.authentication) {
+                return null;
+            }
+
+            this.auth = this.app.auth();
+
+            return this.auth;
+
+        },
+
+
+        /* -------------------------------------------------
+           8. INITIALIZE FIRESTORE
+        ------------------------------------------------- */
+
+        initializeFirestore: function () {
+
+            if (!FirebaseSettings.firestore) {
+                return null;
+            }
+
+            this.db = this.app.firestore();
+
+            return this.db;
+
+        },
+
+
+        /* -------------------------------------------------
+           9. INITIALIZE FIREBASE
+        ------------------------------------------------- */
+
+        init: async function () {
+
+            if (this.initialized) {
                 return true;
             }
 
             if (this.loading) {
+                return false;
+            }
 
-                return new Promise((resolve) => {
-
-                    const checkSDK = () => {
-
-                        if (
-                            window.firebase &&
-                            window.firebase.initializeApp
-                        ) {
-
-                            resolve(true);
-
-                        } else {
-
-                            window.setTimeout(checkSDK, 100);
-
-                        }
-
-                    };
-
-                    checkSDK();
-
-                });
-
+            if (!FirebaseSettings.enabled) {
+                return false;
             }
 
             this.loading = true;
 
             try {
 
-                await new Promise((resolve, reject) => {
+                await this.loadSDK();
 
-                    const script = document.createElement("script");
+                this.initializeApp();
 
-                    script.src =
-                        "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js";
+                this.initializeAuth();
 
-                    script.async = true;
+                this.initializeFirestore();
 
-                    script.onload = resolve;
+                this.initialized = true;
 
-                    script.onerror = reject;
+                console.log(
+                    "👑 Insta Crown Firebase Connected!"
+                );
 
-                    document.head.appendChild(script);
-
-                });
-
-                await Promise.all([
-
-                    this.loadService(
-                        "firebase-auth-compat.js"
-                    ),
-
-                    this.loadService(
-                        "firebase-firestore-compat.js"
+                window.dispatchEvent(
+                    new CustomEvent(
+                        "instaCrownFirebaseReady",
+                        {
+                            detail: {
+                                app: this.app,
+                                auth: this.auth,
+                                db: this.db
+                            }
+                        }
                     )
-
-                ]);
+                );
 
                 return true;
 
@@ -183,8 +290,19 @@
                 this.error = error;
 
                 console.error(
-                    "Insta Crown: Firebase SDK loading failed.",
+                    "Firebase Connection Error:",
                     error
+                );
+
+                window.dispatchEvent(
+                    new CustomEvent(
+                        "instaCrownFirebaseError",
+                        {
+                            detail: {
+                                message: error.message
+                            }
+                        }
+                    )
                 );
 
                 return false;
@@ -199,251 +317,7 @@
 
 
         /* -------------------------------------------------
-           6. LOAD FIREBASE SERVICE
-        ------------------------------------------------- */
-
-        loadService: function (filename) {
-
-            return new Promise((resolve, reject) => {
-
-                const script = document.createElement("script");
-
-                script.src =
-                    "https://www.gstatic.com/firebasejs/10.14.1/" +
-                    filename;
-
-                script.async = true;
-
-                script.onload = resolve;
-
-                script.onerror = () => {
-
-                    reject(
-                        new Error(
-                            "Failed to load " + filename
-                        )
-                    );
-
-                };
-
-                document.head.appendChild(script);
-
-            });
-
-        },
-
-
-        /* -------------------------------------------------
-           7. INITIALIZE FIREBASE APP
-        ------------------------------------------------- */
-
-        initializeApp: function () {
-
-            if (!window.firebase) {
-
-                throw new Error(
-                    "Firebase SDK is not available."
-                );
-
-            }
-
-            const existingApps = window.firebase.apps;
-
-            if (existingApps && existingApps.length > 0) {
-
-                this.app = window.firebase.app();
-
-            } else {
-
-                this.app = window.firebase.initializeApp(
-                    FirebaseConfig
-                );
-
-            }
-
-            return this.app;
-
-        },
-
-
-        /* -------------------------------------------------
-           8. INITIALIZE AUTHENTICATION
-        ------------------------------------------------- */
-
-        initializeAuth: function () {
-
-            if (!FirebaseSettings.useAuthentication) {
-                return null;
-            }
-
-            this.auth = window.firebase.auth();
-
-            return this.auth;
-
-        },
-
-
-        /* -------------------------------------------------
-           9. INITIALIZE FIRESTORE
-        ------------------------------------------------- */
-
-        initializeFirestore: function () {
-
-            if (!FirebaseSettings.useFirestore) {
-                return null;
-            }
-
-            this.db = window.firebase.firestore();
-
-            return this.db;
-
-        },
-
-
-        /* -------------------------------------------------
-           10. INITIALIZE ANALYTICS
-        ------------------------------------------------- */
-
-        initializeAnalytics: async function () {
-
-            if (!FirebaseSettings.useAnalytics) {
-                return null;
-            }
-
-            try {
-
-                await this.loadService(
-                    "firebase-analytics-compat.js"
-                );
-
-                if (
-                    !window.firebase.analytics ||
-                    !window.firebase.analytics.isSupported
-                ) {
-                    return null;
-                }
-
-                const supported =
-                    await window.firebase.analytics.isSupported();
-
-                if (!supported) {
-                    return null;
-                }
-
-                this.analytics = window.firebase.analytics();
-
-                return this.analytics;
-
-            } catch (error) {
-
-                console.warn(
-                    "Insta Crown: Analytics unavailable.",
-                    error
-                );
-
-                return null;
-
-            }
-
-        },
-
-
-        /* -------------------------------------------------
-           11. INITIALIZE FIREBASE
-        ------------------------------------------------- */
-
-        init: async function () {
-
-            if (this.initialized) {
-                return true;
-            }
-
-            if (!FirebaseSettings.enabled) {
-
-                console.warn(
-                    "Insta Crown: Firebase is disabled."
-                );
-
-                return false;
-
-            }
-
-            if (!this.isConfigured()) {
-
-                console.warn(
-                    "Insta Crown: Add your Firebase project configuration first."
-                );
-
-                this.error = new Error(
-                    "Firebase configuration is incomplete."
-                );
-
-                return false;
-
-            }
-
-            try {
-
-                const sdkLoaded = await this.loadSDK();
-
-                if (!sdkLoaded) {
-                    throw this.error || new Error(
-                        "Firebase SDK could not be loaded."
-                    );
-                }
-
-                this.initializeApp();
-
-                this.initializeAuth();
-
-                this.initializeFirestore();
-
-                await this.initializeAnalytics();
-
-                this.initialized = true;
-
-                console.log(
-                    "Insta Crown: Firebase connected successfully."
-                );
-
-                window.dispatchEvent(
-                    new CustomEvent("instaCrownFirebaseReady", {
-                        detail: {
-                            app: this.app,
-                            auth: this.auth,
-                            db: this.db
-                        }
-                    })
-                );
-
-                return true;
-
-            } catch (error) {
-
-                this.error = error;
-
-                console.error(
-                    "Insta Crown: Firebase initialization error.",
-                    error
-                );
-
-                window.dispatchEvent(
-                    new CustomEvent("instaCrownFirebaseError", {
-                        detail: {
-                            message: error.message
-                        }
-                    })
-                );
-
-                return false;
-
-            }
-
-        },
-
-
-        /* -------------------------------------------------
-           12. GET FIREBASE APP
+           10. GET FIREBASE APP
         ------------------------------------------------- */
 
         getApp: function () {
@@ -454,7 +328,7 @@
 
 
         /* -------------------------------------------------
-           13. GET AUTHENTICATION
+           11. GET AUTH
         ------------------------------------------------- */
 
         getAuth: function () {
@@ -465,7 +339,7 @@
 
 
         /* -------------------------------------------------
-           14. GET DATABASE
+           12. GET DATABASE
         ------------------------------------------------- */
 
         getDatabase: function () {
@@ -476,22 +350,20 @@
 
 
         /* -------------------------------------------------
-           15. GET CURRENT USER
+           13. GET CURRENT USER
         ------------------------------------------------- */
 
         getCurrentUser: function () {
 
-            if (!this.auth) {
-                return null;
-            }
-
-            return this.auth.currentUser;
+            return this.auth
+                ? this.auth.currentUser
+                : null;
 
         },
 
 
         /* -------------------------------------------------
-           16. CHECK CONNECTION
+           14. CHECK FIREBASE STATUS
         ------------------------------------------------- */
 
         isReady: function () {
@@ -505,22 +377,20 @@
 
 
         /* -------------------------------------------------
-           17. GET CONNECTION STATUS
+           15. CONNECTION STATUS
         ------------------------------------------------- */
 
         getStatus: function () {
 
             return {
 
+                projectId: firebaseConfig.projectId,
+
                 initialized: this.initialized,
 
                 authentication: this.auth !== null,
 
                 firestore: this.db !== null,
-
-                analytics: this.analytics !== null,
-
-                configured: this.isConfigured(),
 
                 error: this.error
                     ? this.error.message
@@ -534,10 +404,10 @@
 
 
     /* -----------------------------------------------------
-       18. EXPORT FIREBASE CONFIGURATION
+       16. EXPORT FIREBASE MANAGER
     ----------------------------------------------------- */
 
-    window.InstaCrownFirebaseConfig = FirebaseConfig;
+    window.InstaCrownFirebaseConfig = firebaseConfig;
 
     window.FirebaseSettings = FirebaseSettings;
 
@@ -545,7 +415,7 @@
 
 
     /* -----------------------------------------------------
-       19. FIREBASE READY HELPER
+       17. WAIT FOR FIREBASE
     ----------------------------------------------------- */
 
     window.waitForFirebase = function () {
@@ -582,11 +452,9 @@
 
 
     /* -----------------------------------------------------
-       20. START FIREBASE
+       18. START FIREBASE
     ----------------------------------------------------- */
 
     FirebaseManager.init();
 
-
 })();
-
