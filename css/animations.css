@@ -1,1 +1,815 @@
 
+/* =========================================================
+   INSTA CROWN — ANIMATIONS.CSS
+   Smooth animations, transitions and micro-interactions
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   01. GLOBAL ANIMATION SETTINGS
+   --------------------------------------------------------- */
+
+:root {
+    --animation-fast: 0.18s ease;
+    --animation-normal: 0.35s ease;
+    --animation-slow: 0.65s ease;
+    --animation-spring: 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ---------------------------------------------------------
+   02. WEBSITE LOADER
+   --------------------------------------------------------- */
+
+.website-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease;
+}
+
+.website-loader.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    width: min(280px, 85%);
+    text-align: center;
+}
+
+.loader-crown {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: #ec4899;
+    animation: crownBounce 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 8px 14px rgba(236, 72, 153, 0.22));
+}
+
+.loader-title {
+    margin-bottom: 7px;
+    color: #db2777;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.loader-subtitle {
+    margin-bottom: 23px;
+    color: #888888;
+    font-size: 13px;
+}
+
+.loader-progress {
+    width: 100%;
+    height: 6px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #fce7f3;
+}
+
+.loader-progress span {
+    display: block;
+    width: 35%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ec4899, #a855f7);
+    animation: loaderProgress 1.6s ease-in-out infinite;
+}
+
+@keyframes loaderProgress {
+    0% {
+        transform: translateX(-110%);
+    }
+
+    100% {
+        transform: translateX(320%);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   03. PAGE TRANSITIONS
+   --------------------------------------------------------- */
+
+body {
+    animation: pageFadeIn 0.45s ease both;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-transition {
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.page-transition.page-exit {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+.page-transition.page-enter {
+    animation: pageEnter 0.4s ease both;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   04. SCROLL REVEAL ANIMATIONS
+   JavaScript will activate .is-visible
+   --------------------------------------------------------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-up {
+    transform: translateY(35px);
+}
+
+.reveal-left {
+    transform: translateX(-35px);
+}
+
+.reveal-right {
+    transform: translateX(35px);
+}
+
+.reveal-scale {
+    transform: scale(0.88);
+}
+
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+
+/* ---------------------------------------------------------
+   05. STAGGERED ANIMATIONS
+   --------------------------------------------------------- */
+
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: staggerAppear 0.6s ease forwards;
+}
+
+.stagger-item:nth-child(1) {
+    animation-delay: 0.08s;
+}
+
+.stagger-item:nth-child(2) {
+    animation-delay: 0.16s;
+}
+
+.stagger-item:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+.stagger-item:nth-child(4) {
+    animation-delay: 0.32s;
+}
+
+.stagger-item:nth-child(5) {
+    animation-delay: 0.40s;
+}
+
+.stagger-item:nth-child(6) {
+    animation-delay: 0.48s;
+}
+
+@keyframes staggerAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   06. BUTTON ANIMATIONS
+   --------------------------------------------------------- */
+
+.btn,
+button,
+.primary-button,
+.secondary-button {
+    transition:
+        transform var(--animation-fast),
+        box-shadow var(--animation-fast),
+        background var(--animation-fast),
+        color var(--animation-fast);
+}
+
+.btn:hover,
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-3px);
+}
+
+.btn:active,
+button:active,
+.primary-button:active,
+.secondary-button:active {
+    transform: scale(0.96);
+}
+
+.btn:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(236, 72, 153, 0.35);
+    outline-offset: 4px;
+}
+
+.button-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.75;
+}
+
+.button-loading::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    margin-left: 9px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: rotateSpin 0.7s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   07. CARD HOVER EFFECTS
+   --------------------------------------------------------- */
+
+.card,
+.tool-card,
+.benefit-card,
+.step-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.card:hover,
+.tool-card:hover,
+.benefit-card:hover,
+.step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(219, 39, 119, 0.11);
+}
+
+.tool-card:hover {
+    border-color: rgba(236, 72, 153, 0.4);
+}
+
+.card-icon,
+.tool-icon {
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-icon,
+.tool-card:hover .tool-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+
+/* ---------------------------------------------------------
+   08. FLOATING EFFECTS
+   --------------------------------------------------------- */
+
+.float-animation {
+    animation: floating 3.5s ease-in-out infinite;
+}
+
+.float-animation-slow {
+    animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.hero-floating-icon {
+    animation: floating 4s ease-in-out infinite;
+}
+
+.hero-floating-icon:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.hero-floating-icon:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+
+/* ---------------------------------------------------------
+   09. CROWN ANIMATIONS
+   --------------------------------------------------------- */
+
+.crown-animation {
+    display: inline-block;
+    animation: crownBounce 2s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes crownBounce {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    25% {
+        transform: translateY(-6px) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-9px) rotate(0);
+    }
+
+    75% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+}
+
+.crown-glow {
+    animation: crownGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes crownGlow {
+    0%,
+    100% {
+        filter: drop-shadow(0 0 3px rgba(236, 72, 153, 0.25));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 13px rgba(236, 72, 153, 0.7));
+    }
+}
+
+
+/* ---------------------------------------------------------
+   10. GRADIENT ANIMATIONS
+   --------------------------------------------------------- */
+
+.animated-gradient {
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   11. PULSE AND GLOW EFFECTS
+   --------------------------------------------------------- */
+
+.pulse-animation {
+    animation: pulseEffect 2s ease-in-out infinite;
+}
+
+@keyframes pulseEffect {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+.glow-animation {
+    animation: softGlow 2s ease-in-out infinite;
+}
+
+@keyframes softGlow {
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(236, 72, 153, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 22px rgba(236, 72, 153, 0.22);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   12. SPINNER ANIMATIONS
+   --------------------------------------------------------- */
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    border: 3px solid #fce7f3;
+    border-top-color: #ec4899;
+    border-radius: 50%;
+    animation: rotateSpin 0.8s linear infinite;
+}
+
+.spinner-small {
+    width: 18px;
+    height: 18px;
+    border-width: 2px;
+}
+
+.spinner-large {
+    width: 48px;
+    height: 48px;
+    border-width: 4px;
+}
+
+@keyframes rotateSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   13. SKELETON LOADING
+   --------------------------------------------------------- */
+
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: #f3e8ef;
+    border-radius: 10px;
+}
+
+.skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        transparent
+    );
+    animation: skeletonShimmer 1.5s infinite;
+}
+
+@keyframes skeletonShimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.skeleton-text {
+    height: 13px;
+    margin-bottom: 10px;
+}
+
+.skeleton-title {
+    width: 65%;
+    height: 22px;
+    margin-bottom: 15px;
+}
+
+.skeleton-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.skeleton-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+/* ---------------------------------------------------------
+   14. INPUT ANIMATIONS
+   --------------------------------------------------------- */
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+.input-wrapper input {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.input-wrapper input:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   15. TOAST ANIMATIONS
+   --------------------------------------------------------- */
+
+.toast-message {
+    animation: toastSlideIn 0.35s ease both;
+}
+
+.toast-message.toast-hide {
+    animation: toastSlideOut 0.3s ease forwards;
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes toastSlideOut {
+    to {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   16. MOBILE NAVIGATION ANIMATIONS
+   --------------------------------------------------------- */
+
+.mobile-bottom-navigation a {
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.mobile-bottom-navigation a:active {
+    transform: scale(0.88);
+}
+
+.mobile-bottom-navigation a.active {
+    animation: navActive 0.3s ease;
+}
+
+@keyframes navActive {
+    0% {
+        transform: scale(0.9);
+    }
+
+    60% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   17. IMAGE ANIMATIONS
+   --------------------------------------------------------- */
+
+.animated-image {
+    overflow: hidden;
+}
+
+.animated-image img {
+    transition: transform 0.5s ease;
+}
+
+.animated-image:hover img {
+    transform: scale(1.06);
+}
+
+
+/* ---------------------------------------------------------
+   18. BACK TO TOP ANIMATION
+   --------------------------------------------------------- */
+
+.back-to-top {
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+}
+
+.back-to-top:active {
+    transform: scale(0.9);
+}
+
+
+/* ---------------------------------------------------------
+   19. RIPPLE EFFECT
+   Add .ripple-effect to clickable elements
+   --------------------------------------------------------- */
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.ripple-effect::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: none;
+}
+
+.ripple-effect:active::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(35);
+    transition:
+        transform 0.55s ease,
+        opacity 0.55s ease;
+}
+
+
+/* ---------------------------------------------------------
+   20. DARK MODE ANIMATION SUPPORT
+   --------------------------------------------------------- */
+
+body.dark-mode .website-loader {
+    background: #17121a;
+}
+
+body.dark-mode .loader-title {
+    color: #f9a8d4;
+}
+
+body.dark-mode .loader-subtitle {
+    color: #b8aab7;
+}
+
+body.dark-mode .loader-progress {
+    background: #3c2638;
+}
+
+body.dark-mode .skeleton {
+    background: #332936;
+}
+
+body.dark-mode .skeleton::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+    );
+}
+
+
+/* ---------------------------------------------------------
+   21. TOUCH DEVICE SUPPORT
+   --------------------------------------------------------- */
+
+@media (hover: none) {
+    .card:hover,
+    .tool-card:hover,
+    .benefit-card:hover,
+    .step-card:hover {
+        transform: none;
+        box-shadow: inherit;
+    }
+
+    .animated-image:hover img {
+        transform: none;
+    }
+
+    .btn:active,
+    .primary-button:active,
+    .secondary-button:active {
+        transform: scale(0.96);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   22. REDUCED MOTION ACCESSIBILITY
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    body {
+        animation: none;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   END OF INSTA CROWN ANIMATIONS
+   --------------------------------------------------------- */
+
