@@ -1,1 +1,1326 @@
 
+/* =========================================================
+   INSTA CROWN 👑 — STORIES PAGE STYLESHEET
+   File: css/stories.css
+   Description: Complete Instagram Stories Downloader UI
+   ========================================================= */
+
+/* =========================
+   1. STORIES PAGE VARIABLES
+   ========================= */
+
+:root {
+    --stories-primary: #e1306c;
+    --stories-primary-dark: #c2185b;
+    --stories-secondary: #833ab4;
+    --stories-accent: #fd1d1d;
+
+    --stories-gradient: linear-gradient(
+        135deg,
+        #833ab4 0%,
+        #e1306c 50%,
+        #fd1d1d 100%
+    );
+
+    --stories-light-bg: #fff5f9;
+    --stories-card-bg: #ffffff;
+    --stories-border: #f2dce6;
+    --stories-text: #29212a;
+    --stories-muted: #817582;
+
+    --stories-success: #16a36a;
+    --stories-error: #dc3545;
+    --stories-warning: #e59a16;
+
+    --stories-radius-sm: 10px;
+    --stories-radius-md: 16px;
+    --stories-radius-lg: 24px;
+    --stories-radius-xl: 30px;
+
+    --stories-shadow-sm: 0 4px 14px rgba(131, 58, 180, 0.07);
+    --stories-shadow-md: 0 10px 30px rgba(131, 58, 180, 0.10);
+    --stories-shadow-lg: 0 18px 45px rgba(131, 58, 180, 0.14);
+
+    --stories-transition: 0.3s ease;
+}
+
+/* =========================
+   2. MAIN PAGE
+   ========================= */
+
+.stories-page {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    color: var(--stories-text);
+}
+
+.stories-container {
+    width: min(1160px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.stories-section {
+    position: relative;
+    padding: 70px 0;
+}
+
+.stories-section-title {
+    margin-bottom: 14px;
+    text-align: center;
+    font-size: clamp(25px, 4vw, 38px);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.stories-section-description {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: var(--stories-muted);
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* =========================
+   3. HERO SECTION
+   ========================= */
+
+.stories-hero {
+    position: relative;
+    padding: 85px 20px 65px;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(225, 48, 108, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(131, 58, 180, 0.12),
+            transparent 32%
+        ),
+        linear-gradient(180deg, #fff5f9, #ffffff);
+}
+
+.stories-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stories-hero-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    border-radius: 27px;
+    background: var(--stories-gradient);
+    color: #ffffff;
+    font-size: 42px;
+    box-shadow: 0 14px 35px rgba(225, 48, 108, 0.25);
+    animation: storiesIconFloat 4s ease-in-out infinite;
+}
+
+.stories-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(225, 48, 108, 0.15);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--stories-primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.stories-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.stories-hero h1 span {
+    background: var(--stories-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stories-hero p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--stories-muted);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+/* =========================
+   4. DOWNLOADER CARD
+   ========================= */
+
+.stories-downloader-section {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px 60px;
+    margin-top: -10px;
+}
+
+.stories-downloader-card {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding: 34px;
+    border: 1px solid var(--stories-border);
+    border-radius: var(--stories-radius-xl);
+    background: var(--stories-card-bg);
+    box-shadow: var(--stories-shadow-lg);
+}
+
+.stories-downloader-heading {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.stories-downloader-heading h2 {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.stories-downloader-heading p {
+    color: var(--stories-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.stories-downloader-form {
+    width: 100%;
+}
+
+.stories-input-label {
+    display: block;
+    margin-bottom: 11px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.stories-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 62px;
+    padding: 7px 9px 7px 18px;
+    border: 2px solid var(--stories-border);
+    border-radius: 16px;
+    background: #fffafd;
+    transition: var(--stories-transition);
+}
+
+.stories-input-wrapper:focus-within {
+    border-color: var(--stories-primary);
+    box-shadow: 0 0 0 4px rgba(225, 48, 108, 0.09);
+}
+
+.stories-input-icon {
+    flex-shrink: 0;
+    color: var(--stories-primary);
+    font-size: 21px;
+}
+
+.stories-url-input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 45px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--stories-text);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.stories-url-input::placeholder {
+    color: #aaa0aa;
+}
+
+.stories-paste-button,
+.stories-clear-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 42px;
+    padding: 0 13px;
+    border: 1px solid var(--stories-border);
+    border-radius: 11px;
+    background: #ffffff;
+    color: var(--stories-primary);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--stories-transition);
+}
+
+.stories-paste-button:hover,
+.stories-clear-button:hover {
+    border-color: var(--stories-primary);
+    background: #fff0f6;
+}
+
+.stories-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.stories-download-button {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    min-height: 58px;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 15px;
+    background: var(--stories-gradient);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(225, 48, 108, 0.20);
+    transition: var(--stories-transition);
+}
+
+.stories-download-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 27px rgba(225, 48, 108, 0.28);
+}
+
+.stories-download-button:active {
+    transform: scale(0.98);
+}
+
+.stories-download-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.stories-button-icon {
+    font-size: 20px;
+}
+
+/* =========================
+   5. INPUT HINT
+   ========================= */
+
+.stories-input-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 13px;
+    color: var(--stories-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.stories-input-hint strong {
+    color: var(--stories-primary);
+}
+
+/* =========================
+   6. LOADING SECTION
+   ========================= */
+
+#storiesDownloadLoading {
+    display: none;
+    padding: 30px 15px;
+    margin-top: 22px;
+    border: 1px solid var(--stories-border);
+    border-radius: 17px;
+    background: var(--stories-light-bg);
+    text-align: center;
+}
+
+#storiesDownloadLoading.active,
+#storiesDownloadLoading.show {
+    display: block;
+    animation: storiesFadeIn 0.35s ease;
+}
+
+.stories-loading-spinner {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 17px;
+    border: 4px solid rgba(225, 48, 108, 0.15);
+    border-top-color: var(--stories-primary);
+    border-radius: 50%;
+    animation: storiesSpin 0.8s linear infinite;
+}
+
+.stories-loading-title {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.stories-loading-text {
+    color: var(--stories-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================
+   7. ERROR MESSAGE
+   ========================= */
+
+#storiesDownloadError {
+    display: none;
+    padding: 15px 17px;
+    margin-top: 18px;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    border-radius: 13px;
+    background: #fff1f2;
+    color: #b42332;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+#storiesDownloadError.active,
+#storiesDownloadError.show {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    animation: storiesFadeIn 0.3s ease;
+}
+
+/* =========================
+   8. DOWNLOAD RESULTS
+   ========================= */
+
+#storiesDownloadResult {
+    display: none;
+    margin-top: 25px;
+}
+
+#storiesDownloadResult.active,
+#storiesDownloadResult.show {
+    display: block;
+    animation: storiesFadeIn 0.4s ease;
+}
+
+.stories-result-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.stories-result-heading h3 {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.stories-result-count {
+    padding: 6px 11px;
+    border-radius: 30px;
+    background: #fff0f6;
+    color: var(--stories-primary);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.stories-result-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.stories-result-item {
+    overflow: hidden;
+    border: 1px solid var(--stories-border);
+    border-radius: 17px;
+    background: var(--stories-card-bg);
+    transition: var(--stories-transition);
+}
+
+.stories-result-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--stories-shadow-md);
+}
+
+.stories-result-preview {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+    background: #f4eaf0;
+}
+
+.stories-result-preview img,
+.stories-result-preview video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stories-result-info {
+    padding: 14px;
+}
+
+.stories-result-info h4 {
+    overflow: hidden;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stories-result-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: var(--stories-muted);
+    font-size: 11px;
+}
+
+.stories-result-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    min-height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: var(--stories-gradient);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--stories-transition);
+}
+
+.stories-result-download:hover {
+    filter: brightness(1.07);
+}
+
+/* =========================
+   9. RECENT HISTORY
+   ========================= */
+
+.stories-history-section {
+    padding: 45px 0;
+}
+
+.stories-history-card {
+    padding: 25px;
+    border: 1px solid var(--stories-border);
+    border-radius: 20px;
+    background: var(--stories-card-bg);
+    box-shadow: var(--stories-shadow-sm);
+}
+
+.stories-history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stories-history-header h3 {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.stories-history-clear {
+    padding: 8px 12px;
+    border: 1px solid var(--stories-border);
+    border-radius: 9px;
+    background: transparent;
+    color: var(--stories-primary);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#storiesRecentHistory {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stories-history-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px;
+    border: 1px solid var(--stories-border);
+    border-radius: 13px;
+    transition: var(--stories-transition);
+}
+
+.stories-history-item:hover {
+    background: var(--stories-light-bg);
+}
+
+.stories-history-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    background: #fff0f6;
+    color: var(--stories-primary);
+    font-size: 20px;
+}
+
+.stories-history-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.stories-history-details strong {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 4px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stories-history-details span {
+    color: var(--stories-muted);
+    font-size: 11px;
+}
+
+.stories-history-open {
+    padding: 8px 11px;
+    border: none;
+    border-radius: 9px;
+    background: #fff0f6;
+    color: var(--stories-primary);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.stories-history-empty {
+    padding: 25px 12px;
+    color: var(--stories-muted);
+    text-align: center;
+    font-size: 13px;
+}
+
+/* =========================
+   10. HOW TO DOWNLOAD
+   ========================= */
+
+.stories-steps-section {
+    background: var(--stories-light-bg);
+}
+
+.stories-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.stories-step-card {
+    position: relative;
+    padding: 28px 22px;
+    border: 1px solid var(--stories-border);
+    border-radius: 19px;
+    background: #ffffff;
+    text-align: center;
+    transition: var(--stories-transition);
+}
+
+.stories-step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--stories-shadow-md);
+}
+
+.stories-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 17px;
+    border-radius: 15px;
+    background: var(--stories-gradient);
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.stories-step-card h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.stories-step-card p {
+    color: var(--stories-muted);
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+/* =========================
+   11. FEATURES SECTION
+   ========================= */
+
+.stories-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.stories-feature-card {
+    padding: 24px;
+    border: 1px solid var(--stories-border);
+    border-radius: 17px;
+    background: var(--stories-card-bg);
+    transition: var(--stories-transition);
+}
+
+.stories-feature-card:hover {
+    border-color: rgba(225, 48, 108, 0.4);
+    transform: translateY(-4px);
+}
+
+.stories-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 49px;
+    height: 49px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    background: #fff0f6;
+    color: var(--stories-primary);
+    font-size: 22px;
+}
+
+.stories-feature-card h3 {
+    margin-bottom: 9px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.stories-feature-card p {
+    color: var(--stories-muted);
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+/* =========================
+   12. FAQ SECTION
+   ========================= */
+
+.stories-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.stories-faq-item {
+    overflow: hidden;
+    border: 1px solid var(--stories-border);
+    border-radius: 14px;
+    background: var(--stories-card-bg);
+}
+
+.stories-faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    padding: 19px 20px;
+    border: none;
+    background: transparent;
+    color: var(--stories-text);
+    text-align: left;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.stories-faq-icon {
+    flex-shrink: 0;
+    color: var(--stories-primary);
+    font-size: 20px;
+    transition: transform var(--stories-transition);
+}
+
+.stories-faq-item.active .stories-faq-icon {
+    transform: rotate(45deg);
+}
+
+.stories-faq-answer {
+    display: none;
+    padding: 0 20px 19px;
+    color: var(--stories-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.stories-faq-item.active .stories-faq-answer {
+    display: block;
+    animation: storiesFadeIn 0.3s ease;
+}
+
+/* =========================
+   13. CTA SECTION
+   ========================= */
+
+.stories-cta-section {
+    padding: 65px 20px;
+}
+
+.stories-cta-card {
+    position: relative;
+    overflow: hidden;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 55px 30px;
+    border-radius: 26px;
+    background: var(--stories-gradient);
+    color: #ffffff;
+    text-align: center;
+}
+
+.stories-cta-card h2 {
+    margin-bottom: 14px;
+    font-size: clamp(25px, 4vw, 36px);
+    font-weight: 900;
+}
+
+.stories-cta-card p {
+    max-width: 600px;
+    margin: 0 auto 23px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.stories-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--stories-primary);
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: var(--stories-transition);
+}
+
+.stories-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   14. PRIVACY NOTICE
+   ========================= */
+
+.stories-privacy-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    max-width: 900px;
+    padding: 19px;
+    margin: 25px auto;
+    border: 1px solid rgba(22, 163, 106, 0.2);
+    border-radius: 14px;
+    background: #f0fff8;
+}
+
+.stories-privacy-icon {
+    flex-shrink: 0;
+    color: var(--stories-success);
+    font-size: 21px;
+}
+
+.stories-privacy-notice h4 {
+    margin-bottom: 5px;
+    color: #13794e;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.stories-privacy-notice p {
+    color: #547466;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* =========================
+   15. UTILITY CLASSES
+   ========================= */
+
+.stories-hidden {
+    display: none !important;
+}
+
+.stories-text-center {
+    text-align: center;
+}
+
+.stories-mt-10 {
+    margin-top: 10px;
+}
+
+.stories-mt-20 {
+    margin-top: 20px;
+}
+
+.stories-mb-20 {
+    margin-bottom: 20px;
+}
+
+.stories-gradient-text {
+    background: var(--stories-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stories-divider {
+    width: 100%;
+    height: 1px;
+    margin: 22px 0;
+    background: var(--stories-border);
+}
+
+/* =========================
+   16. ANIMATIONS
+   ========================= */
+
+@keyframes storiesSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes storiesFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes storiesIconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes storiesPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.55;
+    }
+}
+
+.stories-reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.stories-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   17. TABLET RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+    .stories-container {
+        width: min(100% - 32px, 760px);
+    }
+
+    .stories-hero {
+        padding: 70px 20px 55px;
+    }
+
+    .stories-steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stories-features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stories-section {
+        padding: 55px 0;
+    }
+}
+
+/* =========================
+   18. MOBILE RESPONSIVE
+   ========================= */
+
+@media (max-width: 600px) {
+    .stories-container {
+        width: calc(100% - 28px);
+    }
+
+    .stories-hero {
+        padding: 55px 16px 45px;
+    }
+
+    .stories-hero-icon {
+        width: 75px;
+        height: 75px;
+        border-radius: 23px;
+        font-size: 34px;
+    }
+
+    .stories-hero h1 {
+        font-size: 34px;
+        letter-spacing: -0.8px;
+    }
+
+    .stories-hero p {
+        font-size: 14px;
+    }
+
+    .stories-downloader-section {
+        padding: 0 13px 40px;
+    }
+
+    .stories-downloader-card {
+        padding: 23px 16px;
+        border-radius: 21px;
+    }
+
+    .stories-downloader-heading h2 {
+        font-size: 21px;
+    }
+
+    .stories-input-wrapper {
+        flex-wrap: wrap;
+        gap: 7px;
+        padding: 10px;
+    }
+
+    .stories-input-icon {
+        margin-left: 4px;
+    }
+
+    .stories-url-input {
+        flex-basis: calc(100% - 50px);
+    }
+
+    .stories-paste-button {
+        flex: 1;
+    }
+
+    .stories-clear-button {
+        flex: 1;
+    }
+
+    .stories-form-actions {
+        flex-direction: column;
+    }
+
+    .stories-download-button {
+        min-height: 54px;
+    }
+
+    .stories-section {
+        padding: 45px 0;
+    }
+
+    .stories-section-title {
+        font-size: 27px;
+    }
+
+    .stories-section-description {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .stories-steps-grid,
+    .stories-features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .stories-step-card,
+    .stories-feature-card {
+        padding: 22px 18px;
+    }
+
+    .stories-result-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .stories-result-info {
+        padding: 10px;
+    }
+
+    .stories-result-info h4 {
+        font-size: 12px;
+    }
+
+    .stories-result-download {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    .stories-history-card {
+        padding: 18px 13px;
+    }
+
+    .stories-history-item {
+        gap: 9px;
+        padding: 10px;
+    }
+
+    .stories-history-icon {
+        width: 37px;
+        height: 37px;
+    }
+
+    .stories-cta-card {
+        padding: 42px 19px;
+        border-radius: 20px;
+    }
+
+    .stories-privacy-notice {
+        padding: 14px;
+    }
+}
+
+/* =========================
+   19. SMALL MOBILE
+   ========================= */
+
+@media (max-width: 380px) {
+    .stories-hero h1 {
+        font-size: 29px;
+    }
+
+    .stories-downloader-card {
+        padding: 19px 12px;
+    }
+
+    .stories-result-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .stories-result-preview {
+        aspect-ratio: 9 / 13;
+    }
+
+    .stories-result-heading h3 {
+        font-size: 16px;
+    }
+
+    .stories-history-header h3 {
+        font-size: 16px;
+    }
+
+    .stories-history-open {
+        padding: 7px 8px;
+        font-size: 10px;
+    }
+}
+
+/* =========================
+   20. DARK MODE
+   ========================= */
+
+body.dark-mode .stories-page {
+    color: #f4eaf2;
+}
+
+body.dark-mode .stories-hero {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(225, 48, 108, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(131, 58, 180, 0.15),
+            transparent 32%
+        ),
+        #17121a;
+}
+
+body.dark-mode .stories-hero-badge {
+    border-color: rgba(225, 48, 108, 0.25);
+    background: #261b29;
+}
+
+body.dark-mode .stories-downloader-card,
+body.dark-mode .stories-history-card,
+body.dark-mode .stories-result-item,
+body.dark-mode .stories-feature-card,
+body.dark-mode .stories-faq-item {
+    border-color: #3b2b3c;
+    background: #211a24;
+}
+
+body.dark-mode .stories-input-wrapper {
+    border-color: #493449;
+    background: #19131c;
+}
+
+body.dark-mode .stories-url-input {
+    color: #f4eaf2;
+}
+
+body.dark-mode .stories-url-input::placeholder {
+    color: #827383;
+}
+
+body.dark-mode .stories-paste-button,
+body.dark-mode .stories-clear-button {
+    border-color: #493449;
+    background: #2a2030;
+}
+
+body.dark-mode .stories-paste-button:hover,
+body.dark-mode .stories-clear-button:hover {
+    background: #39243a;
+}
+
+body.dark-mode .stories-steps-section {
+    background: #19131c;
+}
+
+body.dark-mode .stories-step-card {
+    border-color: #3b2b3c;
+    background: #211a24;
+}
+
+body.dark-mode .stories-history-item:hover {
+    background: #2b2030;
+}
+
+body.dark-mode .stories-history-icon,
+body.dark-mode .stories-history-open,
+body.dark-mode .stories-result-count,
+body.dark-mode .stories-feature-icon {
+    background: #39243a;
+}
+
+body.dark-mode .stories-faq-question {
+    color: #f4eaf2;
+}
+
+body.dark-mode .stories-privacy-notice {
+    border-color: #285b47;
+    background: #172d24;
+}
+
+body.dark-mode .stories-privacy-notice h4 {
+    color: #6ee7b7;
+}
+
+body.dark-mode .stories-privacy-notice p {
+    color: #a5c9b8;
+}
+
+body.dark-mode #storiesDownloadLoading {
+    border-color: #493449;
+    background: #2a2030;
+}
+
+body.dark-mode #storiesDownloadError {
+    border-color: #71333d;
+    background: #351b22;
+    color: #ffadb5;
+}
+
+body.dark-mode .stories-divider {
+    background: #3b2b3c;
+}
+
+/* =========================
+   21. ACCESSIBILITY
+   ========================= */
+
+.stories-page button:focus-visible,
+.stories-page a:focus-visible,
+.stories-page input:focus-visible {
+    outline: 3px solid rgba(225, 48, 108, 0.45);
+    outline-offset: 3px;
+}
+
+.stories-page button:disabled {
+    cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stories-page *,
+    .stories-page *::before,
+    .stories-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .stories-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =========================
+   END OF STORIES STYLESHEET
+   INSTA CROWN 👑
+   ========================= */
+
