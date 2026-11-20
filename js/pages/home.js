@@ -790,20 +790,52 @@
 
             try {
 
-                const recent =
+                                const savedRecent =
                     JSON.parse(
                         localStorage.getItem(
                             "instaCrownRecentLinks"
                         ) || "[]"
                     );
 
-                this.recentLinks =
-                    recent;
+                const recent = Array.isArray(savedRecent)
+                    ? savedRecent.filter((item) => {
+
+                        if (
+                            !item ||
+                            typeof item !== "object" ||
+                            typeof item.url !== "string" ||
+                            typeof item.date !== "string"
+                        ) {
+                            return false;
+                        }
+
+                        if (!this.validateURL(item.url)) {
+                            return false;
+                        }
+
+                        return !Number.isNaN(
+                            new Date(item.date).getTime()
+                        );
+
+                    }).slice(0, 10)
+                    : [];
+
+                this.recentLinks = recent;
 
                 if (!recent.length) {
 
-                    container.innerHTML =
-                        '<p class="empty-activity">No recent activity yet.</p>';
+                    const emptyMessage =
+                        document.createElement("p");
+
+                    emptyMessage.className =
+                        "empty-activity";
+
+                    emptyMessage.textContent =
+                        "No recent activity yet.";
+
+                    container.replaceChildren(
+                        emptyMessage
+                    );
 
                     return;
 
