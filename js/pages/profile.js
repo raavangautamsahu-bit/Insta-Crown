@@ -108,7 +108,9 @@
                 ProfileConfig.selectors.history
             );
 
-            this.isLoading = false;
+                        this.isLoading = false;
+
+            this.requestId = 0;
 
             this.history = [];
 
@@ -474,11 +476,18 @@
                 "input-invalid"
             );
 
+                        // Ignore any older pending request response.
+            this.requestId++;
+
+            this.isLoading = false;
+
             this.hideError();
 
             this.hideResult();
 
             this.hideLoading();
+
+            this.setButtonLoading(false);
 
             this.input.focus();
         }
@@ -520,6 +529,7 @@
 
 
             this.isLoading = true;
+                       const currentRequestId = ++this.requestId;
 
 
             try {
@@ -527,6 +537,9 @@
                 const response = await this.fetchProfilePicture(
                     validation.username
                 );
+                               if (currentRequestId !== this.requestId) {
+                    return;
+                               }
 
 
                 if (
@@ -561,7 +574,9 @@
                 );
 
 
-            } catch (error) {
+            } catch (error) {                 if (currentRequestId !== this.requestId) {
+                    return;
+            }
 
                 this.showError(
                     error.message ||
@@ -578,12 +593,14 @@
 
             } finally {
 
-                this.hideLoading();
+                                if (currentRequestId === this.requestId) {
 
-                this.setButtonLoading(false);
+                    this.hideLoading();
 
-                this.isLoading = false;
-            }
+                    this.setButtonLoading(false);
+
+                    this.isLoading = false;
+                                }
         }
 
 
