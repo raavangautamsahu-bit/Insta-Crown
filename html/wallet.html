@@ -1,1 +1,889 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#ec4899">
+
+    <meta name="description"
+        content="Manage your Insta Crown wallet, view your balance, transactions and wallet requests.">
+
+    <title>My Wallet - Insta Crown 👑</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+
+    <!-- Wallet CSS -->
+    <link rel="stylesheet" href="../css/wallet.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         PAGE LOADER
+    ========================================== -->
+
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-crown">👑</div>
+            <p>Loading Insta Crown...</p>
+        </div>
+    </div>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="main-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="brand-logo">
+                <span class="brand-icon">👑</span>
+                <span class="brand-name">Insta Crown</span>
+            </a>
+
+            <nav class="desktop-navigation">
+
+                <a href="index.html" class="nav-link">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+
+                <a href="reels.html" class="nav-link">
+                    <i class="fa-solid fa-clapperboard"></i>
+                    <span>Reels</span>
+                </a>
+
+                <a href="posts.html" class="nav-link">
+                    <i class="fa-regular fa-images"></i>
+                    <span>Posts</span>
+                </a>
+
+                <a href="stories.html" class="nav-link">
+                    <i class="fa-regular fa-circle-play"></i>
+                    <span>Stories</span>
+                </a>
+
+                <a href="profile.html" class="nav-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                </a>
+
+                <a href="about.html" class="nav-link">
+                    <i class="fa-regular fa-circle-info"></i>
+                    <span>About</span>
+                </a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button type="button"
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Toggle dark mode">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <button type="button"
+                    class="mobile-menu-toggle"
+                    id="mobileMenuToggle"
+                    aria-label="Open navigation menu">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MOBILE NAVIGATION PANEL
+    ========================================== -->
+
+    <div class="mobile-navigation-panel"
+        id="mobileNavigationPanel">
+
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="reels.html">
+            <i class="fa-solid fa-clapperboard"></i>
+            Reels
+        </a>
+
+        <a href="posts.html">
+            <i class="fa-regular fa-images"></i>
+            Posts
+        </a>
+
+        <a href="stories.html">
+            <i class="fa-regular fa-circle-play"></i>
+            Stories
+        </a>
+
+        <a href="profile.html">
+            <i class="fa-regular fa-user"></i>
+            Profile Picture
+        </a>
+
+        <a href="wallet.html" class="active">
+            <i class="fa-solid fa-wallet"></i>
+            Wallet
+        </a>
+
+        <a href="about.html">
+            <i class="fa-regular fa-circle-info"></i>
+            About
+        </a>
+
+    </div>
+
+
+    <!-- =========================================
+         MAIN WALLET PAGE
+    ========================================== -->
+
+    <main class="wallet-page">
+
+        <!-- PAGE INTRO -->
+
+        <section class="wallet-heading">
+
+            <div class="wallet-heading-content">
+
+                <div class="wallet-heading-icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+
+                <div>
+                    <span class="wallet-eyebrow">
+                        INSTA CROWN ACCOUNT
+                    </span>
+
+                    <h1>My Wallet</h1>
+
+                    <p>
+                        Manage your balance, payments and rewards.
+                    </p>
+                </div>
+
+            </div>
+
+            <button type="button"
+                class="wallet-refresh-button"
+                id="refreshWallet"
+                data-wallet-refresh>
+
+                <i class="fa-solid fa-rotate"></i>
+                Refresh
+
+            </button>
+
+        </section>
+
+
+        <!-- =====================================
+             WALLET ALERTS
+        ====================================== -->
+
+        <div class="wallet-alert wallet-error"
+            id="walletError"
+            data-wallet-error
+            role="alert"
+            hidden>
+        </div>
+
+        <div class="wallet-alert wallet-success"
+            id="walletSuccess"
+            data-wallet-success
+            role="status"
+            hidden>
+        </div>
+
+
+        <!-- =====================================
+             WALLET STATUS
+        ====================================== -->
+
+        <div class="wallet-status" id="walletStatus"
+            data-wallet-status>
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>Checking wallet...</span>
+
+        </div>
+
+
+        <!-- =====================================
+             BALANCE CARD
+        ====================================== -->
+
+        <section class="wallet-balance-section">
+
+            <div class="wallet-balance-card">
+
+                <div class="wallet-card-top">
+
+                    <div>
+                        <span class="wallet-card-label">
+                            TOTAL WALLET BALANCE
+                        </span>
+
+                        <h2>Available Balance</h2>
+                    </div>
+
+                    <div class="wallet-card-symbol">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="wallet-balance-amount"
+                    id="walletBalance"
+                    data-wallet-balance>
+
+                    ₹0.00
+
+                </div>
+
+
+                <div class="wallet-balance-footer">
+
+                    <span>
+                        <i class="fa-solid fa-lock"></i>
+                        Secure Wallet
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Account Balance
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             WALLET ACTION CARDS
+        ====================================== -->
+
+        <section class="wallet-actions-section">
+
+            <div class="wallet-section-heading">
+
+                <div>
+                    <span class="wallet-section-subtitle">
+                        MANAGE MONEY
+                    </span>
+
+                    <h2>Wallet Actions</h2>
+                </div>
+
+            </div>
+
+
+            <div class="wallet-action-grid">
+
+
+                <!-- ADD MONEY -->
+
+                <article class="wallet-action-card add-money-card">
+
+                    <div class="wallet-action-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+
+                    <h3>Add Money</h3>
+
+                    <p>
+                        Submit a request to add funds to your wallet.
+                    </p>
+
+                    <form id="addMoneyForm"
+                        data-wallet-add-form>
+
+                        <label for="addMoneyAmount">
+                            Enter Amount
+                        </label>
+
+                        <div class="wallet-input-wrapper">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="addMoneyAmount"
+                                data-wallet-add-amount
+                                placeholder="Enter amount"
+                                min="10"
+                                max="50000"
+                                step="0.01"
+                                inputmode="decimal"
+                                required>
+
+                        </div>
+
+
+                        <div class="wallet-quick-amounts">
+
+                            <button type="button"
+                                data-wallet-quick-add="100">
+                                ₹100
+                            </button>
+
+                            <button type="button"
+                                data-wallet-quick-add="200">
+                                ₹200
+                            </button>
+
+                            <button type="button"
+                                data-wallet-quick-add="500">
+                                ₹500
+                            </button>
+
+                            <button type="button"
+                                data-wallet-quick-add="1000">
+                                ₹1000
+                            </button>
+
+                        </div>
+
+
+                        <button type="submit"
+                            class="wallet-primary-button"
+                            id="addMoneyButton"
+                            data-wallet-add-button>
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Money Request
+
+                        </button>
+
+                    </form>
+
+                </article>
+
+
+                <!-- WITHDRAW MONEY -->
+
+                <article class="wallet-action-card withdraw-money-card">
+
+                    <div class="wallet-action-icon">
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                    </div>
+
+                    <h3>Withdraw Money</h3>
+
+                    <p>
+                        Submit a withdrawal request from your wallet.
+                    </p>
+
+                    <div class="wallet-available-balance">
+
+                        <span>Available Balance</span>
+
+                        <strong id="availableBalance"
+                            data-wallet-available>
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+
+                    <form id="withdrawMoneyForm"
+                        data-wallet-withdraw-form>
+
+                        <label for="withdrawAmount">
+                            Withdrawal Amount
+                        </label>
+
+                        <div class="wallet-input-wrapper">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="withdrawAmount"
+                                data-wallet-withdraw-amount
+                                placeholder="Enter amount"
+                                min="50"
+                                max="25000"
+                                step="0.01"
+                                inputmode="decimal"
+                                required>
+
+                        </div>
+
+
+                        <div class="wallet-withdraw-note">
+
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            <span>
+                                Minimum withdrawal amount: ₹50
+                            </span>
+
+                        </div>
+
+
+                        <button type="submit"
+                            class="wallet-primary-button withdraw-button"
+                            id="withdrawButton"
+                            data-wallet-withdraw-button>
+
+                            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            Request Withdrawal
+
+                        </button>
+
+                    </form>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PAYMENT METHODS
+        ====================================== -->
+
+        <section class="wallet-payment-section">
+
+            <div class="wallet-section-heading">
+
+                <div>
+                    <span class="wallet-section-subtitle">
+                        PAYMENT OPTIONS
+                    </span>
+
+                    <h2>Payment Methods</h2>
+                </div>
+
+            </div>
+
+
+            <div class="wallet-payment-grid">
+
+                <div class="wallet-payment-card">
+
+                    <div class="payment-method-icon upi-icon">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+
+                    <div>
+                        <h3>UPI Payment</h3>
+                        <p>Payment gateway integration pending</p>
+                    </div>
+
+                    <span class="payment-method-status">
+                        Not Connected
+                    </span>
+
+                </div>
+
+
+                <div class="wallet-payment-card">
+
+                    <div class="payment-method-icon card-icon">
+                        <i class="fa-regular fa-credit-card"></i>
+                    </div>
+
+                    <div>
+                        <h3>Debit / Credit Card</h3>
+                        <p>Payment gateway integration pending</p>
+                    </div>
+
+                    <span class="payment-method-status">
+                        Not Connected
+                    </span>
+
+                </div>
+
+
+                <div class="wallet-payment-card">
+
+                    <div class="payment-method-icon bank-icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+
+                    <div>
+                        <h3>Bank Transfer</h3>
+                        <p>Secure banking integration pending</p>
+                    </div>
+
+                    <span class="payment-method-status">
+                        Not Connected
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             TRANSACTION HISTORY
+        ====================================== -->
+
+        <section class="wallet-history-section">
+
+            <div class="wallet-section-heading">
+
+                <div>
+                    <span class="wallet-section-subtitle">
+                        YOUR ACTIVITY
+                    </span>
+
+                    <h2>Transaction History</h2>
+
+                    <p>
+                        View your recent wallet transactions.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="wallet-history-card">
+
+                <div class="wallet-history-header">
+
+                    <div class="wallet-history-title">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        Recent Transactions
+                    </div>
+
+                    <span class="wallet-history-count">
+                        Latest Activity
+                    </span>
+
+                </div>
+
+
+                <div id="transactionHistory"
+                    data-wallet-transactions
+                    class="wallet-transaction-list">
+
+                    <div class="wallet-empty-state">
+                        Login to view your transactions.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             WALLET REQUEST HISTORY
+        ====================================== -->
+
+        <section class="wallet-requests-section">
+
+            <div class="wallet-section-heading">
+
+                <div>
+                    <span class="wallet-section-subtitle">
+                        REQUEST TRACKER
+                    </span>
+
+                    <h2>Wallet Requests</h2>
+
+                    <p>
+                        Track your Add Money and Withdrawal requests.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="wallet-history-card">
+
+                <div class="wallet-history-header">
+
+                    <div class="wallet-history-title">
+                        <i class="fa-solid fa-list-check"></i>
+                        Request History
+                    </div>
+
+                </div>
+
+
+                <div id="walletRequests"
+                    data-wallet-requests
+                    class="wallet-request-list">
+
+                    <div class="wallet-empty-state">
+                        Login to view your wallet requests.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             REWARDS SECTION
+        ====================================== -->
+
+        <section class="wallet-rewards-section">
+
+            <div class="wallet-rewards-card">
+
+                <div class="wallet-rewards-content">
+
+                    <span class="wallet-rewards-tag">
+                        <i class="fa-solid fa-gift"></i>
+                        INSTA CROWN REWARDS
+                    </span>
+
+                    <h2>Rewards & Bonuses</h2>
+
+                    <p>
+                        Your eligible rewards and bonus balance
+                        will appear here when the rewards system
+                        is activated.
+                    </p>
+
+                    <span class="wallet-rewards-status">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                        Coming Soon
+                    </span>
+
+                </div>
+
+                <div class="wallet-rewards-icon">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             WALLET SECURITY
+        ====================================== -->
+
+        <section class="wallet-security-section">
+
+            <div class="wallet-security-card">
+
+                <div class="wallet-security-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div class="wallet-security-content">
+
+                    <h3>Your Wallet Security</h3>
+
+                    <p>
+                        Wallet balances and transactions should
+                        only be updated after secure server-side
+                        verification. Never share your OTP,
+                        password or payment credentials.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="main-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand-logo">
+                    <span class="brand-icon">👑</span>
+                    <span class="brand-name">Insta Crown</span>
+                </a>
+
+                <p>
+                    Your Instagram companion.
+                    Download and manage your content easily.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © <span id="currentYear"></span>
+                    Insta Crown. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         MOBILE BOTTOM NAVIGATION
+         EXACTLY THREE BUTTONS
+    ========================================== -->
+
+    <nav class="mobile-bottom-navigation">
+
+        <a href="index.html" class="bottom-nav-item">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+
+        <a href="reels.html" class="bottom-nav-item">
+
+            <i class="fa-solid fa-clapperboard"></i>
+
+            <span>Reels</span>
+
+        </a>
+
+
+        <a href="about.html" class="bottom-nav-item">
+
+            <i class="fa-regular fa-circle-info"></i>
+
+            <span>About</span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- =========================================
+         JAVASCRIPT FILES
+    ========================================== -->
+
+    <script src="../js/main.js"></script>
+
+    <script src="../js/navigation.js"></script>
+
+    <script src="../js/theme.js"></script>
+
+    <script src="../js/animations.js"></script>
+
+    <!-- Firebase -->
+    <script src="../js/firebase-config.js"></script>
+
+    <script src="../js/firebase-auth.js"></script>
+
+    <script src="../js/database.js"></script>
+
+    <!-- Wallet -->
+    <script src="../js/pages/wallet.js"></script>
+
+
+    <!-- =========================================
+         PAGE INITIALIZATION
+    ========================================== -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const yearElement =
+                document.getElementById("currentYear");
+
+            if (yearElement) {
+                yearElement.textContent =
+                    new Date().getFullYear();
+            }
+
+            const menuButton =
+                document.getElementById("mobileMenuToggle");
+
+            const menuPanel =
+                document.getElementById("mobileNavigationPanel");
+
+            if (menuButton && menuPanel) {
+
+                menuButton.addEventListener("click", function () {
+
+                    menuPanel.classList.toggle("active");
+
+                    const icon =
+                        menuButton.querySelector("i");
+
+                    if (icon) {
+                        icon.classList.toggle("fa-bars");
+                        icon.classList.toggle("fa-xmark");
+                    }
+
+                });
+
+            }
+
+        });
+    </script>
+
+</body>
+</html>
+
