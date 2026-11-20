@@ -87,7 +87,7 @@
                 await this.waitForFirebase();
 
                 this.db =
-                    window.FirebaseManager.getFirestore();
+                    window.FirebaseManager.getDatabase();
 
                 this.auth =
                     window.FirebaseManager.getAuth();
