@@ -109,7 +109,7 @@
                 }
 
                 this.db =
-                    window.FirebaseManager.getFirestore();
+                    window.FirebaseManager.getDatabase();
 
                 if (!this.db) {
 
@@ -175,7 +175,7 @@
             if (!this.db && window.FirebaseManager) {
 
                 this.db =
-                    window.FirebaseManager.getFirestore();
+                    window.FirebaseManager.getDatabase();
 
                 this.initialized =
                     Boolean(this.db);
