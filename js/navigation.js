@@ -164,18 +164,22 @@ const Navigation = {
 /* ---------------------------------------------------------
    05. MOBILE MENU
    --------------------------------------------------------- */
+initializeMobileMenu() {
 
-    initializeMobileMenu() {
+    const menuButton = document.querySelector(
+        "#mobileMenuButton, #menuToggle, #mobileMenuToggle"
+    );
 
-        const menuButton = document.getElementById(
-            "mobileMenuButton"
-        );
+    const navigationPanel =
+        document.getElementById("mobileNavigationPanel") ||
+        document.getElementById("mainNavigation") ||
+        document.getElementById("desktopNavigation");
 
-        const navigationPanel = document.getElementById(
-            "mobileNavigationPanel"
-        );
+    if (!menuButton || !navigationPanel) return;
 
-        if (!menuButton) return;
+    const closeMenu = () => {
+
+        menuButton.classList.remove("active");
 
         menuButton.setAttribute("aria-expanded", "false");
 
@@ -184,90 +188,63 @@ const Navigation = {
             "Open navigation menu"
         );
 
-        menuButton.addEventListener("click", () => {
+        navigationPanel.classList.remove("open");
 
-            const isOpen = menuButton.classList.toggle("active");
+        navigationPanel.setAttribute("aria-hidden", "true");
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
+    };
 
-            menuButton.setAttribute(
-                "aria-label",
-                isOpen ? "Close navigation menu" : "Open navigation menu"
-            );
+    menuButton.setAttribute("aria-expanded", "false");
 
-            if (navigationPanel) {
+    navigationPanel.setAttribute("aria-hidden", "true");
 
-                navigationPanel.classList.toggle(
-                    "active",
-                    isOpen
-                );
+    menuButton.addEventListener("click", event => {
 
-                navigationPanel.setAttribute(
-                    "aria-hidden",
-                    String(!isOpen)
-                );
+        event.stopPropagation();
 
-            }
+        const isOpen = !navigationPanel.classList.contains("open");
 
-        });
+        menuButton.classList.toggle("active", isOpen);
 
-        if (navigationPanel) {
+        navigationPanel.classList.toggle("open", isOpen);
 
-            navigationPanel.querySelectorAll("a").forEach(link => {
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
 
-                link.addEventListener("click", () => {
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
 
-                    menuButton.classList.remove("active");
+        navigationPanel.setAttribute(
+            "aria-hidden",
+            String(!isOpen)
+        );
 
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+    });
 
-                    navigationPanel.classList.remove("active");
+    navigationPanel.querySelectorAll("a").forEach(link => {
 
-                    navigationPanel.setAttribute(
-                        "aria-hidden",
-                        "true"
-                    );
+        link.addEventListener("click", closeMenu);
 
-                });
+    });
 
-            });
+    document.addEventListener("click", event => {
 
-            document.addEventListener("click", event => {
+        const clickedInside =
+            navigationPanel.contains(event.target) ||
+            menuButton.contains(event.target);
 
-                const clickedInside =
-                    navigationPanel.contains(event.target) ||
-                    menuButton.contains(event.target);
-
-                if (!clickedInside) {
-
-                    menuButton.classList.remove("active");
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    navigationPanel.classList.remove("active");
-
-                    navigationPanel.setAttribute(
-                        "aria-hidden",
-                        "true"
-                    );
-
-                }
-
-            });
-
+        if (!clickedInside) {
+            closeMenu();
         }
 
-    },
+    });
 
+},
+    
 
 /* ---------------------------------------------------------
    06. MOBILE BOTTOM NAVIGATION
@@ -436,36 +413,40 @@ const Navigation = {
    11. CLOSE MOBILE MENU
    --------------------------------------------------------- */
 
-    closeMobileMenu() {
+    
+            closeMobileMenu() {
 
-        const menuButton = document.getElementById(
-            "mobileMenuButton"
+    const menuButton = document.querySelector(
+        "#mobileMenuButton, #menuToggle, #mobileMenuToggle"
+    );
+
+    const panel =
+        document.getElementById("mobileNavigationPanel") ||
+        document.getElementById("mainNavigation") ||
+        document.getElementById("desktopNavigation");
+
+    if (menuButton) {
+
+        menuButton.classList.remove("active");
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
         );
 
-        const panel = document.getElementById(
-            "mobileNavigationPanel"
-        );
+    }
 
-        if (menuButton) {
+    if (panel) {
 
-            menuButton.classList.remove("active");
+        panel.classList.remove("open");
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+        panel.setAttribute("aria-hidden", "true");
 
-        }
+    }
 
-        if (panel) {
-
-            panel.classList.remove("active");
-
-            panel.setAttribute("aria-hidden", "true");
-
-        }
-
-    },
+},
 
 
 /* ---------------------------------------------------------
