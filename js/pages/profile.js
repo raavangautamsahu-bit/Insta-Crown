@@ -933,16 +933,52 @@
                 );
 
 
-                this.history = saved
+                                                const parsedHistory = saved
                     ? JSON.parse(saved)
                     : [];
 
-
-                if (!Array.isArray(this.history)) {
-
+                if (!Array.isArray(parsedHistory)) {
                     this.history = [];
+                    return;
                 }
 
+                this.history = parsedHistory
+                    .filter((entry) => {
+
+                        if (
+                            !entry ||
+                            typeof entry !== "object" ||
+                            typeof entry.username !== "string" ||
+                            typeof entry.url !== "string" ||
+                            typeof entry.date !== "string" ||
+                            !["success", "failed"].includes(entry.status)
+                        ) {
+                            return false;
+                        }
+
+                        if (
+                            !ProfileConfig.usernamePattern.test(
+                                entry.username
+                            )
+                        ) {
+                            return false;
+                        }
+
+                        const extractedUsername =
+                            this.extractUsername(entry.url);
+
+                        if (
+                            extractedUsername !== entry.username ||
+                            Number.isNaN(
+                                new Date(entry.date).getTime()
+                            )
+                        ) {
+                            return false;
+                        }
+
+                        return true;
+                    })
+                    .slice(0, ProfileConfig.maxHistory);
             } catch (error) {
 
                 this.history = [];
