@@ -364,9 +364,13 @@
            13. CHECK API RESPONSE
         ------------------------------------------------- */
 
-        validateAPIResponse: function (data) {
+                validateAPIResponse: function (data) {
 
-            if (!data || typeof data !== "object") {
+            if (
+                !data ||
+                typeof data !== "object" ||
+                Array.isArray(data)
+            ) {
                 return false;
             }
 
@@ -381,13 +385,52 @@
                 return false;
             }
 
+            const isSafeHTTPSUrl = (value) => {
+
+                if (
+                    typeof value !== "string" ||
+                    value.trim() === ""
+                ) {
+                    return false;
+                }
+
+                try {
+
+                    const parsedURL = new URL(value);
+
+                    return (
+                        parsedURL.protocol === "https:" &&
+                        parsedURL.hostname !== "" &&
+                        !parsedURL.username &&
+                        !parsedURL.password
+                    );
+
+                } catch (error) {
+
+                    return false;
+
+                }
+
+            };
+
             return data.media.every((item) => {
 
-                return (
-                    item &&
-                    typeof item.url === "string" &&
-                    /^https?:\/\//i.test(item.url)
-                );
+                if (
+                    !item ||
+                    typeof item !== "object" ||
+                    !isSafeHTTPSUrl(item.url)
+                ) {
+                    return false;
+                }
+
+                if (
+                    item.thumbnail &&
+                    !isSafeHTTPSUrl(item.thumbnail)
+                ) {
+                    return false;
+                }
+
+                return true;
 
             });
 
