@@ -150,9 +150,10 @@
 
 @media (max-width: 900px) {
 
-    .desktop-navigation {
-        display: none;
-    }
+    .desktop-navigation,
+.main-navigation {
+    display: none;
+}
 
     .mobile-menu-button {
         display: flex;
@@ -205,9 +206,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .mobile-bottom-navigation {
-        display: flex;
-    }
+    .mobile-bottom-navigation,
+.bottom-navigation {
+    display: flex;
+}
 
     body {
         padding-bottom: 78px;
