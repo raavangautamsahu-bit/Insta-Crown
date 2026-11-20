@@ -570,13 +570,15 @@
            16. CANCEL CURRENT REQUEST
         ------------------------------------------------- */
 
-        cancelRequest: function () {
+                cancelRequest: function () {
 
-            if (this.currentRequest) {
+            const controller = this.currentRequest;
 
-                this.currentRequest.abort();
+            if (controller) {
 
                 this.currentRequest = null;
+
+                controller.abort();
 
             }
 
@@ -584,12 +586,11 @@
 
         },
 
-
         /* -------------------------------------------------
            17. PROCESS DOWNLOAD
         ------------------------------------------------- */
 
-        processDownload: async function (value) {
+                processDownload: async function (value) {
 
             if (this.isProcessing) {
                 return false;
@@ -635,6 +636,10 @@
 
                 );
 
+                if (this.currentRequest !== controller) {
+                    return false;
+                }
+
                 if (!this.validateAPIResponse(response)) {
 
                     throw new Error(
@@ -671,6 +676,10 @@
 
             } catch (error) {
 
+                if (this.currentRequest !== controller) {
+                    return false;
+                }
+
                 if (error.name === "AbortError") {
 
                     this.showError(
@@ -697,14 +706,17 @@
 
                 window.clearTimeout(timeout);
 
-                this.currentRequest = null;
+                if (this.currentRequest === controller) {
 
-                this.showLoading(false);
+                    this.currentRequest = null;
+
+                    this.showLoading(false);
+
+                }
 
             }
 
         },
-
 
         /* -------------------------------------------------
            18. HANDLE FORM SUBMISSION
