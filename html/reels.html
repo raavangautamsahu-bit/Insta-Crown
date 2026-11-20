@@ -1,1 +1,507 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="author" content="Insta Crown">
+
+    <meta name="description"
+        content="Use Insta Crown to process supported Instagram Reel links with a simple and mobile-friendly interface.">
+
+    <meta name="keywords"
+        content="Insta Crown, Instagram Reels, Reels Downloader, Instagram Reel Tools">
+
+    <title>Instagram Reels Tool | Insta Crown 👑</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reels.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+
+<body>
+
+    <!-- WEBSITE LOADER -->
+    <div class="website-loader" id="websiteLoader">
+        <div class="loader-content">
+            <div class="loader-crown">👑</div>
+            <h2>Insta Crown</h2>
+            <div class="loader-progress">
+                <span></span>
+            </div>
+            <p>Preparing your experience...</p>
+        </div>
+    </div>
+
+    <div class="website-wrapper">
+
+        <!-- HEADER -->
+        <header class="main-header" id="mainHeader">
+
+            <div class="header-container">
+
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon">👑</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Insta Crown</span>
+                        <span class="brand-tagline">Your Media Companion</span>
+                    </div>
+                </a>
+
+                <div class="header-actions">
+
+                    <button class="icon-button theme-toggle"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+
+                    <button class="icon-button mobile-menu-button"
+                        id="mobileMenuButton"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+
+            <nav class="desktop-navigation" id="desktopNavigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="reels.html" class="nav-link active">Reels</a>
+                <a href="posts.html" class="nav-link">Posts</a>
+                <a href="stories.html" class="nav-link">Stories</a>
+                <a href="profile.html" class="nav-link">Profile Picture</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content reels-page">
+
+            <!-- HERO -->
+            <section class="reels-hero">
+
+                <div class="reels-decoration reels-decoration-one"></div>
+                <div class="reels-decoration reels-decoration-two"></div>
+
+                <div class="reels-hero-content">
+
+                    <div class="reels-badge">
+                        <span>👑</span>
+                        <span>INSTA CROWN REELS TOOL</span>
+                    </div>
+
+                    <h1 class="reels-hero-title">
+                        Instagram
+                        <span>Reels Tool</span>
+                    </h1>
+
+                    <p class="reels-hero-description">
+                        Paste a supported Instagram Reel link
+                        and use our simple interface to process it.
+                        No Instagram password is required.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- DOWNLOADER -->
+            <section class="reels-section reels-downloader-section"
+                id="reelsDownloader">
+
+                <div class="reels-container">
+
+                    <div class="reels-downloader-card">
+
+                        <div class="reels-downloader-heading">
+
+                            <div class="reels-badge">
+                                🎬 REEL DOWNLOADER
+                            </div>
+
+                            <h2>Download Instagram Reels</h2>
+
+                            <p>
+                                Copy a supported public Reel link
+                                and paste it below.
+                            </p>
+
+                        </div>
+
+                        <form id="reelsDownloaderForm"
+                            class="reels-downloader-form"
+                            novalidate>
+
+                            <label class="reels-input-label"
+                                for="reelsInstagramUrl">
+                                Instagram Reel URL
+                            </label>
+
+                            <div class="reels-input-wrapper">
+
+                                <span class="input-icon">🔗</span>
+
+                                <input
+                                    type="url"
+                                    id="reelsInstagramUrl"
+                                    name="reelsInstagramUrl"
+                                    placeholder="https://www.instagram.com/reel/..."
+                                    autocomplete="url"
+                                    inputmode="url"
+                                    required
+                                    aria-describedby="reelsInputHelp">
+
+                                <button
+                                    type="button"
+                                    class="reels-clear-button"
+                                    data-reels-clear
+                                    aria-label="Clear Reel URL">
+                                    ✕
+                                </button>
+
+                            </div>
+
+                            <p id="reelsInputHelp"
+                                class="reels-input-help">
+                                Enter a valid Instagram Reel link.
+                            </p>
+
+                            <div class="reels-form-actions">
+
+                                <button
+                                    type="button"
+                                    class="reels-paste-button"
+                                    data-reels-paste>
+                                    📋 Paste Link
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    id="reelsDownloadButton"
+                                    class="reels-download-button">
+                                    <span>⬇️</span>
+                                    <span>Download Reel</span>
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <!-- LOADING -->
+                        <div id="reelsDownloadLoading"
+                            class="reels-download-loading"
+                            hidden
+                            aria-live="polite">
+
+                            <div class="reels-loading-spinner"></div>
+
+                            <h3>Processing your Reel...</h3>
+
+                            <p>Please wait while we process your request.</p>
+
+                        </div>
+
+                        <!-- ERROR -->
+                        <div id="reelsDownloadError"
+                            class="reels-download-error"
+                            role="alert"
+                            hidden>
+                        </div>
+
+                        <!-- RESULT -->
+                        <div id="reelsDownloadResult"
+                            class="reels-download-result"
+                            hidden>
+
+                            <div class="reels-result-heading">
+                                <span>✅</span>
+                                <h3>Your Reel is Ready</h3>
+                            </div>
+
+                            <video
+                                id="reelsResultVideo"
+                                controls
+                                playsinline
+                                preload="metadata"
+                                hidden>
+                                Your browser does not support video playback.
+                            </video>
+
+                            <a
+                                id="reelsResultLink"
+                                class="reels-result-download-button"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                hidden>
+                                ⬇️ Download Processed Reel
+                            </a>
+
+                            <p class="reels-result-note">
+                                Only download content you have permission to use.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RECENT HISTORY -->
+            <section class="reels-section reels-history-section">
+
+                <div class="reels-container">
+
+                    <h2 class="reels-section-title">
+                        Recent Reel Links
+                    </h2>
+
+                    <p class="reels-section-subtitle">
+                        Your recently submitted Reel links are
+                        stored locally on this device.
+                    </p>
+
+                    <div class="reels-history-card">
+
+                        <div class="reels-history-header">
+                            <h3>Recent History</h3>
+
+                            <button
+                                type="button"
+                                class="reels-history-clear"
+                                onclick="window.InstaCrownReels && window.InstaCrownReels.clearHistory()">
+                                Clear History
+                            </button>
+                        </div>
+
+                        <div id="reelsRecentHistory"
+                            class="reels-recent-history"
+                            aria-live="polite">
+
+                            <p class="empty-history">
+                                No recent Reels yet.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- HOW TO USE -->
+            <section class="reels-section reels-how-section">
+
+                <div class="reels-container">
+
+                    <h2 class="reels-section-title">
+                        How to Use the Reels Tool
+                    </h2>
+
+                    <p class="reels-section-subtitle">
+                        Follow these simple steps to submit your Reel link.
+                    </p>
+
+                    <div class="reels-steps-grid">
+
+                        <article class="reels-step-card">
+                            <div class="reels-step-icon">📱</div>
+                            <span class="reels-step-number">01</span>
+                            <h3>Open Instagram</h3>
+                            <p>
+                                Open the Reel you are permitted to access
+                                and copy its link.
+                            </p>
+                        </article>
+
+                        <article class="reels-step-card">
+                            <div class="reels-step-icon">🔗</div>
+                            <span class="reels-step-number">02</span>
+                            <h3>Paste the Link</h3>
+                            <p>
+                                Paste the copied Reel URL into
+                                the input field above.
+                            </p>
+                        </article>
+
+                        <article class="reels-step-card">
+                            <div class="reels-step-icon">⬇️</div>
+                            <span class="reels-step-number">03</span>
+                            <h3>Process the Reel</h3>
+                            <p>
+                                Submit the link. A compatible
+                                processing service is required.
+                            </p>
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- IMPORTANT INFORMATION -->
+            <section class="reels-section reels-info-section">
+
+                <div class="reels-container">
+
+                    <div class="reels-info-card">
+
+                        <div class="reels-info-icon">🔐</div>
+
+                        <div>
+                            <h2>Your Privacy Matters</h2>
+
+                            <p>
+                                Insta Crown does not ask for your
+                                Instagram password. Use only content
+                                you own or have permission to download.
+                                Private-account restrictions and
+                                Instagram access controls are not bypassed.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+
+            <div class="footer-container">
+
+                <div class="footer-brand">
+
+                    <a href="index.html"
+                        class="brand-logo footer-logo">
+
+                        <div class="logo-icon">👑</div>
+
+                        <div class="logo-text">
+                            <span class="brand-name">Insta Crown</span>
+                            <span class="brand-tagline">Your Media Companion</span>
+                        </div>
+
+                    </a>
+
+                    <p>
+                        A simple and stylish collection
+                        of Instagram media tools.
+                    </p>
+
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="reels.html">Reels</a>
+                    <a href="posts.html">Posts</a>
+                    <a href="stories.html">Stories</a>
+                    <a href="profile.html">Profile Picture</a>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Information</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Support</h3>
+                    <p>
+                        Have a question or suggestion?
+                        Visit our contact page.
+                    </p>
+                    <a href="contact.html"
+                        class="footer-contact-link">
+                        Contact Us →
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © <span id="currentYear">2026</span>
+                    Insta Crown. All Rights Reserved.
+                </p>
+
+                <p class="footer-made-text">
+                    Made with 💗 for everyone.
+                </p>
+            </div>
+
+        </footer>
+
+        <!-- MOBILE BOTTOM NAVIGATION: EXACTLY THREE LINKS -->
+        <nav class="mobile-bottom-navigation"
+            id="mobileBottomNavigation"
+            aria-label="Mobile navigation">
+
+            <a href="index.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">🏠</span>
+                <span class="bottom-nav-label">Home</span>
+            </a>
+
+            <a href="reels.html"
+                class="bottom-nav-item active"
+                aria-current="page">
+                <span class="bottom-nav-icon">▶️</span>
+                <span class="bottom-nav-label">Reels</span>
+            </a>
+
+            <a href="about.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">👑</span>
+                <span class="bottom-nav-label">About</span>
+            </a>
+
+        </nav>
+
+    </div>
+
+    <!-- SHARED JAVASCRIPT -->
+    <script src="../js/main.js" defer></script>
+    <script src="../js/navigation.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/clipboard.js" defer></script>
+    <script src="../js/validation.js" defer></script>
+    <script src="../js/downloader.js" defer></script>
+
+    <!-- REELS PAGE CONTROLLER -->
+    <script src="../js/pages/reels.js" defer></script>
+
+</body>
+</html>
+
