@@ -1,1 +1,966 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Find answers to common questions about Insta Crown tools, features, privacy and support.">
+    <meta name="keywords" content="Insta Crown FAQ, Help, Instagram Tools Questions">
+
+    <title>FAQ - Insta Crown 👑</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/faq.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+
+<body>
+
+    <!-- WEBSITE LOADER -->
+    <div class="website-loader" id="websiteLoader">
+        <div class="loader-content">
+            <div class="loader-crown">👑</div>
+            <h2>Insta Crown</h2>
+            <div class="loader-progress"><span></span></div>
+            <p>Preparing your experience...</p>
+        </div>
+    </div>
+
+    <div class="website-wrapper">
+
+        <!-- HEADER -->
+        <header class="main-header" id="mainHeader">
+
+            <div class="header-container">
+
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon">👑</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Insta Crown</span>
+                        <span class="brand-tagline">Your Media Companion</span>
+                    </div>
+                </a>
+
+                <div class="header-actions">
+
+                    <button class="icon-button theme-toggle"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+
+                    <button class="icon-button mobile-menu-button"
+                        id="mobileMenuButton"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+
+            <nav class="desktop-navigation" id="desktopNavigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="reels.html" class="nav-link">Reels</a>
+                <a href="posts.html" class="nav-link">Posts</a>
+                <a href="stories.html" class="nav-link">Stories</a>
+                <a href="profile.html" class="nav-link">Profile Picture</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+
+        </header>
+
+        <!-- MAIN FAQ CONTENT -->
+        <main class="main-content faq-page">
+
+            <!-- HERO -->
+            <section class="faq-hero">
+                <div class="faq-hero-content">
+
+                    <div class="faq-hero-badge">
+                        💬 Help Center
+                    </div>
+
+                    <h1>
+                        Frequently Asked <span>Questions</span>
+                    </h1>
+
+                    <p>
+                        Find answers about Insta Crown, our tools,
+                        supported features, privacy and general usage.
+                        Can't find your answer? Contact our support team.
+                    </p>
+
+                </div>
+            </section>
+
+            <!-- SEARCH -->
+            <section class="faq-search-section">
+
+                <div class="faq-search-box">
+
+                    <span class="faq-search-icon">⌕</span>
+
+                    <input
+                        type="search"
+                        id="faqSearchInput"
+                        class="faq-search-input"
+                        placeholder="Search your question..."
+                        aria-label="Search frequently asked questions"
+                        autocomplete="off">
+
+                    <button
+                        type="button"
+                        id="faqSearchClear"
+                        class="faq-search-clear"
+                        aria-label="Clear search">
+                        ✕
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- FAQ LIST -->
+            <section class="faq-section">
+
+                <div class="faq-container">
+
+                    <h2 class="faq-section-title">
+                        How can we help you?
+                    </h2>
+
+                    <p class="faq-section-description">
+                        Browse questions by category or search
+                        for a specific topic.
+                    </p>
+
+                    <!-- CATEGORY FILTERS -->
+                    <div class="faq-category-wrapper"
+                        id="faqCategoryWrapper">
+
+                        <button class="faq-category-button active"
+                            type="button"
+                            data-category="all">
+                            All Questions
+                        </button>
+
+                        <button class="faq-category-button"
+                            type="button"
+                            data-category="general">
+                            General
+                        </button>
+
+                        <button class="faq-category-button"
+                            type="button"
+                            data-category="tools">
+                            Tools
+                        </button>
+
+                        <button class="faq-category-button"
+                            type="button"
+                            data-category="downloads">
+                            Downloads
+                        </button>
+
+                        <button class="faq-category-button"
+                            type="button"
+                            data-category="privacy">
+                            Privacy
+                        </button>
+
+                        <button class="faq-category-button"
+                            type="button"
+                            data-category="account">
+                            Account & Wallet
+                        </button>
+
+                    </div>
+
+                    <!-- QUESTIONS -->
+                    <div class="faq-list" id="faqList">
+
+                        <!-- GENERAL -->
+                        <article class="faq-item active"
+                            data-category="general"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="true">
+                                <span class="faq-question-text">
+                                    What is Insta Crown?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Insta Crown is an independent
+                                        web platform that brings
+                                        different Instagram media tool
+                                        pages together in one place.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="general"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Is Insta Crown free to use?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Some features may be available
+                                        without charge. Any paid feature,
+                                        if introduced, should clearly
+                                        display its price and conditions
+                                        before use.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="general"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Do I need to install an application?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        No installation is required to
+                                        use the website. Open Insta Crown
+                                        in a supported browser on your
+                                        phone, tablet or computer.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="general"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Is Insta Crown affiliated with Instagram?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        No. Insta Crown is an independent
+                                        project and is not affiliated
+                                        with, endorsed by or sponsored
+                                        by Instagram or Meta.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <!-- TOOLS -->
+                        <article class="faq-item"
+                            data-category="tools"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Which tools are available?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        The platform includes dedicated
+                                        pages for:
+                                        <ul>
+                                            <li>Instagram Reels</li>
+                                            <li>Instagram Posts</li>
+                                            <li>Instagram Stories</li>
+                                            <li>Profile Pictures</li>
+                                        </ul>
+                                        Availability depends on the
+                                        connected services and current
+                                        implementation.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="tools"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    How do I use a tool?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Open the tool page you need,
+                                        read its instructions and enter
+                                        the requested public content URL
+                                        where supported. Follow the
+                                        on-screen instructions.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="tools"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Do all tools work with every link?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        No. A link may not work if the
+                                        content is private, unavailable,
+                                        deleted, restricted or unsupported
+                                        by the connected service.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <!-- DOWNLOADS -->
+                        <article class="faq-item"
+                            data-category="downloads"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Why is my download not working?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Check that the URL is correct
+                                        and the content is accessible.
+                                        The connected processing service
+                                        must also be available. Try again
+                                        later if the service is temporarily
+                                        unavailable.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="downloads"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Can I download content from a private account?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Insta Crown does not bypass
+                                        private-account restrictions,
+                                        login requirements or access
+                                        controls. Only use content you
+                                        are authorized to access.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="downloads"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Is every Instagram format supported?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Not necessarily. Supported
+                                        formats depend on the processing
+                                        service and the type of content.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="downloads"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Can I use downloaded media anywhere?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        You must respect the original
+                                        creator's copyright, permissions
+                                        and applicable laws. Downloading
+                                        does not automatically grant
+                                        permission to republish or
+                                        commercially use content.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <!-- PRIVACY -->
+                        <article class="faq-item"
+                            data-category="privacy"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Does Insta Crown ask for my Instagram password?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Never enter your Instagram
+                                        password into an untrusted
+                                        third-party page. Insta Crown's
+                                        basic URL-based tool workflow
+                                        should not require your
+                                        Instagram password.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="privacy"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    How can I read the Privacy Policy?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        You can read the
+                                        <a href="privacy.html">Privacy Policy</a>
+                                        to understand the website's
+                                        data practices and privacy
+                                        information.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <!-- ACCOUNT AND WALLET -->
+                        <article class="faq-item"
+                            data-category="account"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    Do I need an account?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Account requirements depend
+                                        on the specific feature.
+                                        Some website pages may be
+                                        accessible without signing in.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="account"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    How does the wallet work?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Wallet features, balances and
+                                        requests depend on the wallet
+                                        system being configured.
+                                        Never treat a displayed balance
+                                        as withdrawable money until
+                                        a legitimate payment process
+                                        confirms it.
+                                        <a href="wallet.html">Visit Wallet</a>.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                        <article class="faq-item"
+                            data-category="account"
+                            data-faq-item>
+
+                            <button class="faq-question"
+                                type="button"
+                                aria-expanded="false">
+                                <span class="faq-question-text">
+                                    How can I contact support?
+                                </span>
+                                <span class="faq-icon">＋</span>
+                            </button>
+
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content">
+                                        Visit our
+                                        <a href="contact.html">Contact page</a>
+                                        for support and feedback
+                                        information.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                    <!-- EMPTY SEARCH RESULT -->
+                    <div class="faq-empty-state" id="faqEmptyState">
+                        <div class="faq-empty-icon">🔎</div>
+                        <h3>No questions found</h3>
+                        <p>
+                            Try another keyword or select a different category.
+                        </p>
+                    </div>
+
+                    <!-- LOAD MORE -->
+                    <div class="faq-load-more-wrapper">
+                        <button class="faq-load-more"
+                            type="button"
+                            id="faqLoadMore">
+                            Load More Questions
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CONTACT SUPPORT -->
+            <section class="faq-contact-section">
+                <div class="faq-container">
+
+                    <div class="faq-contact-card">
+
+                        <div class="faq-contact-content">
+                            <h2>Still Have Questions? 💗</h2>
+                            <p>
+                                If you could not find the answer,
+                                send us your question or feedback
+                                through our contact page.
+                            </p>
+                        </div>
+
+                        <a href="contact.html"
+                            class="faq-contact-button">
+                            Contact Support →
+                        </a>
+
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+
+            <div class="footer-container">
+
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo footer-logo">
+                        <div class="logo-icon">👑</div>
+                        <div class="logo-text">
+                            <span class="brand-name">Insta Crown</span>
+                            <span class="brand-tagline">Your Media Companion</span>
+                        </div>
+                    </a>
+
+                    <p>
+                        A simple and stylish collection of
+                        Instagram media tools.
+                    </p>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="reels.html">Reels</a>
+                    <a href="posts.html">Posts</a>
+                    <a href="stories.html">Stories</a>
+                    <a href="profile.html">Profile Picture</a>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Information</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Support</h3>
+                    <p>Have a question or suggestion? Visit our contact page.</p>
+                    <a href="contact.html" class="footer-contact-link">
+                        Contact Us →
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © <span id="currentYear">2026</span>
+                    Insta Crown. All Rights Reserved.
+                </p>
+                <p class="footer-made-text">
+                    Made with 💗 for everyone.
+                </p>
+            </div>
+
+        </footer>
+
+        <!-- MOBILE BOTTOM NAV: EXACTLY THREE ITEMS -->
+        <nav class="mobile-bottom-navigation"
+            id="mobileBottomNavigation"
+            aria-label="Mobile navigation">
+
+            <a href="index.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">🏠</span>
+                <span class="bottom-nav-label">Home</span>
+            </a>
+
+            <a href="reels.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">▶️</span>
+                <span class="bottom-nav-label">Reels</span>
+            </a>
+
+            <a href="about.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">👑</span>
+                <span class="bottom-nav-label">About</span>
+            </a>
+
+        </nav>
+
+    </div>
+
+    <!-- SHARED JAVASCRIPT -->
+    <script src="../js/main.js" defer></script>
+    <script src="../js/navigation.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+
+    <!-- FAQ PAGE FUNCTIONALITY -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        "use strict";
+
+        const searchInput = document.getElementById("faqSearchInput");
+        const clearButton = document.getElementById("faqSearchClear");
+        const categoryButtons = document.querySelectorAll("[data-category]");
+        const faqItems = Array.from(document.querySelectorAll("[data-faq-item]"));
+        const emptyState = document.getElementById("faqEmptyState");
+        const loadMoreButton = document.getElementById("faqLoadMore");
+
+        let activeCategory = "all";
+        let visibleLimit = 8;
+
+        function closeItem(item) {
+            item.classList.remove("active");
+
+            const button = item.querySelector(".faq-question");
+
+            if (button) {
+                button.setAttribute("aria-expanded", "false");
+            }
+        }
+
+        function openItem(item) {
+            faqItems.forEach(closeItem);
+
+            item.classList.add("active");
+
+            const button = item.querySelector(".faq-question");
+
+            if (button) {
+                button.setAttribute("aria-expanded", "true");
+            }
+        }
+
+        function filterQuestions() {
+
+            const searchTerm = searchInput.value
+                .trim()
+                .toLowerCase();
+
+            let matchingItems = [];
+
+            faqItems.forEach(function (item) {
+
+                const category = item.dataset.category || "general";
+                const text = item.textContent.toLowerCase();
+
+                const matchesCategory =
+                    activeCategory === "all" ||
+                    category === activeCategory;
+
+                const matchesSearch =
+                    !searchTerm ||
+                    text.includes(searchTerm);
+
+                const matches = matchesCategory && matchesSearch;
+
+                if (matches) {
+                    matchingItems.push(item);
+                }
+
+                item.hidden = true;
+                item.style.display = "none";
+            });
+
+            matchingItems.forEach(function (item, index) {
+
+                if (index < visibleLimit || searchTerm) {
+                    item.hidden = false;
+                    item.style.display = "";
+                }
+
+            });
+
+            const visibleItems = matchingItems.length;
+
+            emptyState.classList.toggle(
+                "show",
+                visibleItems === 0
+            );
+
+            loadMoreButton.style.display =
+                visibleItems > visibleLimit && !searchTerm
+                    ? "inline-flex"
+                    : "none";
+
+            if (searchTerm) {
+                clearButton.style.display = "block";
+            } else {
+                clearButton.style.display = "none";
+            }
+        }
+
+        categoryButtons.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                categoryButtons.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                activeCategory = button.dataset.category;
+
+                visibleLimit = 8;
+
+                filterQuestions();
+
+            });
+
+        });
+
+        searchInput.addEventListener("input", filterQuestions);
+
+        clearButton.addEventListener("click", function () {
+
+            searchInput.value = "";
+            searchInput.focus();
+
+            filterQuestions();
+
+        });
+
+        loadMoreButton.addEventListener("click", function () {
+
+            visibleLimit += 8;
+
+            filterQuestions();
+
+        });
+
+        faqItems.forEach(function (item) {
+
+            const button = item.querySelector(".faq-question");
+
+            if (!button) return;
+
+            button.addEventListener("click", function () {
+
+                const isOpen = item.classList.contains("active");
+
+                if (isOpen) {
+                    closeItem(item);
+                } else {
+                    openItem(item);
+                }
+
+            });
+
+            button.addEventListener("keydown", function (event) {
+
+                if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+
+                    event.preventDefault();
+
+                    const currentIndex = faqItems.indexOf(item);
+
+                    const direction =
+                        event.key === "ArrowDown" ? 1 : -1;
+
+                    const nextIndex =
+                        (currentIndex + direction + faqItems.length) %
+                        faqItems.length;
+
+                    faqItems[nextIndex]
+                        .querySelector(".faq-question")
+                        .focus();
+
+                }
+
+            });
+
+        });
+
+        filterQuestions();
+
+    });
+    </script>
+
+</body>
+</html>
+
