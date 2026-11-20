@@ -1,1 +1,2058 @@
 
+/* ============================================================
+   INSTA CROWN 👑
+   FILE: css/reels.css
+
+   INSTAGRAM REELS DOWNLOADER STYLESHEET
+
+   DESIGN:
+   Premium White + Pink UI
+   Responsive Mobile First Layout
+   Smooth Animations
+   Modern Cards and Components
+============================================================ */
+
+
+/* ============================================================
+   1. REELS PAGE VARIABLES
+============================================================ */
+
+:root {
+
+    --reels-primary: #e1306c;
+    --reels-primary-dark: #c2185b;
+    --reels-primary-light: #ff6b9d;
+
+    --reels-pink-soft: #fff0f5;
+    --reels-pink-light: #ffe4ee;
+
+    --reels-text: #29232a;
+    --reels-text-light: #77717a;
+
+    --reels-border: #f0e2e9;
+
+    --reels-card: #ffffff;
+
+    --reels-background: #fffafd;
+
+    --reels-success: #20a46b;
+    --reels-danger: #e5485d;
+
+    --reels-shadow:
+        0 12px 35px rgba(225, 48, 108, 0.09);
+
+    --reels-shadow-hover:
+        0 18px 45px rgba(225, 48, 108, 0.15);
+
+    --reels-radius-sm: 10px;
+    --reels-radius-md: 18px;
+    --reels-radius-lg: 26px;
+
+    --reels-transition:
+        all 0.3s ease;
+}
+
+
+/* ============================================================
+   2. REELS PAGE MAIN
+============================================================ */
+
+.reels-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffafd 0%,
+            #ffffff 55%,
+            #fff7fa 100%
+        );
+
+    color: var(--reels-text);
+
+    padding-bottom: 60px;
+}
+
+
+.reels-container {
+
+    width: min(100% - 36px, 1180px);
+
+    margin: 0 auto;
+}
+
+
+.reels-section {
+
+    padding: 65px 0;
+}
+
+
+.reels-section-title {
+
+    text-align: center;
+
+    font-size: clamp(25px, 4vw, 38px);
+
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin-bottom: 15px;
+
+    color: var(--reels-text);
+}
+
+
+.reels-section-subtitle {
+
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    text-align: center;
+
+    color: var(--reels-text-light);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   3. REELS HERO SECTION
+============================================================ */
+
+.reels-hero {
+
+    position: relative;
+
+    padding: 75px 20px 65px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 105, 155, 0.13),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(225, 48, 108, 0.10),
+            transparent 30%
+        );
+}
+
+
+.reels-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+
+.reels-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 17px;
+
+    border-radius: 50px;
+
+    background: var(--reels-pink-soft);
+
+    color: var(--reels-primary);
+
+    border: 1px solid var(--reels-pink-light);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+
+.reels-hero-title {
+
+    font-size: clamp(34px, 6vw, 58px);
+
+    line-height: 1.12;
+
+    font-weight: 900;
+
+    letter-spacing: -1.8px;
+
+    color: var(--reels-text);
+
+    margin-bottom: 20px;
+}
+
+
+.reels-hero-title span {
+
+    color: var(--reels-primary);
+
+    background:
+        linear-gradient(
+            90deg,
+            #e1306c,
+            #ff6b9d
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.reels-hero-description {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color: var(--reels-text-light);
+}
+
+
+/* ============================================================
+   4. REELS HERO DECORATIONS
+============================================================ */
+
+.reels-decoration {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    opacity: 0.65;
+
+    filter: blur(1px);
+}
+
+
+.reels-decoration-one {
+
+    width: 160px;
+
+    height: 160px;
+
+    top: 30px;
+
+    left: -65px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 105, 155, 0.18),
+            transparent 70%
+        );
+}
+
+
+.reels-decoration-two {
+
+    width: 200px;
+
+    height: 200px;
+
+    right: -75px;
+
+    bottom: 10px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(225, 48, 108, 0.14),
+            transparent 70%
+        );
+}
+
+
+/* ============================================================
+   5. REELS DOWNLOADER SECTION
+============================================================ */
+
+.reels-downloader-section {
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: -10px;
+}
+
+
+.reels-downloader-card {
+
+    width: min(100%, 790px);
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    background: var(--reels-card);
+
+    border: 1px solid var(--reels-border);
+
+    border-radius: var(--reels-radius-lg);
+
+    box-shadow: var(--reels-shadow);
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-downloader-card:hover {
+
+    box-shadow: var(--reels-shadow-hover);
+
+    transform: translateY(-3px);
+}
+
+
+.reels-downloader-heading {
+
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+
+.reels-downloader-heading h2 {
+
+    font-size: 25px;
+
+    font-weight: 850;
+
+    margin-bottom: 10px;
+}
+
+
+.reels-downloader-heading p {
+
+    font-size: 14px;
+
+    color: var(--reels-text-light);
+
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   6. REELS FORM
+============================================================ */
+
+.reels-downloader-form {
+
+    width: 100%;
+}
+
+
+.reels-input-label {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 750;
+
+    margin-bottom: 10px;
+
+    color: var(--reels-text);
+}
+
+
+.reels-input-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    min-height: 62px;
+
+    padding: 7px 8px 7px 17px;
+
+    background: #fff8fb;
+
+    border: 1.5px solid var(--reels-border);
+
+    border-radius: 15px;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-input-wrapper:focus-within {
+
+    border-color: var(--reels-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(225, 48, 108, 0.09);
+
+    background: #ffffff;
+}
+
+
+.reels-input-icon {
+
+    flex-shrink: 0;
+
+    color: var(--reels-primary);
+
+    font-size: 20px;
+}
+
+
+.reels-url-input {
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: 45px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--reels-text);
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+.reels-url-input::placeholder {
+
+    color: #aaa0a7;
+}
+
+
+.reels-url-input.input-valid {
+
+    color: var(--reels-success);
+}
+
+
+.reels-url-input.input-invalid {
+
+    color: var(--reels-danger);
+}
+
+
+/* ============================================================
+   7. PASTE AND CLEAR BUTTONS
+============================================================ */
+
+.reels-input-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+}
+
+
+.reels-paste-button,
+.reels-clear-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    min-height: 42px;
+
+    padding: 0 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-paste-button {
+
+    background: var(--reels-pink-light);
+
+    color: var(--reels-primary);
+}
+
+
+.reels-paste-button:hover {
+
+    background: var(--reels-primary);
+
+    color: #ffffff;
+}
+
+
+.reels-clear-button {
+
+    background: #f5f1f3;
+
+    color: #746b72;
+}
+
+
+.reels-clear-button:hover {
+
+    background: #ffe5ed;
+
+    color: var(--reels-danger);
+}
+
+
+/* ============================================================
+   8. DOWNLOAD BUTTON
+============================================================ */
+
+.reels-download-button {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 11px;
+
+    width: 100%;
+
+    min-height: 57px;
+
+    margin-top: 18px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #e1306c,
+            #ff5f91
+        );
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 850;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(225, 48, 108, 0.22);
+
+    transition: var(--reels-transition);
+
+    overflow: hidden;
+}
+
+
+.reels-download-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(225, 48, 108, 0.30);
+}
+
+
+.reels-download-button:active {
+
+    transform: scale(0.98);
+}
+
+
+.reels-download-button:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+.reels-download-button.is-loading {
+
+    pointer-events: none;
+
+    opacity: 0.8;
+}
+
+
+.reels-download-button:focus-visible,
+.reels-paste-button:focus-visible,
+.reels-clear-button:focus-visible {
+
+    outline: 3px solid rgba(225, 48, 108, 0.35);
+
+    outline-offset: 3px;
+}
+
+
+/* ============================================================
+   9. FORM HELPER TEXT
+============================================================ */
+
+.reels-form-helper {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin-top: 14px;
+
+    color: var(--reels-text-light);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.reels-form-helper strong {
+
+    color: var(--reels-primary);
+
+    font-weight: 800;
+}
+
+
+/* ============================================================
+   10. LOADING SECTION
+============================================================ */
+
+#reelsDownloadLoading {
+
+    padding: 30px 15px;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    background: var(--reels-pink-soft);
+
+    border: 1px solid var(--reels-pink-light);
+
+    border-radius: 16px;
+}
+
+
+.reels-loading-spinner {
+
+    width: 42px;
+
+    height: 42px;
+
+    margin: 0 auto 15px;
+
+    border: 4px solid #ffd2e1;
+
+    border-top-color: var(--reels-primary);
+
+    border-radius: 50%;
+
+    animation: reelsSpinner 0.8s linear infinite;
+}
+
+
+@keyframes reelsSpinner {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.reels-loading-title {
+
+    font-size: 15px;
+
+    font-weight: 850;
+
+    color: var(--reels-primary);
+
+    margin-bottom: 7px;
+}
+
+
+.reels-loading-text {
+
+    color: var(--reels-text-light);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   11. ERROR MESSAGE
+============================================================ */
+
+#reelsDownloadError {
+
+    padding: 14px 16px;
+
+    margin-top: 16px;
+
+    border: 1px solid #ffd1d7;
+
+    border-radius: 12px;
+
+    background: #fff1f2;
+
+    color: #c52e46;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    line-height: 1.6;
+}
+
+
+#reelsDownloadError:not([hidden]) {
+
+    display: block;
+
+    animation: reelsErrorAppear 0.25s ease;
+}
+
+
+@keyframes reelsErrorAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(7px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+   12. DOWNLOAD RESULT SECTION
+============================================================ */
+
+#reelsDownloadResult {
+
+    margin-top: 25px;
+
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--reels-border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(30, 20, 30, 0.05);
+}
+
+
+.reels-result-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+.reels-result-heading h3 {
+
+    font-size: 19px;
+
+    font-weight: 850;
+}
+
+
+.reels-result-success {
+
+    padding: 6px 11px;
+
+    border-radius: 50px;
+
+    background: #e9fff4;
+
+    color: #148a57;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+/* ============================================================
+   13. REELS RESULT GALLERY
+============================================================ */
+
+#reelsResultGallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 16px;
+}
+
+
+.reels-result-item {
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid var(--reels-border);
+
+    border-radius: 15px;
+
+    background: #fffafd;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-result-item:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--reels-shadow);
+}
+
+
+.reels-result-video,
+.reels-result-image {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 430px;
+
+    object-fit: contain;
+
+    background: #171117;
+}
+
+
+.reels-result-info {
+
+    padding: 13px;
+}
+
+
+.reels-result-info h4 {
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    margin-bottom: 7px;
+}
+
+
+.reels-result-info p {
+
+    font-size: 12px;
+
+    color: var(--reels-text-light);
+
+    line-height: 1.6;
+}
+
+
+.reels-result-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 43px;
+
+    margin-top: 12px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    background: var(--reels-primary);
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-result-link:hover {
+
+    background: var(--reels-primary-dark);
+
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   14. RECENT HISTORY
+============================================================ */
+
+.reels-history-section {
+
+    padding-top: 45px;
+}
+
+
+#reelsRecentHistory {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 14px;
+}
+
+
+.reels-history-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    padding: 17px;
+
+    background: var(--reels-card);
+
+    border: 1px solid var(--reels-border);
+
+    border-radius: 15px;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-history-item:hover {
+
+    border-color: #f3a3c0;
+
+    box-shadow: var(--reels-shadow);
+
+    transform: translateY(-3px);
+}
+
+
+.reels-history-item strong {
+
+    font-size: 13px;
+
+    font-weight: 850;
+
+    overflow-wrap: anywhere;
+}
+
+
+.reels-history-item small {
+
+    color: var(--reels-text-light);
+
+    font-size: 11px;
+}
+
+
+.reels-history-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 4px;
+}
+
+
+.reels-history-actions button {
+
+    flex: 1;
+
+    min-height: 37px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--reels-pink-soft);
+
+    color: var(--reels-primary);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-history-actions button:hover {
+
+    background: var(--reels-primary);
+
+    color: #ffffff;
+}
+
+
+.reels-history-empty {
+
+    grid-column: 1 / -1;
+
+    padding: 28px;
+
+    text-align: center;
+
+    background: #fff8fb;
+
+    border: 1px dashed #f2c4d5;
+
+    border-radius: 15px;
+
+    color: var(--reels-text-light);
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   15. HOW TO DOWNLOAD
+============================================================ */
+
+.reels-steps-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 35px;
+}
+
+
+.reels-step-card {
+
+    position: relative;
+
+    padding: 28px 20px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid var(--reels-border);
+
+    border-radius: 19px;
+
+    box-shadow:
+        0 8px 25px rgba(225, 48, 108, 0.04);
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-step-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: var(--reels-shadow);
+}
+
+
+.reels-step-number {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 48px;
+
+    height: 48px;
+
+    margin: 0 auto 17px;
+
+    border-radius: 15px;
+
+    background: var(--reels-pink-soft);
+
+    color: var(--reels-primary);
+
+    font-size: 19px;
+
+    font-weight: 900;
+}
+
+
+.reels-step-card h3 {
+
+    margin-bottom: 10px;
+
+    font-size: 16px;
+
+    font-weight: 850;
+}
+
+
+.reels-step-card p {
+
+    color: var(--reels-text-light);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   16. FEATURES GRID
+============================================================ */
+
+.reels-features-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+.reels-feature-card {
+
+    padding: 24px;
+
+    border: 1px solid var(--reels-border);
+
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-feature-card:hover {
+
+    border-color: #f1a0bd;
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--reels-shadow);
+}
+
+
+.reels-feature-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 46px;
+
+    height: 46px;
+
+    margin-bottom: 17px;
+
+    border-radius: 13px;
+
+    background: var(--reels-pink-soft);
+
+    color: var(--reels-primary);
+
+    font-size: 21px;
+}
+
+
+.reels-feature-card h3 {
+
+    font-size: 15px;
+
+    font-weight: 850;
+
+    margin-bottom: 9px;
+}
+
+
+.reels-feature-card p {
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: var(--reels-text-light);
+}
+
+
+/* ============================================================
+   17. FAQ SECTION
+============================================================ */
+
+.reels-faq-list {
+
+    max-width: 800px;
+
+    margin: 30px auto 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.reels-faq-item {
+
+    overflow: hidden;
+
+    border: 1px solid var(--reels-border);
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-faq-item.is-open {
+
+    border-color: #f2a2be;
+
+    box-shadow:
+        0 7px 22px rgba(225, 48, 108, 0.07);
+}
+
+
+.reels-faq-question {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    width: 100%;
+
+    min-height: 60px;
+
+    padding: 16px 19px;
+
+    border: none;
+
+    background: transparent;
+
+    text-align: left;
+
+    color: var(--reels-text);
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.reels-faq-icon {
+
+    color: var(--reels-primary);
+
+    font-size: 19px;
+
+    transition: transform 0.3s ease;
+}
+
+
+.reels-faq-item.is-open .reels-faq-icon {
+
+    transform: rotate(45deg);
+}
+
+
+.reels-faq-answer {
+
+    padding: 0 19px 18px;
+
+    color: var(--reels-text-light);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* ============================================================
+   18. CTA SECTION
+============================================================ */
+
+.reels-cta {
+
+    padding: 42px 25px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #e1306c,
+            #ff6b9d
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 15px 35px rgba(225, 48, 108, 0.20);
+}
+
+
+.reels-cta h2 {
+
+    font-size: clamp(23px, 4vw, 32px);
+
+    font-weight: 900;
+
+    margin-bottom: 13px;
+}
+
+
+.reels-cta p {
+
+    max-width: 550px;
+
+    margin: 0 auto 22px;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    opacity: 0.92;
+}
+
+
+.reels-cta-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 47px;
+
+    padding: 12px 25px;
+
+    border-radius: 50px;
+
+    background: #ffffff;
+
+    color: var(--reels-primary);
+
+    font-size: 13px;
+
+    font-weight: 850;
+
+    text-decoration: none;
+
+    transition: var(--reels-transition);
+}
+
+
+.reels-cta-button:hover {
+
+    transform: translateY(-3px);
+
+    background: #fff1f6;
+
+    color: var(--reels-primary-dark);
+}
+
+
+/* ============================================================
+   19. PRIVACY NOTICE
+============================================================ */
+
+.reels-privacy-note {
+
+    max-width: 790px;
+
+    margin: 25px auto 0;
+
+    padding: 15px 18px;
+
+    background: #fff8fb;
+
+    border: 1px solid var(--reels-border);
+
+    border-radius: 12px;
+
+    color: var(--reels-text-light);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   20. UTILITY CLASSES
+============================================================ */
+
+.reels-text-center {
+
+    text-align: center;
+}
+
+
+.reels-mt-10 {
+
+    margin-top: 10px;
+}
+
+
+.reels-mt-20 {
+
+    margin-top: 20px;
+}
+
+
+.reels-mt-30 {
+
+    margin-top: 30px;
+}
+
+
+.reels-hidden {
+
+    display: none !important;
+}
+
+
+.reels-flex-center {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* ============================================================
+   21. REVEAL ANIMATIONS
+============================================================ */
+
+.reels-reveal {
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+
+.reels-reveal.is-visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+@keyframes reelsFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+    }
+
+    50% {
+
+        transform: translateY(-10px);
+    }
+}
+
+
+.reels-floating {
+
+    animation:
+        reelsFloat 4s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   22. TABLET RESPONSIVE
+============================================================ */
+
+@media (max-width: 900px) {
+
+    .reels-hero {
+
+        padding: 65px 20px 55px;
+    }
+
+
+    .reels-steps-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .reels-features-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .reels-downloader-card {
+
+        padding: 28px;
+    }
+
+}
+
+
+/* ============================================================
+   23. MOBILE RESPONSIVE
+============================================================ */
+
+@media (max-width: 600px) {
+
+    .reels-container {
+
+        width: min(100% - 28px, 1180px);
+    }
+
+
+    .reels-section {
+
+        padding: 45px 0;
+    }
+
+
+    .reels-hero {
+
+        padding: 55px 16px 48px;
+    }
+
+
+    .reels-hero-title {
+
+        font-size: clamp(31px, 9vw, 43px);
+
+        letter-spacing: -1px;
+    }
+
+
+    .reels-hero-description {
+
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+
+    .reels-section-title {
+
+        font-size: 27px;
+    }
+
+
+    .reels-section-subtitle {
+
+        font-size: 13px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .reels-downloader-card {
+
+        padding: 21px 15px;
+
+        border-radius: 20px;
+    }
+
+
+    .reels-downloader-heading h2 {
+
+        font-size: 21px;
+    }
+
+
+    .reels-downloader-heading p {
+
+        font-size: 13px;
+    }
+
+
+    .reels-input-wrapper {
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        padding: 10px 12px;
+    }
+
+
+    .reels-url-input {
+
+        flex: 1 1 calc(100% - 35px);
+
+        font-size: 13px;
+    }
+
+
+    .reels-input-actions {
+
+        width: 100%;
+
+        justify-content: flex-end;
+    }
+
+
+    .reels-paste-button,
+    .reels-clear-button {
+
+        min-height: 36px;
+
+        padding: 0 12px;
+    }
+
+
+    .reels-download-button {
+
+        min-height: 53px;
+
+        font-size: 14px;
+    }
+
+
+    #reelsDownloadResult {
+
+        padding: 15px;
+    }
+
+
+    #reelsResultGallery {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    #reelsRecentHistory {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .reels-steps-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .reels-features-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .reels-step-card {
+
+        padding: 23px 18px;
+    }
+
+
+    .reels-feature-card {
+
+        padding: 20px;
+    }
+
+
+    .reels-cta {
+
+        padding: 32px 18px;
+
+        border-radius: 20px;
+    }
+
+
+    .reels-cta h2 {
+
+        font-size: 25px;
+    }
+
+
+    .reels-faq-question {
+
+        font-size: 13px;
+
+        padding: 15px;
+    }
+
+
+    .reels-faq-answer {
+
+        padding: 0 15px 15px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* ============================================================
+   24. SMALL MOBILE DEVICES
+============================================================ */
+
+@media (max-width: 380px) {
+
+    .reels-container {
+
+        width: calc(100% - 22px);
+    }
+
+
+    .reels-hero-title {
+
+        font-size: 30px;
+    }
+
+
+    .reels-downloader-card {
+
+        padding: 17px 12px;
+    }
+
+
+    .reels-input-wrapper {
+
+        padding: 8px;
+    }
+
+
+    .reels-input-actions {
+
+        gap: 6px;
+    }
+
+
+    .reels-paste-button,
+    .reels-clear-button {
+
+        font-size: 11px;
+
+        padding: 0 10px;
+    }
+
+
+    .reels-history-item {
+
+        padding: 14px;
+    }
+
+}
+
+
+/* ============================================================
+   25. DARK MODE
+============================================================ */
+
+body.dark-mode .reels-page {
+
+    background:
+        linear-gradient(
+            180deg,
+            #171117,
+            #211720,
+            #171117
+        );
+
+    color: #f8edf3;
+}
+
+
+body.dark-mode .reels-section-title,
+body.dark-mode .reels-hero-title,
+body.dark-mode .reels-downloader-heading h2,
+body.dark-mode .reels-step-card h3,
+body.dark-mode .reels-feature-card h3,
+body.dark-mode .reels-result-heading h3 {
+
+    color: #fff0f6;
+}
+
+
+body.dark-mode .reels-downloader-card,
+body.dark-mode .reels-step-card,
+body.dark-mode .reels-feature-card,
+body.dark-mode .reels-history-item,
+body.dark-mode #reelsDownloadResult,
+body.dark-mode .reels-faq-item {
+
+    background: #261c25;
+
+    border-color: #45303f;
+}
+
+
+body.dark-mode .reels-input-wrapper {
+
+    background: #211720;
+
+    border-color: #503348;
+}
+
+
+body.dark-mode .reels-url-input {
+
+    color: #ffffff;
+}
+
+
+body.dark-mode .reels-url-input::placeholder {
+
+    color: #a999a4;
+}
+
+
+body.dark-mode .reels-clear-button {
+
+    background: #3a2b37;
+
+    color: #e4cdd9;
+}
+
+
+body.dark-mode .reels-paste-button {
+
+    background: #4b263a;
+
+    color: #ff8bb4;
+}
+
+
+body.dark-mode .reels-form-helper,
+body.dark-mode .reels-section-subtitle,
+body.dark-mode .reels-hero-description,
+body.dark-mode .reels-step-card p,
+body.dark-mode .reels-feature-card p,
+body.dark-mode .reels-history-item small {
+
+    color: #c4b2bf;
+}
+
+
+body.dark-mode .reels-faq-question {
+
+    color: #ffffff;
+}
+
+
+body.dark-mode .reels-faq-answer {
+
+    color: #cbbac5;
+}
+
+
+body.dark-mode .reels-privacy-note {
+
+    background: #261c25;
+
+    border-color: #45303f;
+
+    color: #cbbac5;
+}
+
+
+body.dark-mode .reels-history-empty {
+
+    background: #261c25;
+
+    border-color: #604052;
+
+    color: #cbbac5;
+}
+
+
+/* ============================================================
+   26. REDUCED MOTION ACCESSIBILITY
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reels-page *,
+    .reels-page *::before,
+    .reels-page *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+
+/* ============================================================
+   27. PRINT STYLES
+============================================================ */
+
+@media print {
+
+    .reels-download-button,
+    .reels-paste-button,
+    .reels-clear-button,
+    .reels-history-section {
+
+        display: none !important;
+    }
+
+
+    .reels-page {
+
+        background: #ffffff !important;
+
+        color: #000000 !important;
+    }
+
+
+    .reels-downloader-card {
+
+        box-shadow: none !important;
+
+        border: 1px solid #cccccc !important;
+    }
+
+}
+
