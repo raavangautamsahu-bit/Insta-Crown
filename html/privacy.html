@@ -1,1 +1,833 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Read the Insta Crown Privacy Policy to understand how information, browser storage and third-party services are handled.">
+    <title>Privacy Policy | Insta Crown</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+
+    <style>
+        .privacy-page {
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background: #fffafd;
+            color: #302638;
+        }
+
+        .privacy-hero {
+            padding: 75px 20px 85px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255,155,195,.24), transparent 32%),
+                linear-gradient(135deg,#fff1f7,#fffafd 60%,#ffeaf3);
+        }
+
+        .privacy-hero-badge {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 9px 17px;
+            border: 1px solid #f5c9dc;
+            border-radius: 50px;
+            background: #fff;
+            color: #e94083;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .privacy-hero h1 {
+            margin-bottom: 15px;
+            font-size: clamp(35px,6vw,54px);
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .privacy-hero h1 span {
+            color: #e94083;
+        }
+
+        .privacy-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #796e80;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .privacy-container {
+            width: min(1050px,calc(100% - 35px));
+            margin: 0 auto;
+        }
+
+        .privacy-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: -25px auto 35px;
+            position: relative;
+        }
+
+        .privacy-meta span {
+            padding: 12px 17px;
+            border: 1px solid #f1dce6;
+            border-radius: 12px;
+            background: #fff;
+            color: #716576;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 7px 22px rgba(90,35,65,.05);
+        }
+
+        .privacy-layout {
+            display: grid;
+            grid-template-columns: 250px minmax(0,1fr);
+            align-items: start;
+            gap: 25px;
+        }
+
+        .privacy-toc {
+            position: sticky;
+            top: 20px;
+            padding: 22px;
+            border: 1px solid #f0e2e9;
+            border-radius: 17px;
+            background: #fff;
+        }
+
+        .privacy-toc h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 850;
+        }
+
+        .privacy-toc a {
+            display: block;
+            padding: 9px 0;
+            color: #756a7b;
+            font-size: 12px;
+            line-height: 1.5;
+            text-decoration: none;
+            border-bottom: 1px solid #f5edf1;
+        }
+
+        .privacy-toc a:last-child {
+            border-bottom: 0;
+        }
+
+        .privacy-toc a:hover {
+            color: #e94083;
+        }
+
+        .privacy-content {
+            min-width: 0;
+            padding: 30px;
+            border: 1px solid #f0e2e9;
+            border-radius: 19px;
+            background: #fff;
+            box-shadow: 0 12px 35px rgba(90,35,65,.045);
+        }
+
+        .privacy-intro {
+            margin-bottom: 28px;
+            padding: 19px;
+            border: 1px solid #f4d7e5;
+            border-radius: 13px;
+            background: #fff4f8;
+            color: #765166;
+            font-size: 13px;
+            line-height: 1.85;
+        }
+
+        .privacy-section {
+            padding: 25px 0;
+            border-bottom: 1px solid #f0e8ed;
+            scroll-margin-top: 25px;
+        }
+
+        .privacy-section:first-of-type {
+            padding-top: 0;
+        }
+
+        .privacy-section:last-child {
+            border-bottom: 0;
+        }
+
+        .privacy-section h2 {
+            margin-bottom: 13px;
+            color: #302638;
+            font-size: 21px;
+            font-weight: 850;
+            line-height: 1.4;
+        }
+
+        .privacy-section h3 {
+            margin: 18px 0 8px;
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .privacy-section p,
+        .privacy-section li {
+            color: #756b7b;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .privacy-section p {
+            margin-bottom: 12px;
+        }
+
+        .privacy-section ul {
+            padding-left: 22px;
+            margin: 12px 0;
+        }
+
+        .privacy-section li {
+            margin-bottom: 7px;
+        }
+
+        .privacy-highlight {
+            padding: 15px 17px;
+            margin: 15px 0;
+            border-left: 4px solid #e94083;
+            border-radius: 8px;
+            background: #fff4f8;
+            color: #765166;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .privacy-contact-card {
+            margin-top: 25px;
+            padding: 25px;
+            border: 1px solid #f2d6e3;
+            border-radius: 16px;
+            background: linear-gradient(120deg,#fff1f7,#fffafd);
+            text-align: center;
+        }
+
+        .privacy-contact-card h2 {
+            margin-bottom: 10px;
+            font-size: 22px;
+            font-weight: 850;
+        }
+
+        .privacy-contact-card p {
+            margin-bottom: 17px;
+            color: #786d7e;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .privacy-contact-button {
+            display: inline-flex;
+            min-height: 45px;
+            align-items: center;
+            justify-content: center;
+            padding: 11px 22px;
+            border-radius: 50px;
+            background: #e94083;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .privacy-contact-button:hover {
+            background: #c92b6c;
+        }
+
+        body.dark-mode .privacy-page {
+            background: #15121b;
+            color: #f5eff7;
+        }
+
+        body.dark-mode .privacy-hero {
+            background: linear-gradient(135deg,#211724,#18141e 60%,#291827);
+        }
+
+        body.dark-mode .privacy-hero h1,
+        body.dark-mode .privacy-section h2,
+        body.dark-mode .privacy-section h3,
+        body.dark-mode .privacy-toc h3,
+        body.dark-mode .privacy-contact-card h2 {
+            color: #fff4fa;
+        }
+
+        body.dark-mode .privacy-hero p,
+        body.dark-mode .privacy-section p,
+        body.dark-mode .privacy-section li,
+        body.dark-mode .privacy-contact-card p {
+            color: #bdb2c5;
+        }
+
+        body.dark-mode .privacy-meta span,
+        body.dark-mode .privacy-toc,
+        body.dark-mode .privacy-content {
+            border-color: #3a3040;
+            background: #211c29;
+            color: #d9cddd;
+        }
+
+        body.dark-mode .privacy-toc a {
+            border-color: #3a3040;
+            color: #c2b5c9;
+        }
+
+        body.dark-mode .privacy-section {
+            border-color: #3a3040;
+        }
+
+        body.dark-mode .privacy-intro,
+        body.dark-mode .privacy-highlight,
+        body.dark-mode .privacy-contact-card {
+            border-color: #553348;
+            background: #30202d;
+            color: #e5b6cb;
+        }
+
+        @media(max-width:800px) {
+            .privacy-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .privacy-toc {
+                position: static;
+            }
+
+            .privacy-toc-links {
+                display: grid;
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 0 15px;
+            }
+        }
+
+        @media(max-width:550px) {
+            .privacy-hero {
+                padding: 60px 17px 75px;
+            }
+
+            .privacy-container {
+                width: calc(100% - 26px);
+            }
+
+            .privacy-content {
+                padding: 21px 17px;
+            }
+
+            .privacy-section h2 {
+                font-size: 19px;
+            }
+
+            .privacy-toc-links {
+                grid-template-columns: 1fr;
+            }
+
+            .privacy-meta span {
+                font-size: 11px;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .privacy-page *,
+            .privacy-page *::before,
+            .privacy-page *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="website-loader" id="websiteLoader">
+        <div class="loader-content">
+            <div class="loader-crown">👑</div>
+            <h2>Insta Crown</h2>
+            <div class="loader-progress"><span></span></div>
+            <p>Preparing your experience...</p>
+        </div>
+    </div>
+
+    <div class="website-wrapper">
+
+        <!-- HEADER -->
+        <header class="main-header" id="mainHeader">
+            <div class="header-container">
+
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon">👑</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Insta Crown</span>
+                        <span class="brand-tagline">Your Media Companion</span>
+                    </div>
+                </a>
+
+                <div class="header-actions">
+                    <button class="icon-button theme-toggle"
+                        id="themeToggle" type="button"
+                        aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+
+                    <button class="icon-button mobile-menu-button"
+                        id="mobileMenuButton" type="button"
+                        aria-label="Open navigation menu"
+                        aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="desktop-navigation" id="desktopNavigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="reels.html" class="nav-link">Reels</a>
+                <a href="posts.html" class="nav-link">Posts</a>
+                <a href="stories.html" class="nav-link">Stories</a>
+                <a href="profile.html" class="nav-link">Profile Picture</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+        </header>
+
+        <main class="main-content privacy-page">
+
+            <!-- HERO -->
+            <section class="privacy-hero">
+                <div class="privacy-hero-badge">🔒 Your Privacy Matters</div>
+                <h1>Privacy <span>Policy</span></h1>
+                <p>
+                    This page explains how Insta Crown handles information,
+                    browser storage and third-party services when you use
+                    our website.
+                </p>
+            </section>
+
+            <div class="privacy-container">
+
+                <div class="privacy-meta">
+                    <span>📄 Policy: Privacy</span>
+                    <span>📅 Last updated: November 20, 2026</span>
+                    <span>👑 Insta Crown</span>
+                </div>
+
+                <div class="privacy-layout">
+
+                    <!-- TABLE OF CONTENTS -->
+                    <aside class="privacy-toc">
+                        <h3>On This Page</h3>
+
+                        <div class="privacy-toc-links">
+                            <a href="#introduction">1. Introduction</a>
+                            <a href="#information">2. Information We Handle</a>
+                            <a href="#usage">3. How Information Is Used</a>
+                            <a href="#storage">4. Browser Storage</a>
+                            <a href="#firebase">5. Firebase Services</a>
+                            <a href="#third-party">6. Third-Party Services</a>
+                            <a href="#sharing">7. Information Sharing</a>
+                            <a href="#security">8. Security</a>
+                            <a href="#rights">9. Your Choices</a>
+                            <a href="#children">10. Children's Privacy</a>
+                            <a href="#links">11. External Links</a>
+                            <a href="#changes">12. Policy Changes</a>
+                            <a href="#contact">13. Contact Us</a>
+                        </div>
+                    </aside>
+
+                    <!-- POLICY CONTENT -->
+                    <article class="privacy-content">
+
+                        <div class="privacy-intro">
+                            <strong>Important:</strong>
+                            This policy describes the intended privacy
+                            practices of Insta Crown. Actual data handling
+                            depends on which website features and external
+                            services are enabled in the deployed version.
+                            Please do not submit passwords, payment details
+                            or other sensitive information through contact
+                            forms or URL fields.
+                        </div>
+
+                        <section class="privacy-section" id="introduction">
+                            <h2>1. Introduction</h2>
+                            <p>
+                                Welcome to Insta Crown. We respect your
+                                privacy and aim to explain clearly how
+                                information may be handled when you visit
+                                or use our website.
+                            </p>
+                            <p>
+                                By using the website, you acknowledge that
+                                you have read this policy. If you do not
+                                agree with it, please stop using the
+                                website and its services.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="information">
+                            <h2>2. Information We Handle</h2>
+                            <p>
+                                Depending on the features you use, the
+                                website or its service providers may
+                                process the following categories of
+                                information:
+                            </p>
+
+                            <h3>Information You Provide</h3>
+                            <ul>
+                                <li>Name and email address entered into a contact form.</li>
+                                <li>Messages, questions, suggestions and feedback you choose to submit.</li>
+                                <li>Instagram URLs or usernames entered into a tool.</li>
+                                <li>Information you choose to provide when using an account feature, if enabled.</li>
+                            </ul>
+
+                            <h3>Technical Information</h3>
+                            <ul>
+                                <li>Browser type and device information.</li>
+                                <li>Basic website usage and diagnostic information.</li>
+                                <li>Network and error information processed by hosting or service providers.</li>
+                            </ul>
+
+                            <div class="privacy-highlight">
+                                Insta Crown does not ask you to provide
+                                your Instagram password. Never enter your
+                                Instagram password into this website.
+                            </div>
+                        </section>
+
+                        <section class="privacy-section" id="usage">
+                            <h2>3. How Information Is Used</h2>
+                            <p>Information may be used for purposes such as:</p>
+                            <ul>
+                                <li>Operating and displaying website features.</li>
+                                <li>Processing requests submitted through available tools.</li>
+                                <li>Responding to support messages and feedback.</li>
+                                <li>Maintaining account features if enabled.</li>
+                                <li>Detecting errors, misuse and security problems.</li>
+                                <li>Improving website usability and performance.</li>
+                                <li>Meeting applicable legal requirements.</li>
+                            </ul>
+                            <p>
+                                We do not claim that every listed feature
+                                is currently active. The actual processing
+                                depends on the services configured in the
+                                live website.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="storage">
+                            <h2>4. Browser Storage and Cookies</h2>
+                            <p>
+                                Some website features may use browser
+                                storage, including local storage or
+                                session storage, to remember preferences
+                                and recent activity.
+                            </p>
+
+                            <ul>
+                                <li>Theme preferences such as dark mode.</li>
+                                <li>Recent tool activity or history.</li>
+                                <li>Temporary interface settings.</li>
+                            </ul>
+
+                            <p>
+                                Browser storage is generally kept on your
+                                device. You can clear website data through
+                                your browser settings, although doing so
+                                may reset saved preferences and history.
+                            </p>
+
+                            <p>
+                                Hosting providers or third-party services
+                                may use cookies or similar technologies
+                                according to their own policies.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="firebase">
+                            <h2>5. Firebase Services</h2>
+                            <p>
+                                Insta Crown may use Google Firebase
+                                services for features such as
+                                authentication and database storage.
+                                These services are only active if properly
+                                configured in the deployed website.
+                            </p>
+
+                            <p>
+                                If Firebase services are enabled, relevant
+                                information may be processed by Google
+                                according to Google's terms and privacy
+                                documentation.
+                            </p>
+
+                            <ul>
+                                <li>Authentication information for account features.</li>
+                                <li>Database records associated with enabled features.</li>
+                                <li>Technical information needed to operate the services.</li>
+                            </ul>
+
+                            <p>
+                                Do not assume that information is stored
+                                in Firebase unless that feature has
+                                actually been connected and activated.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="third-party">
+                            <h2>6. Third-Party Services</h2>
+                            <p>
+                                The website may rely on third-party
+                                services for hosting, fonts, authentication,
+                                media processing or other functionality.
+                            </p>
+
+                            <p>
+                                These providers may process information
+                                under their own privacy policies and
+                                service terms. Insta Crown does not control
+                                every practice of an independent provider.
+                            </p>
+
+                            <p>
+                                Please review the privacy documentation
+                                of any external service you choose to use.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="sharing">
+                            <h2>7. Information Sharing</h2>
+                            <p>
+                                We do not claim to sell your personal
+                                information. Information may be shared
+                                only where reasonably necessary for
+                                operating enabled services or where
+                                legally required.
+                            </p>
+
+                            <ul>
+                                <li>With service providers supporting website operations.</li>
+                                <li>When required by applicable law or valid legal process.</li>
+                                <li>To protect the security and integrity of the website.</li>
+                                <li>When you specifically choose to interact with an external service.</li>
+                            </ul>
+                        </section>
+
+                        <section class="privacy-section" id="security">
+                            <h2>8. Data Security</h2>
+                            <p>
+                                We aim to use reasonable safeguards to
+                                protect information handled through the
+                                website. However, no website, internet
+                                connection or electronic storage method
+                                can be guaranteed to be completely secure.
+                            </p>
+
+                            <p>
+                                Keep your own accounts secure and avoid
+                                sharing passwords, payment credentials
+                                or confidential information through
+                                public forms.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="rights">
+                            <h2>9. Your Choices and Rights</h2>
+                            <p>
+                                Depending on applicable law and the
+                                features you use, you may have choices
+                                regarding your personal information.
+                            </p>
+
+                            <ul>
+                                <li>You can stop using the website at any time.</li>
+                                <li>You can clear locally stored website data through your browser.</li>
+                                <li>You can choose not to submit optional information.</li>
+                                <li>You can contact us with privacy-related questions or requests.</li>
+                            </ul>
+
+                            <p>
+                                If an account or database feature is
+                                enabled, additional account-specific
+                                deletion or correction procedures may
+                                apply.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="children">
+                            <h2>10. Children's Privacy</h2>
+                            <p>
+                                Insta Crown is not designed to knowingly
+                                collect personal information from children
+                                in violation of applicable law. If you
+                                believe a child has provided personal
+                                information improperly, contact us so
+                                the concern can be reviewed.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="links">
+                            <h2>11. External Links</h2>
+                            <p>
+                                Our website may contain links to external
+                                websites, including social media platforms
+                                and service providers. Those websites
+                                operate independently and have their own
+                                privacy policies.
+                            </p>
+
+                            <p>
+                                We are not responsible for the content
+                                or privacy practices of external websites.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="changes">
+                            <h2>12. Changes to This Policy</h2>
+                            <p>
+                                We may update this Privacy Policy when
+                                website features, service providers or
+                                legal requirements change.
+                            </p>
+
+                            <p>
+                                Updated versions will be published on
+                                this page with a revised update date.
+                                Please review this page periodically.
+                            </p>
+                        </section>
+
+                        <section class="privacy-section" id="contact">
+                            <h2>13. Contact Us</h2>
+                            <p>
+                                If you have questions about this Privacy
+                                Policy or how information is handled,
+                                please contact the Insta Crown team.
+                            </p>
+
+                            <p>
+                                Email:
+                                <a href="mailto:support@instacrown.com">
+                                    support@instacrown.com
+                                </a>
+                            </p>
+                        </section>
+
+                        <div class="privacy-contact-card">
+                            <h2>Have a Privacy Question?</h2>
+                            <p>
+                                Contact our team if you need clarification
+                                about this policy or have a privacy concern.
+                            </p>
+                            <a href="contact.html" class="privacy-contact-button">
+                                Contact Insta Crown →
+                            </a>
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <div class="footer-container">
+
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <div class="logo-icon">👑</div>
+                        <div class="logo-text">
+                            <span class="brand-name">Insta Crown</span>
+                            <span class="brand-tagline">Your Media Companion</span>
+                        </div>
+                    </a>
+                    <p>
+                        Simple and convenient tools for exploring
+                        Instagram media links.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="reels.html">Reels</a>
+                    <a href="posts.html">Posts</a>
+                    <a href="stories.html">Stories</a>
+                    <a href="profile.html">Profile Picture</a>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Information</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="faq.html">FAQs</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © <span id="currentYear"></span>
+                    Insta Crown. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- BOTTOM NAVIGATION: ONLY THREE BUTTONS -->
+    <nav class="bottom-navigation" aria-label="Bottom navigation">
+        <a href="index.html" class="bottom-nav-item">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a href="reels.html" class="bottom-nav-item">
+            <span>▶</span>
+            <small>Reels</small>
+        </a>
+
+        <a href="about.html" class="bottom-nav-item">
+            <span>👑</span>
+            <small>About</small>
+        </a>
+    </nav>
+
+    <button class="back-to-top" id="backToTop"
+        type="button" aria-label="Back to top">↑</button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/animations.js"></script>
+
+    <script>
+        const yearElement = document.getElementById("currentYear");
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    </script>
+
+</body>
+</html>
+
