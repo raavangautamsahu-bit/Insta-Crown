@@ -1,1 +1,576 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e1306c">
+
+    <meta name="description" content="Insta Crown Stories Downloader. Manage and access your authorized Instagram story media links easily.">
+
+    <title>Instagram Stories Downloader | Insta Crown 👑</title>
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/stories.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">👑</span>
+                <span class="logo-text">Insta Crown</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-navigation" id="mainNavigation">
+                <a href="index.html">Home</a>
+                <a href="reels.html">Reels</a>
+                <a href="posts.html">Posts</a>
+                <a href="stories.html" class="active">Stories</a>
+                <a href="profile.html">Profile Picture</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+            >
+                🌙
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+
+    <main class="stories-page">
+
+        <!-- HERO SECTION -->
+
+        <section class="stories-hero">
+
+            <div class="stories-hero-content">
+
+                <div class="stories-hero-icon">
+                    📸
+                </div>
+
+                <div class="stories-hero-badge">
+                    👑 Insta Crown Stories Tool
+                </div>
+
+                <h1>
+                    Instagram
+                    <span>Stories Downloader</span>
+                </h1>
+
+                <p>
+                    Manage your authorized Instagram Story links
+                    with Insta Crown. Paste a valid Story URL,
+                    check it, and access supported media when
+                    an authorized download service is connected.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DOWNLOADER SECTION -->
+
+        <section class="stories-downloader-section">
+
+            <div class="stories-downloader-card">
+
+                <div class="stories-downloader-heading">
+
+                    <h2>Download Instagram Stories</h2>
+
+                    <p>
+                        Paste the Instagram Story URL below
+                        to continue.
+                    </p>
+
+                </div>
+
+
+                <form
+                    id="storiesDownloaderForm"
+                    class="stories-downloader-form"
+                    novalidate
+                >
+
+                    <label
+                        for="storiesInstagramUrl"
+                        class="stories-input-label"
+                    >
+                        Instagram Story URL
+                    </label>
+
+
+                    <div class="stories-input-wrapper">
+
+                        <input
+                            type="url"
+                            id="storiesInstagramUrl"
+                            name="instagramUrl"
+                            placeholder="https://www.instagram.com/stories/username/..."
+                            autocomplete="url"
+                            inputmode="url"
+                            required
+                            aria-describedby="storiesInputHelp"
+                        >
+
+                        <button
+                            type="button"
+                            data-stories-paste
+                            class="stories-paste-button"
+                        >
+                            📋 Paste
+                        </button>
+
+                        <button
+                            type="button"
+                            data-stories-clear
+                            class="stories-clear-button"
+                            aria-label="Clear URL"
+                        >
+                            ✕
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="storiesInputHelp"
+                        class="stories-input-help"
+                    >
+                        Only valid Instagram Story URLs are accepted.
+                    </p>
+
+
+                    <button
+                        type="submit"
+                        id="storiesDownloadButton"
+                        class="stories-download-button"
+                    >
+                        <span>👑</span>
+                        Continue
+                    </button>
+
+                </form>
+
+
+                <!-- LOADING -->
+
+                <div
+                    id="storiesDownloadLoading"
+                    class="stories-loading"
+                    hidden
+                    aria-live="polite"
+                >
+                    <div class="stories-loading-spinner"></div>
+
+                    <p>
+                        Processing your Story request...
+                    </p>
+                </div>
+
+
+                <!-- ERROR -->
+
+                <div
+                    id="storiesDownloadError"
+                    class="stories-error"
+                    role="alert"
+                    hidden
+                ></div>
+
+
+                <!-- RESULT -->
+
+                <section
+                    id="storiesDownloadResult"
+                    class="stories-result"
+                    aria-live="polite"
+                    hidden
+                >
+
+                    <h2>Story Result</h2>
+
+                    <div
+                        id="storiesResultGallery"
+                        class="stories-result-gallery"
+                    ></div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW TO USE -->
+
+        <section class="stories-section stories-how-section">
+
+            <div class="stories-container">
+
+                <h2 class="stories-section-title">
+                    How to Use Stories Tool
+                </h2>
+
+                <p class="stories-section-description">
+                    Follow these simple steps to use Insta Crown.
+                </p>
+
+
+                <div class="stories-steps-grid">
+
+                    <article class="stories-step-card">
+
+                        <div class="stories-step-icon">📱</div>
+
+                        <h3>Step 1: Open Instagram</h3>
+
+                        <p>
+                            Open Instagram and navigate to a Story
+                            that you are authorized to access.
+                        </p>
+
+                    </article>
+
+
+                    <article class="stories-step-card">
+
+                        <div class="stories-step-icon">🔗</div>
+
+                        <h3>Step 2: Copy Story URL</h3>
+
+                        <p>
+                            Copy the supported Story URL and
+                            return to Insta Crown.
+                        </p>
+
+                    </article>
+
+
+                    <article class="stories-step-card">
+
+                        <div class="stories-step-icon">📋</div>
+
+                        <h3>Step 3: Paste URL</h3>
+
+                        <p>
+                            Paste the copied URL into the
+                            Story URL input field.
+                        </p>
+
+                    </article>
+
+
+                    <article class="stories-step-card">
+
+                        <div class="stories-step-icon">👑</div>
+
+                        <h3>Step 4: Continue</h3>
+
+                        <p>
+                            Continue to the authorized media
+                            service when it is configured.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="stories-section stories-features-section">
+
+            <div class="stories-container">
+
+                <h2 class="stories-section-title">
+                    Insta Crown Features
+                </h2>
+
+                <p class="stories-section-description">
+                    Simple tools for managing your Story URLs.
+                </p>
+
+
+                <div class="stories-features-grid">
+
+                    <article class="stories-feature-card">
+                        <div class="stories-feature-icon">⚡</div>
+                        <h3>Easy to Use</h3>
+                        <p>
+                            A simple interface designed for
+                            mobile and desktop devices.
+                        </p>
+                    </article>
+
+
+                    <article class="stories-feature-card">
+                        <div class="stories-feature-icon">📋</div>
+                        <h3>Quick Paste</h3>
+                        <p>
+                            Paste Story URLs using the
+                            built-in clipboard control.
+                        </p>
+                    </article>
+
+
+                    <article class="stories-feature-card">
+                        <div class="stories-feature-icon">🕘</div>
+                        <h3>Recent History</h3>
+                        <p>
+                            Access recently submitted Story
+                            URLs from your browser.
+                        </p>
+                    </article>
+
+
+                    <article class="stories-feature-card">
+                        <div class="stories-feature-icon">📱</div>
+                        <h3>Mobile Friendly</h3>
+                        <p>
+                            Responsive layout with touch-friendly
+                            controls for mobile users.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT HISTORY -->
+
+        <section class="stories-section stories-history-section">
+
+            <div class="stories-container">
+
+                <div class="stories-history-heading">
+
+                    <div>
+                        <h2 class="stories-section-title">
+                            Recent Story History
+                        </h2>
+
+                        <p class="stories-section-description">
+                            Your recent Story URL activity is
+                            stored locally in this browser.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="storiesRecentHistory"
+                    class="stories-history-list"
+                    aria-live="polite"
+                >
+                    <p class="stories-history-empty">
+                        Loading recent history...
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- IMPORTANT INFORMATION -->
+
+        <section class="stories-section stories-notice-section">
+
+            <div class="stories-container">
+
+                <div class="stories-notice-card">
+
+                    <div class="stories-notice-icon">🔒</div>
+
+                    <h2>Privacy and Responsible Use</h2>
+
+                    <p>
+                        Use this tool only for content you own
+                        or have permission to access. Insta Crown
+                        does not bypass private-account settings,
+                        Instagram login restrictions, or access
+                        controls. Availability of media processing
+                        depends on an authorized backend service.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">👑</span>
+                    <span class="logo-text">Insta Crown</span>
+                </a>
+
+                <p>
+                    Simple and convenient Instagram tools
+                    in one place.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="reels.html">Reels</a>
+                <a href="posts.html">Posts</a>
+                <a href="stories.html">Stories</a>
+                <a href="profile.html">Profile Picture</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Information</h3>
+
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © <span id="currentYear"></span>
+                Insta Crown 👑. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         BOTTOM NAVIGATION
+         Exactly 3 buttons
+    ========================== -->
+
+    <nav class="bottom-navigation" aria-label="Mobile navigation">
+
+        <a href="index.html" class="bottom-nav-item">
+            <span>🏠</span>
+            <small>Home</small>
+        </a>
+
+        <a
+            href="reels.html"
+            class="bottom-nav-item"
+        >
+            <span>🎬</span>
+            <small>Reels</small>
+        </a>
+
+        <a
+            href="about.html"
+            class="bottom-nav-item"
+        >
+            <span>👑</span>
+            <small>About</small>
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/clipboard.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/downloader.js"></script>
+
+    <script src="../js/pages/stories.js"></script>
+
+
+    <!-- CURRENT YEAR -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const yearElement = document.getElementById("currentYear");
+
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
