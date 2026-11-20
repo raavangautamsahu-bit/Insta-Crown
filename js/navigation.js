@@ -33,6 +33,8 @@ const NavigationConfig = {
 
     terms: "terms.html"
 
+   wallet: "wallet.html"
+
 };
 
 
@@ -83,8 +85,13 @@ const Navigation = {
     setActiveLinks() {
 
         const links = document.querySelectorAll(
-            "[data-page], .desktop-navigation a, .mobile-bottom-navigation a"
-        );
+            "[
+    "[data-page]",
+    ".desktop-navigation a",
+    ".main-navigation a",
+    ".mobile-bottom-navigation a",
+    ".bottom-navigation a"
+].join(", ");
 
         links.forEach(link => {
 
@@ -123,8 +130,12 @@ const Navigation = {
     initializeDesktopNavigation() {
 
         const desktopLinks = document.querySelectorAll(
-            "#desktopNavigation a, .desktop-navigation a"
-        );
+            [
+    "#desktopNavigation a",
+    ".desktop-navigation a",
+    "#mainNavigation a",
+    ".main-navigation a"
+].join(", ");
 
         desktopLinks.forEach(link => {
 
@@ -259,7 +270,7 @@ const Navigation = {
     initializeBottomNavigation() {
 
         const bottomLinks = document.querySelectorAll(
-            ".mobile-bottom-navigation a"
+            ".mobile-bottom-navigation a, .bottom-navigation a"
         );
 
         bottomLinks.forEach(link => {
