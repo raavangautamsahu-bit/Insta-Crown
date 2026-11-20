@@ -603,6 +603,45 @@
     gap: 10px;
     animation: profileFadeIn 0.3s ease;
 }
+/* =========================================
+   17. VISIBILITY FIX — HIDDEN ATTRIBUTE
+   ========================================= */
+
+/* Loading indicator */
+#profileDownloadLoading:not([hidden]) {
+    display: block;
+    animation: profileFadeIn 0.35s ease;
+}
+
+/* Error message */
+#profileDownloadError:not([hidden]) {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    animation: profileFadeIn 0.3s ease;
+}
+
+/* Result container */
+#profileDownloadResult:not([hidden]) {
+    display: block;
+    animation: profileFadeIn 0.4s ease;
+}
+
+/* Preview section becomes visible when image is shown */
+.profile-preview-section:has(
+    #profilePicturePreview:not([hidden])
+) {
+    display: block;
+    animation: profileFadeIn 0.4s ease;
+}
+
+/* Never display elements marked hidden */
+#profileDownloadLoading[hidden],
+#profileDownloadError[hidden],
+#profileDownloadResult[hidden],
+#profilePicturePreview[hidden] {
+    display: none !important;
+}
 
 /* =========================
    12. RECENT HISTORY
