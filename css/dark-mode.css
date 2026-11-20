@@ -1,1 +1,703 @@
 
+/* =========================================================
+   INSTA CROWN — DARK MODE.CSS
+   Complete Dark Theme Styling
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   01. DARK THEME VARIABLES
+   --------------------------------------------------------- */
+
+body.dark-mode {
+    color-scheme: dark;
+
+    --primary-color: #f472b6;
+    --primary-dark: #ec4899;
+    --primary-light: #831843;
+
+    --secondary-color: #c084fc;
+    --secondary-dark: #a855f7;
+
+    --background-color: #110d14;
+    --surface-color: #1b1520;
+    --surface-secondary: #241b29;
+
+    --text-color: #f8edf5;
+    --text-secondary: #c5b5c3;
+    --text-muted: #998797;
+
+    --border-color: #382a3a;
+    --input-background: #211827;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.22);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.30);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.40);
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+
+/* ---------------------------------------------------------
+   02. BODY AND GLOBAL ELEMENTS
+   --------------------------------------------------------- */
+
+body.dark-mode,
+body.dark-mode html {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(--text-color);
+}
+
+body.dark-mode p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode small {
+    color: var(--text-muted);
+}
+
+body.dark-mode hr {
+    border-color: var(--border-color);
+}
+
+body.dark-mode ::selection {
+    background: rgba(236, 72, 153, 0.35);
+    color: #ffffff;
+}
+
+
+/* ---------------------------------------------------------
+   03. HEADER AND LOGO
+   --------------------------------------------------------- */
+
+body.dark-mode .main-header {
+    background: rgba(27, 21, 32, 0.92);
+    border-bottom-color: var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+}
+
+body.dark-mode .logo-text {
+    color: #f9a8d4;
+}
+
+body.dark-mode .desktop-navigation a {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .desktop-navigation a:hover,
+body.dark-mode .desktop-navigation a.active {
+    color: var(--primary-color);
+}
+
+body.dark-mode .mobile-menu-button {
+    color: var(--text-color);
+    background: var(--surface-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .mobile-menu-button:hover {
+    background: #38243a;
+}
+
+
+/* ---------------------------------------------------------
+   04. THEME TOGGLE BUTTON
+   --------------------------------------------------------- */
+
+body.dark-mode .theme-toggle,
+body.dark-mode .theme-toggle-button {
+    color: #f9a8d4;
+    background: #38243a;
+    border-color: #57344f;
+}
+
+body.dark-mode .theme-toggle:hover,
+body.dark-mode .theme-toggle-button:hover {
+    background: #4a2a44;
+    transform: rotate(12deg);
+}
+
+
+/* ---------------------------------------------------------
+   05. HERO SECTION
+   --------------------------------------------------------- */
+
+body.dark-mode .hero-section {
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(190, 24, 93, 0.15),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(126, 34, 206, 0.13),
+            transparent 35%
+        ),
+        var(--background-color);
+}
+
+body.dark-mode .hero-title {
+    color: #ffffff;
+}
+
+body.dark-mode .hero-description {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .gradient-text {
+    background: linear-gradient(90deg, #f9a8d4, #c4b5fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .hero-image-card,
+body.dark-mode .hero-visual-card {
+    background: linear-gradient(145deg, #291b2b, #1c1523);
+    border-color: #493047;
+    box-shadow: var(--shadow-lg);
+}
+
+body.dark-mode .hero-floating-icon {
+    background: #302034;
+    border-color: #57344f;
+}
+
+
+/* ---------------------------------------------------------
+   06. SECTIONS AND SECTION BACKGROUNDS
+   --------------------------------------------------------- */
+
+body.dark-mode .section {
+    background-color: transparent;
+}
+
+body.dark-mode .section:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.012);
+}
+
+body.dark-mode .section-title {
+    color: var(--text-color);
+}
+
+body.dark-mode .section-description {
+    color: var(--text-secondary);
+}
+
+
+/* ---------------------------------------------------------
+   07. CARDS AND PANELS
+   --------------------------------------------------------- */
+
+body.dark-mode .card,
+body.dark-mode .tool-card,
+body.dark-mode .benefit-card,
+body.dark-mode .step-card,
+body.dark-mode .stats-card {
+    background: var(--surface-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    box-shadow: var(--shadow-sm);
+}
+
+body.dark-mode .card:hover,
+body.dark-mode .tool-card:hover,
+body.dark-mode .benefit-card:hover,
+body.dark-mode .step-card:hover {
+    border-color: rgba(244, 114, 182, 0.45);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.30);
+}
+
+body.dark-mode .card p,
+body.dark-mode .tool-card p,
+body.dark-mode .benefit-card p,
+body.dark-mode .step-card p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .card h3,
+body.dark-mode .tool-card h3,
+body.dark-mode .benefit-card h3,
+body.dark-mode .step-card h3 {
+    color: var(--text-color);
+}
+
+
+/* ---------------------------------------------------------
+   08. DOWNLOAD SECTION
+   --------------------------------------------------------- */
+
+body.dark-mode .downloader-section {
+    background: transparent;
+}
+
+body.dark-mode .downloader-card,
+body.dark-mode .downloader-container {
+    background: linear-gradient(145deg, #251927, #1b1520);
+    border-color: #493047;
+    box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .downloader-card h2,
+body.dark-mode .downloader-card h3 {
+    color: var(--text-color);
+}
+
+body.dark-mode .downloader-card p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .downloader-input-group {
+    background: transparent;
+}
+
+
+/* ---------------------------------------------------------
+   09. INPUTS AND FORMS
+   --------------------------------------------------------- */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode .form-control,
+body.dark-mode .downloader-input {
+    color: var(--text-color);
+    background: var(--input-background);
+    border-color: var(--border-color);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #9c899a;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.12);
+    background: #291d2c;
+}
+
+body.dark-mode input:disabled,
+body.dark-mode textarea:disabled,
+body.dark-mode select:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+body.dark-mode label {
+    color: var(--text-secondary);
+}
+
+
+/* ---------------------------------------------------------
+   10. BUTTONS
+   --------------------------------------------------------- */
+
+body.dark-mode .primary-button,
+body.dark-mode .btn-primary {
+    color: #ffffff;
+    background: linear-gradient(135deg, #db2777, #9333ea);
+    border-color: transparent;
+}
+
+body.dark-mode .primary-button:hover,
+body.dark-mode .btn-primary:hover {
+    background: linear-gradient(135deg, #ec4899, #a855f7);
+    box-shadow: 0 8px 22px rgba(219, 39, 119, 0.22);
+}
+
+body.dark-mode .secondary-button,
+body.dark-mode .btn-secondary {
+    color: #f9a8d4;
+    background: #38243a;
+    border-color: #57344f;
+}
+
+body.dark-mode .secondary-button:hover,
+body.dark-mode .btn-secondary:hover {
+    background: #4a2a44;
+}
+
+body.dark-mode .btn-outline {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background: transparent;
+}
+
+
+/* ---------------------------------------------------------
+   11. BADGES AND LABELS
+   --------------------------------------------------------- */
+
+body.dark-mode .badge,
+body.dark-mode .tool-badge {
+    color: #f9a8d4;
+    background: rgba(236, 72, 153, 0.14);
+    border-color: rgba(236, 72, 153, 0.24);
+}
+
+body.dark-mode .success-badge {
+    color: #86efac;
+    background: rgba(34, 197, 94, 0.12);
+}
+
+body.dark-mode .warning-badge {
+    color: #fcd34d;
+    background: rgba(245, 158, 11, 0.12);
+}
+
+
+/* ---------------------------------------------------------
+   12. FAQ AND ACCORDION
+   --------------------------------------------------------- */
+
+body.dark-mode .faq-item,
+body.dark-mode .accordion-item {
+    background: var(--surface-color);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .faq-question,
+body.dark-mode .accordion-button {
+    color: var(--text-color);
+    background: var(--surface-color);
+}
+
+body.dark-mode .faq-answer,
+body.dark-mode .accordion-content {
+    color: var(--text-secondary);
+    background: var(--surface-color);
+}
+
+body.dark-mode .faq-question:hover {
+    color: var(--primary-color);
+}
+
+
+/* ---------------------------------------------------------
+   13. FOOTER
+   --------------------------------------------------------- */
+
+body.dark-mode .main-footer {
+    background: #0d0910;
+    border-top-color: var(--border-color);
+}
+
+body.dark-mode .footer-brand p,
+body.dark-mode .footer-description {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .footer-column h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .footer-links a {
+    color: #bdaebe;
+}
+
+body.dark-mode .footer-links a:hover {
+    color: #f9a8d4;
+}
+
+body.dark-mode .footer-bottom {
+    border-top-color: var(--border-color);
+}
+
+body.dark-mode .footer-bottom p {
+    color: var(--text-muted);
+}
+
+
+/* ---------------------------------------------------------
+   14. MOBILE BOTTOM NAVIGATION
+   --------------------------------------------------------- */
+
+body.dark-mode .mobile-bottom-navigation {
+    background: rgba(27, 21, 32, 0.96);
+    border-top-color: var(--border-color);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .mobile-bottom-navigation a {
+    color: var(--text-muted);
+}
+
+body.dark-mode .mobile-bottom-navigation a.active,
+body.dark-mode .mobile-bottom-navigation a:hover {
+    color: #f9a8d4;
+}
+
+body.dark-mode .mobile-bottom-navigation a.active .nav-icon {
+    color: #f9a8d4;
+}
+
+
+/* ---------------------------------------------------------
+   15. RESULTS AND DOWNLOAD MESSAGES
+   --------------------------------------------------------- */
+
+body.dark-mode .download-result,
+body.dark-mode .result-card,
+body.dark-mode .preview-card {
+    color: var(--text-color);
+    background: var(--surface-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .success-message {
+    color: #86efac;
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.25);
+}
+
+body.dark-mode .error-message {
+    color: #fda4af;
+    background: rgba(244, 63, 94, 0.12);
+    border-color: rgba(244, 63, 94, 0.25);
+}
+
+body.dark-mode .warning-message {
+    color: #fcd34d;
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.25);
+}
+
+
+/* ---------------------------------------------------------
+   16. TOAST NOTIFICATIONS
+   --------------------------------------------------------- */
+
+body.dark-mode .toast-message {
+    color: var(--text-color);
+    background: #302238;
+    border: 1px solid #563b58;
+    box-shadow: var(--shadow-lg);
+}
+
+body.dark-mode .toast-success {
+    border-left: 4px solid #22c55e;
+}
+
+body.dark-mode .toast-error {
+    border-left: 4px solid #f43f5e;
+}
+
+
+/* ---------------------------------------------------------
+   17. MODALS AND POPUPS
+   --------------------------------------------------------- */
+
+body.dark-mode .modal,
+body.dark-mode .modal-content,
+body.dark-mode .popup-content {
+    color: var(--text-color);
+    background: var(--surface-color);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+body.dark-mode .modal-overlay {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+body.dark-mode .modal-close {
+    color: var(--text-secondary);
+    background: var(--surface-secondary);
+}
+
+
+/* ---------------------------------------------------------
+   18. DROPDOWNS
+   --------------------------------------------------------- */
+
+body.dark-mode .dropdown-menu,
+body.dark-mode .dropdown-content {
+    background: var(--surface-color);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .dropdown-menu a,
+body.dark-mode .dropdown-content button {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .dropdown-menu a:hover,
+body.dark-mode .dropdown-content button:hover {
+    color: var(--primary-color);
+    background: var(--surface-secondary);
+}
+
+
+/* ---------------------------------------------------------
+   19. TABLES
+   --------------------------------------------------------- */
+
+body.dark-mode table {
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+body.dark-mode th {
+    color: #f9a8d4;
+    background: var(--surface-secondary);
+}
+
+body.dark-mode td {
+    border-color: var(--border-color);
+}
+
+body.dark-mode tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+
+/* ---------------------------------------------------------
+   20. LINKS AND ICONS
+   --------------------------------------------------------- */
+
+body.dark-mode a {
+    color: #f9a8d4;
+}
+
+body.dark-mode a:hover {
+    color: #fbcfe8;
+}
+
+body.dark-mode .icon-box {
+    color: #f9a8d4;
+    background: rgba(236, 72, 153, 0.12);
+}
+
+body.dark-mode svg {
+    color: inherit;
+}
+
+
+/* ---------------------------------------------------------
+   21. SCROLLBAR
+   --------------------------------------------------------- */
+
+body.dark-mode {
+    scrollbar-color: #754260 #1b1520;
+}
+
+body.dark-mode::-webkit-scrollbar {
+    width: 9px;
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+    background: #1b1520;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+    background: #754260;
+    border-radius: 20px;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+    background: #a34e7d;
+}
+
+
+/* ---------------------------------------------------------
+   22. SELECTION AND ACCESSIBILITY
+   --------------------------------------------------------- */
+
+body.dark-mode :focus-visible {
+    outline-color: #f472b6;
+}
+
+body.dark-mode ::selection {
+    background: #9d174d;
+    color: #ffffff;
+}
+
+
+/* ---------------------------------------------------------
+   23. DARK MODE IMAGE PLACEHOLDERS
+   --------------------------------------------------------- */
+
+body.dark-mode .image-placeholder {
+    color: var(--text-muted);
+    background: var(--surface-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .empty-state {
+    color: var(--text-secondary);
+    background: var(--surface-color);
+    border-color: var(--border-color);
+}
+
+
+/* ---------------------------------------------------------
+   24. SMOOTH THEME TRANSITION
+   --------------------------------------------------------- */
+
+body,
+body *,
+body *::before,
+body *::after {
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.2s ease;
+}
+
+
+/* ---------------------------------------------------------
+   25. DARK MODE MOBILE SUPPORT
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+
+    body.dark-mode .mobile-bottom-navigation {
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+    body.dark-mode .main-header {
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   26. DARK MODE PRINT SUPPORT
+   --------------------------------------------------------- */
+
+@media print {
+
+    body.dark-mode {
+        color: #000000 !important;
+        background: #ffffff !important;
+    }
+
+    body.dark-mode * {
+        color: #000000 !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+    }
+}
+
+
+/* =========================================================
+   END OF INSTA CROWN DARK MODE CSS
+   ========================================================= */
+
