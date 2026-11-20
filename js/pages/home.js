@@ -731,16 +731,44 @@
 
             try {
 
-                const existing =
+                                const savedData =
                     JSON.parse(
                         localStorage.getItem(storageKey) ||
                         "[]"
                     );
 
+                const existing =
+                    Array.isArray(savedData)
+                        ? savedData
+                        : [];
+
                 const filtered =
-                    existing.filter(
-                        (item) => item.url !== url
-                    );
+                    existing.filter((item) => {
+
+                        if (
+                            !item ||
+                            typeof item !== "object" ||
+                            typeof item.url !== "string" ||
+                            typeof item.date !== "string"
+                        ) {
+                            return false;
+                        }
+
+                        if (!this.validateURL(item.url)) {
+                            return false;
+                        }
+
+                        if (
+                            Number.isNaN(
+                                new Date(item.date).getTime()
+                            )
+                        ) {
+                            return false;
+                        }
+
+                        return item.url !== url;
+
+                    });
 
                 filtered.unshift({
 
