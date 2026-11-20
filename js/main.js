@@ -434,19 +434,42 @@ const Storage = {
 
     },
 
-    clear() {
+        clear(keys = []) {
 
         try {
 
-            localStorage.clear();
+            if (!Array.isArray(keys)) {
+                console.warn(
+                    "Storage clear requires an array of keys."
+                );
+                return false;
+            }
+
+            keys.forEach((key) => {
+
+                if (
+                    typeof key === "string" &&
+                    key.trim() !== ""
+                ) {
+                    localStorage.removeItem(key);
+                }
+
+            });
+
+            return true;
 
         } catch (error) {
 
-            console.error("Storage clear error:", error);
+            console.error(
+                "Storage clear error:",
+                error
+            );
+
+            return false;
 
         }
 
-    }
+        }
 
 };
 
