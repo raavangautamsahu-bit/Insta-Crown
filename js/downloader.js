@@ -230,7 +230,7 @@
            9. CLEAR PREVIOUS RESULTS
         ------------------------------------------------- */
 
-        clearResults: function () {
+                clearResults: function () {
 
             const resultElement = this.getElement(
                 DownloaderConfig.resultSelector
@@ -238,16 +238,20 @@
 
             if (resultElement) {
 
-                resultElement.innerHTML = "";
+                resultElement.replaceChildren();
 
                 resultElement.classList.add("hidden");
+
+                resultElement.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
 
             }
 
             this.lastResult = null;
 
         },
-
 
         /* -------------------------------------------------
            10. VALIDATE SUBMITTED URL
