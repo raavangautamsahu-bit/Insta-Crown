@@ -546,6 +546,10 @@
             );
 
             resultElement.classList.remove("hidden");
+                       resultElement.setAttribute(
+                "aria-hidden",
+                "false"
+            );
 
             resultElement.scrollIntoView({
 
