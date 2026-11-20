@@ -570,7 +570,7 @@
            16. CANCEL CURRENT REQUEST
         ------------------------------------------------- */
 
-                cancelRequest: function () {
+                        cancelRequest: function () {
 
             const controller = this.currentRequest;
 
@@ -590,7 +590,7 @@
            17. PROCESS DOWNLOAD
         ------------------------------------------------- */
 
-                processDownload: async function (value) {
+                        processDownload: async function (value) {
 
             if (this.isProcessing) {
                 return false;
