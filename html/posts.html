@@ -1,1 +1,500 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="author" content="Insta Crown">
+
+    <meta name="description"
+        content="Insta Crown Instagram Posts tool. Process supported public Instagram post and carousel links with a simple interface.">
+
+    <meta name="keywords"
+        content="Insta Crown, Instagram Posts, Instagram Carousel, Post Downloader">
+
+    <title>Instagram Posts Tool | Insta Crown 👑</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/posts.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+
+<body>
+
+    <!-- WEBSITE LOADER -->
+    <div class="website-loader" id="websiteLoader">
+        <div class="loader-content">
+            <div class="loader-crown">👑</div>
+            <h2>Insta Crown</h2>
+            <div class="loader-progress">
+                <span></span>
+            </div>
+            <p>Preparing your experience...</p>
+        </div>
+    </div>
+
+    <div class="website-wrapper">
+
+        <!-- HEADER -->
+        <header class="main-header" id="mainHeader">
+
+            <div class="header-container">
+
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon">👑</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Insta Crown</span>
+                        <span class="brand-tagline">Your Media Companion</span>
+                    </div>
+                </a>
+
+                <div class="header-actions">
+
+                    <button class="icon-button theme-toggle"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+
+                    <button class="icon-button mobile-menu-button"
+                        id="mobileMenuButton"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+
+            <nav class="desktop-navigation" id="desktopNavigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="reels.html" class="nav-link">Reels</a>
+                <a href="posts.html" class="nav-link active">Posts</a>
+                <a href="stories.html" class="nav-link">Stories</a>
+                <a href="profile.html" class="nav-link">Profile Picture</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content posts-page">
+
+            <!-- HERO SECTION -->
+            <section class="posts-hero">
+
+                <div class="posts-hero-content">
+
+                    <div class="posts-badge">
+                        <span>👑</span>
+                        <span>INSTA CROWN POSTS TOOL</span>
+                    </div>
+
+                    <h1 class="posts-hero-title">
+                        Instagram
+                        <span>Posts Tool</span>
+                    </h1>
+
+                    <p class="posts-hero-description">
+                        Process supported Instagram post and
+                        carousel links with our clean and
+                        easy-to-use interface.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- POST DOWNLOADER -->
+            <section class="posts-section posts-downloader-section"
+                id="postsDownloader">
+
+                <div class="posts-container">
+
+                    <div class="posts-downloader-card">
+
+                        <div class="posts-downloader-heading">
+
+                            <div class="posts-badge">
+                                🖼️ POST & CAROUSEL TOOL
+                            </div>
+
+                            <h2>Process Instagram Posts</h2>
+
+                            <p>
+                                Paste a supported public Instagram
+                                post or carousel URL below.
+                            </p>
+
+                        </div>
+
+                        <form id="postsDownloaderForm"
+                            class="posts-downloader-form"
+                            novalidate>
+
+                            <label class="posts-input-label"
+                                for="postsInstagramUrl">
+                                Instagram Post URL
+                            </label>
+
+                            <div class="posts-input-wrapper">
+
+                                <span class="posts-input-icon">🔗</span>
+
+                                <input
+                                    type="url"
+                                    id="postsInstagramUrl"
+                                    name="postsInstagramUrl"
+                                    placeholder="https://www.instagram.com/p/..."
+                                    autocomplete="url"
+                                    inputmode="url"
+                                    required
+                                    aria-describedby="postsInputHelp">
+
+                                <button
+                                    type="button"
+                                    class="posts-clear-button"
+                                    data-posts-clear
+                                    aria-label="Clear post URL">
+                                    ✕
+                                </button>
+
+                            </div>
+
+                            <p id="postsInputHelp"
+                                class="posts-input-help">
+                                Enter a valid Instagram post or carousel link.
+                            </p>
+
+                            <div class="posts-form-actions">
+
+                                <button
+                                    type="button"
+                                    class="posts-paste-button"
+                                    data-posts-paste>
+                                    📋 Paste Link
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    id="postsDownloadButton"
+                                    class="posts-download-button">
+                                    <span>⬇️</span>
+                                    <span>Download Post</span>
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <!-- LOADING -->
+                        <div id="postsDownloadLoading"
+                            class="posts-download-loading"
+                            hidden
+                            aria-live="polite">
+
+                            <div class="posts-loading-spinner"></div>
+
+                            <h3>Processing your post...</h3>
+
+                            <p>
+                                Please wait while your request is being processed.
+                            </p>
+
+                        </div>
+
+                        <!-- ERROR -->
+                        <div id="postsDownloadError"
+                            class="posts-download-error"
+                            role="alert"
+                            hidden>
+                        </div>
+
+                        <!-- RESULT -->
+                        <div id="postsDownloadResult"
+                            class="posts-download-result"
+                            hidden>
+
+                            <div class="posts-result-heading">
+                                <span>✅</span>
+                                <h3>Your Post is Ready</h3>
+                            </div>
+
+                            <div id="postsResultGallery"
+                                class="posts-result-gallery"
+                                aria-live="polite">
+                            </div>
+
+                            <a
+                                id="postsResultLink"
+                                class="posts-result-download-button"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                hidden>
+                                ⬇️ Download Processed Post
+                            </a>
+
+                            <p class="posts-result-note">
+                                Use downloaded content only when you
+                                own it or have permission to use it.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RECENT HISTORY -->
+            <section class="posts-section posts-history-section">
+
+                <div class="posts-container">
+
+                    <h2 class="posts-section-title">
+                        Recent Post Links
+                    </h2>
+
+                    <p class="posts-section-subtitle">
+                        Quickly reuse your recently submitted post links.
+                    </p>
+
+                    <div class="posts-history-card">
+
+                        <div class="posts-history-header">
+                            <h3>Recent History</h3>
+
+                            <button
+                                type="button"
+                                class="posts-history-clear"
+                                onclick="window.InstaCrownPosts && window.InstaCrownPosts.clearHistory()">
+                                Clear History
+                            </button>
+                        </div>
+
+                        <div id="postsRecentHistory"
+                            class="posts-recent-history"
+                            aria-live="polite">
+
+                            <p class="empty-history">
+                                No recent posts yet.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- HOW TO USE -->
+            <section class="posts-section posts-how-section">
+
+                <div class="posts-container">
+
+                    <h2 class="posts-section-title">
+                        How to Use the Posts Tool
+                    </h2>
+
+                    <p class="posts-section-subtitle">
+                        Three simple steps to submit your Instagram post link.
+                    </p>
+
+                    <div class="posts-steps-grid">
+
+                        <article class="posts-step-card">
+                            <div class="posts-step-icon">📱</div>
+                            <span class="posts-step-number">01</span>
+                            <h3>Open Instagram</h3>
+                            <p>
+                                Find the post or carousel you are
+                                permitted to access.
+                            </p>
+                        </article>
+
+                        <article class="posts-step-card">
+                            <div class="posts-step-icon">🔗</div>
+                            <span class="posts-step-number">02</span>
+                            <h3>Copy the Link</h3>
+                            <p>
+                                Copy the post URL and paste it
+                                into the input field.
+                            </p>
+                        </article>
+
+                        <article class="posts-step-card">
+                            <div class="posts-step-icon">⬇️</div>
+                            <span class="posts-step-number">03</span>
+                            <h3>Submit the Link</h3>
+                            <p>
+                                Submit your URL to the connected
+                                and compatible processing service.
+                            </p>
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- PRIVACY INFORMATION -->
+            <section class="posts-section posts-info-section">
+
+                <div class="posts-container">
+
+                    <div class="posts-info-card">
+
+                        <div class="posts-info-icon">🔐</div>
+
+                        <div>
+                            <h2>Safe and Responsible Usage</h2>
+
+                            <p>
+                                Insta Crown does not ask for your
+                                Instagram password. We do not bypass
+                                private-account restrictions or access
+                                controls. Respect creators' rights and
+                                use only content you are authorized to use.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+
+            <div class="footer-container">
+
+                <div class="footer-brand">
+
+                    <a href="index.html"
+                        class="brand-logo footer-logo">
+
+                        <div class="logo-icon">👑</div>
+
+                        <div class="logo-text">
+                            <span class="brand-name">Insta Crown</span>
+                            <span class="brand-tagline">Your Media Companion</span>
+                        </div>
+
+                    </a>
+
+                    <p>
+                        A simple and stylish collection
+                        of Instagram media tools.
+                    </p>
+
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="reels.html">Reels</a>
+                    <a href="posts.html">Posts</a>
+                    <a href="stories.html">Stories</a>
+                    <a href="profile.html">Profile Picture</a>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Information</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+
+                <div class="footer-links-column">
+                    <h3>Support</h3>
+                    <p>
+                        Have a question or suggestion?
+                        Visit our contact page.
+                    </p>
+                    <a href="contact.html"
+                        class="footer-contact-link">
+                        Contact Us →
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © <span id="currentYear">2026</span>
+                    Insta Crown. All Rights Reserved.
+                </p>
+
+                <p class="footer-made-text">
+                    Made with 💗 for everyone.
+                </p>
+            </div>
+
+        </footer>
+
+        <!-- MOBILE BOTTOM NAVIGATION: ONLY THREE -->
+        <nav class="mobile-bottom-navigation"
+            id="mobileBottomNavigation"
+            aria-label="Mobile navigation">
+
+            <a href="index.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">🏠</span>
+                <span class="bottom-nav-label">Home</span>
+            </a>
+
+            <a href="reels.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">▶️</span>
+                <span class="bottom-nav-label">Reels</span>
+            </a>
+
+            <a href="about.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">👑</span>
+                <span class="bottom-nav-label">About</span>
+            </a>
+
+        </nav>
+
+    </div>
+
+    <!-- SHARED JAVASCRIPT -->
+    <script src="../js/main.js" defer></script>
+    <script src="../js/navigation.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/clipboard.js" defer></script>
+    <script src="../js/validation.js" defer></script>
+    <script src="../js/downloader.js" defer></script>
+
+    <!-- POSTS PAGE CONTROLLER -->
+    <script src="../js/pages/posts.js" defer></script>
+
+</body>
+</html>
+
