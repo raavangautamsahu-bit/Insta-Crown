@@ -1,0 +1,114 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return signedIn() &&
+        request.auth.uid == userId;
+    }
+
+    // USER PROFILE
+    match /users/{userId} {
+      allow read, create, update, delete:
+        if isOwner(userId);
+
+      // USER SETTINGS
+      match /settings/{documentId} {
+        allow read, create, update, delete:
+          if isOwner(userId);
+      }
+
+      // USER ACTIVITY
+      match /activity/{documentId} {
+        allow read, create, update, delete:
+          if isOwner(userId);
+      }
+
+      // SAVED ITEMS
+      match /savedItems/{documentId} {
+        allow read, create, update, delete:
+          if isOwner(userId);
+      }
+
+      // DOWNLOAD HISTORY
+      match /downloads/{documentId} {
+        allow read, create, update, delete:
+          if isOwner(userId);
+      }
+
+      // WALLET SUMMARY
+      match /wallet/{documentId} {
+        allow read: if isOwner(userId);
+
+        // Only trusted server can change balance.
+        allow create, update, delete: if false;
+      }
+
+      // WALLET TRANSACTIONS
+      match /walletTransactions/{transactionId} {
+        allow read: if isOwner(userId);
+
+        // Users cannot create or modify transactions.
+        allow create, update, delete: if false;
+      }
+
+      // WALLET REQUESTS
+      match /walletRequests/{requestId} {
+
+        allow read: if isOwner(userId);
+
+        // User can submit only a valid pending request.
+        allow create: if isOwner(userId)
+          && request.resource.data.keys().hasOnly([
+            'type',
+            'amount',
+            'amountPaise',
+            'status',
+            'userId',
+            'userEmail',
+            'createdAt'
+          ])
+          && request.resource.data.keys().hasAll([
+            'type',
+            'amount',
+            'amountPaise',
+            'status',
+            'userId',
+            'userEmail',
+            'createdAt'
+          ])
+          && request.resource.data.userId == userId
+          && request.resource.data.userEmail is string
+          && request.resource.data.userEmail.size() <= 254
+          && request.resource.data.status == 'pending'
+          && request.resource.data.amount is number
+          && request.resource.data.amountPaise is int
+          && request.resource.data.amountPaise ==
+             request.resource.data.amount * 100
+          && request.resource.data.createdAt == request.time
+          && (
+            (
+              request.resource.data.type == 'add'
+              && request.resource.data.amount >= 10
+              && request.resource.data.amount <= 50000
+            )
+            ||
+            (
+              request.resource.data.type == 'withdraw'
+              && request.resource.data.amount >= 50
+              && request.resource.data.amount <= 25000
+            )
+          );
+
+        // Only trusted server can approve, reject or delete.
+        allow update, delete: if false;
+      }
+    }
+  }
+}
