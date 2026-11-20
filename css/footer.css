@@ -1,1 +1,896 @@
 
+/* ==========================================================
+   INSTA CROWN
+   FOOTER CSS
+   Footer Brand + Links + Copyright
+   Version: 1.0
+========================================================== */
+
+
+/* ==========================================================
+   01. MAIN FOOTER
+========================================================== */
+
+.main-footer {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 70px 25px 0;
+
+    overflow: hidden;
+
+    border-top: 1px solid #f3dce9;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff7fb 0%,
+            #ffffff 50%,
+            #faf5ff 100%
+        );
+
+}
+
+
+/* ==========================================================
+   02. FOOTER BACKGROUND DECORATION
+========================================================== */
+
+.main-footer::before {
+
+    position: absolute;
+
+    top: -170px;
+
+    right: -100px;
+
+    width: 350px;
+
+    height: 350px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(236, 72, 153, 0.08),
+            transparent 70%
+        );
+
+    content: "";
+
+    pointer-events: none;
+
+}
+
+
+.main-footer::after {
+
+    position: absolute;
+
+    bottom: -180px;
+
+    left: -120px;
+
+    width: 350px;
+
+    height: 350px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 85, 247, 0.07),
+            transparent 70%
+        );
+
+    content: "";
+
+    pointer-events: none;
+
+}
+
+
+/* ==========================================================
+   03. FOOTER CONTAINER
+========================================================== */
+
+.footer-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+
+    gap: 45px;
+
+    width: min(
+        100%,
+        1200px
+    );
+
+    margin: 0 auto;
+
+    padding-bottom: 55px;
+
+}
+
+
+/* ==========================================================
+   04. FOOTER BRAND
+========================================================== */
+
+.footer-brand {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+
+.footer-logo {
+
+    margin-bottom: 20px;
+
+}
+
+
+.footer-brand .logo-icon {
+
+    width: 49px;
+
+    height: 49px;
+
+    border-radius: 15px;
+
+    font-size: 25px;
+
+}
+
+
+.footer-brand .brand-name {
+
+    font-size: 20px;
+
+}
+
+
+.footer-brand .brand-tagline {
+
+    font-size: 10px;
+
+}
+
+
+.footer-brand > p {
+
+    max-width: 280px;
+
+    color: #877786;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+}
+
+
+/* ==========================================================
+   05. FOOTER LINK COLUMNS
+========================================================== */
+
+.footer-links-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+
+.footer-links-column h3 {
+
+    position: relative;
+
+    margin-bottom: 23px;
+
+    padding-bottom: 11px;
+
+    color: #352335;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+}
+
+
+.footer-links-column h3::after {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 34px;
+
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #ec4899,
+        #a855f7
+    );
+
+    content: "";
+
+}
+
+
+/* ==========================================================
+   06. FOOTER LINKS
+========================================================== */
+
+.footer-links-column > a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 13px;
+
+    color: #897989;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.footer-links-column > a:hover {
+
+    color: #db2777;
+
+    transform: translateX(5px);
+
+}
+
+
+.footer-links-column > a:active {
+
+    color: #be185d;
+
+}
+
+
+/* ==========================================================
+   07. FOOTER SUPPORT TEXT
+========================================================== */
+
+.footer-links-column > p {
+
+    max-width: 230px;
+
+    margin-bottom: 17px;
+
+    color: #897989;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+}
+
+
+.footer-contact-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 39px;
+
+    padding: 9px 17px;
+
+    border: 1px solid #f3c7df;
+
+    border-radius: 50px;
+
+    background: #fff0f7;
+
+    color: #c02679 !important;
+
+    font-size: 11px !important;
+
+    font-weight: 700 !important;
+
+    transition: all 0.3s ease !important;
+
+}
+
+
+.footer-contact-link:hover {
+
+    border-color: #ec4899;
+
+    background: linear-gradient(
+        135deg,
+        #ec4899,
+        #a855f7
+    );
+
+    color: #ffffff !important;
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 7px 18px rgba(236, 72, 153, 0.18);
+
+}
+
+
+/* ==========================================================
+   08. FOOTER BOTTOM
+========================================================== */
+
+.footer-bottom {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    width: min(
+        100%,
+        1200px
+    );
+
+    min-height: 75px;
+
+    margin: 0 auto;
+
+    border-top: 1px solid #f1dfeb;
+
+}
+
+
+.footer-bottom p {
+
+    color: #a091a0;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+}
+
+
+.footer-made-text {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+/* ==========================================================
+   09. FOOTER SOCIAL ICONS
+   Optional reusable styling
+========================================================== */
+
+.footer-social-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+}
+
+
+.footer-social-links a {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 37px;
+
+    height: 37px;
+
+    border: 1px solid #f2dce9;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #d63384;
+
+    font-size: 15px;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.footer-social-links a:hover {
+
+    border-color: #ec4899;
+
+    background: linear-gradient(
+        135deg,
+        #ec4899,
+        #a855f7
+    );
+
+    color: #ffffff;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 6px 15px rgba(236, 72, 153, 0.18);
+
+}
+
+
+/* ==========================================================
+   10. FOOTER NEWSLETTER
+   Optional reusable component
+========================================================== */
+
+.footer-newsletter {
+
+    width: 100%;
+
+    max-width: 300px;
+
+    margin-top: 20px;
+
+}
+
+
+.footer-newsletter h4 {
+
+    margin-bottom: 10px;
+
+    color: #352335;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.footer-newsletter-form {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+.footer-newsletter-form input {
+
+    min-width: 0;
+
+    height: 42px;
+
+    padding: 0 12px;
+
+    border: 1px solid #f1dce9;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    font-size: 11px;
+
+}
+
+
+.footer-newsletter-form button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #ec4899,
+        #a855f7
+    );
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    transition: transform 0.25s ease;
+
+}
+
+
+.footer-newsletter-form button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ==========================================================
+   11. FOOTER BADGE
+========================================================== */
+
+.footer-trust-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 15px;
+
+    padding: 7px 11px;
+
+    border: 1px solid #f3dfeb;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    color: #8b7285;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+.footer-trust-badge span {
+
+    color: #16a34a;
+
+}
+
+
+/* ==========================================================
+   12. FOOTER TABLET RESPONSIVE
+========================================================== */
+
+@media (max-width: 1000px) {
+
+    .footer-container {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 40px;
+
+    }
+
+
+    .footer-brand {
+
+        max-width: 350px;
+
+    }
+
+
+    .footer-links-column > p {
+
+        max-width: 300px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   13. FOOTER MOBILE RESPONSIVE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    .main-footer {
+
+        padding: 55px 20px 0;
+
+    }
+
+
+    .footer-container {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 35px 22px;
+
+        padding-bottom: 35px;
+
+    }
+
+
+    .footer-brand {
+
+        grid-column: 1 / -1;
+
+        max-width: 100%;
+
+        padding-bottom: 5px;
+
+    }
+
+
+    .footer-brand > p {
+
+        max-width: 340px;
+
+        font-size: 12px;
+
+    }
+
+
+    .footer-links-column h3 {
+
+        margin-bottom: 17px;
+
+        font-size: 13px;
+
+    }
+
+
+    .footer-links-column > a {
+
+        margin-bottom: 12px;
+
+        font-size: 11px;
+
+    }
+
+
+    .footer-links-column > p {
+
+        font-size: 11px;
+
+    }
+
+
+    .footer-contact-link {
+
+        min-height: 36px;
+
+        padding: 8px 13px;
+
+        font-size: 10px !important;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 5px;
+
+        min-height: 75px;
+
+        padding: 15px 0;
+
+        text-align: center;
+
+    }
+
+
+    .footer-bottom p {
+
+        font-size: 10px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   14. SMALL MOBILE RESPONSIVE
+========================================================== */
+
+@media (max-width: 380px) {
+
+    .main-footer {
+
+        padding-right: 15px;
+
+        padding-left: 15px;
+
+    }
+
+
+    .footer-container {
+
+        gap: 30px 15px;
+
+    }
+
+
+    .footer-brand .brand-name {
+
+        font-size: 18px;
+
+    }
+
+
+    .footer-brand > p {
+
+        font-size: 11px;
+
+    }
+
+
+    .footer-links-column h3 {
+
+        font-size: 12px;
+
+    }
+
+
+    .footer-links-column > a {
+
+        font-size: 10px;
+
+    }
+
+
+    .footer-links-column > p {
+
+        font-size: 10px;
+
+    }
+
+
+    .footer-bottom p {
+
+        font-size: 9px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   15. DARK MODE SUPPORT
+========================================================== */
+
+body.dark-mode .main-footer {
+
+    border-top-color: #3b293a;
+
+    background: #18121b;
+
+}
+
+
+body.dark-mode .footer-links-column h3,
+body.dark-mode .footer-newsletter h4 {
+
+    color: #fce7f3;
+
+}
+
+
+body.dark-mode .footer-brand > p,
+body.dark-mode .footer-links-column > a,
+body.dark-mode .footer-links-column > p,
+body.dark-mode .footer-bottom p {
+
+    color: #b9a9ba;
+
+}
+
+
+body.dark-mode .footer-bottom {
+
+    border-top-color: #3b293a;
+
+}
+
+
+body.dark-mode .footer-social-links a,
+body.dark-mode .footer-newsletter-form input {
+
+    border-color: #493348;
+
+    background: #241a27;
+
+    color: #fce7f3;
+
+}
+
+
+body.dark-mode .footer-trust-badge {
+
+    border-color: #493348;
+
+    background: #241a27;
+
+    color: #e9d5e8;
+
+}
+
+
+/* ==========================================================
+   16. REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .footer-links-column > a,
+    .footer-contact-link,
+    .footer-social-links a,
+    .footer-newsletter-form button {
+
+        transition: none !important;
+
+    }
+
+}
+
+
+/* ==========================================================
+   END OF FOOTER CSS
+========================================================== */
+
