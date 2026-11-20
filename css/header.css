@@ -1061,3 +1061,83 @@
    END OF HEADER CSS
 ========================================================== */
 
+
+/* ==========================================================
+   16. LEGACY NAVIGATION COMPATIBILITY
+   Supports Stories, Profile, Terms, Contact and Privacy
+========================================================== */
+
+/* Desktop navigation used by older pages */
+.main-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: min(calc(100% - 50px), 1200px);
+    min-height: 48px;
+    margin: 0 auto;
+    padding: 0 0 9px;
+}
+
+.main-navigation a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 8px 17px;
+    border-radius: 10px;
+    color: #776575;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.main-navigation a:hover,
+.main-navigation a.active {
+    background: #fff1f7;
+    color: #db2777;
+}
+
+/* Legacy bottom navigation */
+.bottom-navigation {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2500;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 68px;
+    padding: 7px 12px calc(7px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid #f2dfeb;
+    box-shadow: 0 -5px 22px rgba(50, 20, 40, 0.06);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+@media (max-width: 900px) {
+    .main-navigation {
+        display: none;
+    }
+
+    .bottom-navigation {
+        display: flex;
+    }
+
+    body {
+        padding-bottom: 82px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .main-navigation a {
+        transition: none !important;
+    }
+}
