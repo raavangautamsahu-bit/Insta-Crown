@@ -1,1 +1,624 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e1306c">
+
+    <meta name="description" content="Insta Crown Instagram profile picture tool. View and access profile pictures through an authorized service.">
+
+    <title>Instagram Profile Picture | Insta Crown 👑</title>
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/header.css">
+
+    <!-- Profile CSS -->
+    <link rel="stylesheet" href="../css/profile.css">
+
+    <!-- Additional CSS -->
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">👑</span>
+                <span class="logo-text">Insta Crown</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-navigation" id="mainNavigation">
+
+                <a href="index.html">Home</a>
+                <a href="reels.html">Reels</a>
+                <a href="posts.html">Posts</a>
+                <a href="stories.html">Stories</a>
+                <a href="profile.html" class="active">Profile Picture</a>
+                <a href="about.html">About</a>
+
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+
+    <main class="profile-page">
+
+        <!-- HERO SECTION -->
+
+        <section class="profile-hero">
+
+            <div class="profile-hero-content">
+
+                <div class="profile-hero-icon">
+                    👤
+                </div>
+
+                <div class="profile-hero-badge">
+                    👑 Insta Crown Profile Tool
+                </div>
+
+                <h1>
+                    Instagram
+                    <span>Profile Picture</span>
+                </h1>
+
+                <p>
+                    Enter an Instagram profile URL to access
+                    its profile picture through an authorized
+                    media service. Simple, convenient and
+                    mobile-friendly.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DOWNLOADER SECTION -->
+
+        <section class="profile-downloader-section">
+
+            <div class="profile-downloader-card">
+
+                <div class="profile-downloader-heading">
+
+                    <h2>Profile Picture Viewer</h2>
+
+                    <p>
+                        Enter the Instagram profile URL below.
+                    </p>
+
+                </div>
+
+
+                <!-- PROFILE FORM -->
+
+                <form
+                    id="profileDownloaderForm"
+                    class="profile-downloader-form"
+                    novalidate
+                >
+
+                    <label
+                        for="profileInstagramUrl"
+                        class="profile-input-label"
+                    >
+                        Instagram Profile URL
+                    </label>
+
+
+                    <div class="profile-input-wrapper">
+
+                        <span class="profile-input-icon">
+                            👤
+                        </span>
+
+                        <input
+                            type="url"
+                            id="profileInstagramUrl"
+                            name="profileUrl"
+                            class="profile-username-input"
+                            placeholder="https://www.instagram.com/username/"
+                            autocomplete="url"
+                            inputmode="url"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            data-profile-paste
+                            class="profile-paste-button"
+                        >
+                            📋 Paste
+                        </button>
+
+                        <button
+                            type="button"
+                            data-profile-clear
+                            class="profile-clear-button"
+                            aria-label="Clear profile URL"
+                        >
+                            ✕
+                        </button>
+
+                    </div>
+
+
+                    <div class="profile-form-actions">
+
+                        <button
+                            type="submit"
+                            id="profileDownloadButton"
+                            class="profile-download-button"
+                        >
+                            <span>👑</span>
+                            Get Profile Picture
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <!-- LOADING -->
+
+                <div
+                    id="profileDownloadLoading"
+                    class="profile-loading"
+                    hidden
+                    aria-live="polite"
+                >
+
+                    <div class="profile-loading-spinner"></div>
+
+                    <p>
+                        Loading profile picture...
+                    </p>
+
+                </div>
+
+
+                <!-- ERROR -->
+
+                <div
+                    id="profileDownloadError"
+                    class="profile-error"
+                    role="alert"
+                    hidden
+                ></div>
+
+
+                <!-- PROFILE PREVIEW -->
+
+                <div class="profile-preview-section">
+
+                    <img
+                        id="profilePicturePreview"
+                        class="profile-result-image"
+                        src=""
+                        alt="Instagram profile picture preview"
+                        loading="lazy"
+                        hidden
+                    >
+
+                </div>
+
+
+                <!-- RESULT -->
+
+                <section
+                    id="profileDownloadResult"
+                    class="profile-result"
+                    aria-live="polite"
+                    hidden
+                ></section>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW TO USE -->
+
+        <section class="profile-section profile-how-section">
+
+            <div class="profile-container">
+
+                <h2 class="profile-section-title">
+                    How to Get Profile Picture
+                </h2>
+
+                <p class="profile-section-description">
+                    Follow these easy steps to use the
+                    Insta Crown profile picture tool.
+                </p>
+
+
+                <div class="profile-steps-grid">
+
+                    <article class="profile-step-card">
+
+                        <div class="profile-step-icon">
+                            📱
+                        </div>
+
+                        <h3>Step 1: Open Instagram</h3>
+
+                        <p>
+                            Open Instagram and visit the profile
+                            you are authorized to access.
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-step-card">
+
+                        <div class="profile-step-icon">
+                            🔗
+                        </div>
+
+                        <h3>Step 2: Copy Profile URL</h3>
+
+                        <p>
+                            Copy the profile link from
+                            Instagram.
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-step-card">
+
+                        <div class="profile-step-icon">
+                            📋
+                        </div>
+
+                        <h3>Step 3: Paste URL</h3>
+
+                        <p>
+                            Paste the copied profile URL
+                            into the input field.
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-step-card">
+
+                        <div class="profile-step-icon">
+                            👑
+                        </div>
+
+                        <h3>Step 4: Get Picture</h3>
+
+                        <p>
+                            Continue to view the available
+                            picture when the authorized
+                            service is connected.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="profile-section profile-features-section">
+
+            <div class="profile-container">
+
+                <h2 class="profile-section-title">
+                    Profile Tool Features
+                </h2>
+
+                <p class="profile-section-description">
+                    Helpful features for a simple profile
+                    picture experience.
+                </p>
+
+
+                <div class="profile-features-grid">
+
+                    <article class="profile-feature-card">
+
+                        <div class="profile-feature-icon">
+                            🖼️
+                        </div>
+
+                        <h3>Picture Preview</h3>
+
+                        <p>
+                            View the returned profile picture
+                            inside the result area.
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-feature-card">
+
+                        <div class="profile-feature-icon">
+                            📋
+                        </div>
+
+                        <h3>Quick Paste</h3>
+
+                        <p>
+                            Paste a copied Instagram profile
+                            link with one tap.
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-feature-card">
+
+                        <div class="profile-feature-icon">
+                            🕘
+                        </div>
+
+                        <h3>Search History</h3>
+
+                        <p>
+                            Reuse recently submitted profile
+                            URLs from this browser.
+                        </p>
+
+                    </article>
+
+
+                    <article class="profile-feature-card">
+
+                        <div class="profile-feature-icon">
+                            📱
+                        </div>
+
+                        <h3>Mobile Friendly</h3>
+
+                        <p>
+                            Responsive design for phones,
+                            tablets and desktop screens.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT HISTORY -->
+
+        <section class="profile-section profile-history-section">
+
+            <div class="profile-container">
+
+                <h2 class="profile-section-title">
+                    Recent Profile Searches
+                </h2>
+
+                <p class="profile-section-description">
+                    Your recent profile search activity
+                    is saved locally in this browser.
+                </p>
+
+
+                <div
+                    id="profileRecentHistory"
+                    class="profile-history-list"
+                    aria-live="polite"
+                >
+
+                    <p class="profile-history-empty">
+                        Loading recent searches...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRIVACY NOTICE -->
+
+        <section class="profile-section profile-notice-section">
+
+            <div class="profile-container">
+
+                <div class="profile-notice-card">
+
+                    <div class="profile-notice-icon">
+                        🔒
+                    </div>
+
+                    <h2>Privacy and Responsible Use</h2>
+
+                    <p>
+                        Use this feature only for content you
+                        own or have permission to access.
+                        Insta Crown does not bypass private
+                        account restrictions, login requirements
+                        or Instagram access controls. Profile
+                        picture retrieval requires an authorized
+                        backend service.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">👑</span>
+                    <span class="logo-text">Insta Crown</span>
+                </a>
+
+                <p>
+                    Simple and convenient Instagram tools
+                    in one place.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="reels.html">Reels</a>
+                <a href="posts.html">Posts</a>
+                <a href="stories.html">Stories</a>
+                <a href="profile.html">Profile Picture</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Information</h3>
+
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © <span id="currentYear"></span>
+                Insta Crown 👑. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         BOTTOM NAVIGATION
+         Exactly 3 buttons
+    ========================== -->
+
+    <nav class="bottom-navigation" aria-label="Mobile navigation">
+
+        <a href="index.html" class="bottom-nav-item">
+            <span>🏠</span>
+            <small>Home</small>
+        </a>
+
+        <a href="reels.html" class="bottom-nav-item">
+            <span>🎬</span>
+            <small>Reels</small>
+        </a>
+
+        <a href="about.html" class="bottom-nav-item">
+            <span>👑</span>
+            <small>About</small>
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/clipboard.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/downloader.js"></script>
+
+    <script src="../js/pages/profile.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const yearElement =
+                document.getElementById("currentYear");
+
+            if (yearElement) {
+                yearElement.textContent =
+                    new Date().getFullYear();
+            }
+
+        });
+    </script>
+
+</body>
+</html>
+
