@@ -1,1 +1,1268 @@
 
+/* ==========================================================
+   INSTA CROWN
+   MAIN CSS - CORE DESIGN SYSTEM
+   Theme: White + Pink
+   Version: 1.0
+========================================================== */
+
+
+/* ==========================================================
+   01. GOOGLE FONT FALLBACK & ROOT VARIABLES
+========================================================== */
+
+:root {
+
+    /* Primary Brand Colors */
+
+    --primary: #ec4899;
+    --primary-dark: #db2777;
+    --primary-light: #fbcfe8;
+    --primary-soft: #fdf2f8;
+
+    --secondary: #a855f7;
+    --secondary-dark: #9333ea;
+    --secondary-light: #e9d5ff;
+
+    /* Background Colors */
+
+    --background: #ffffff;
+    --background-soft: #fff7fb;
+    --background-pink: #fdf2f8;
+    --surface: #ffffff;
+    --surface-secondary: #fff9fc;
+
+    /* Text Colors */
+
+    --text-primary: #241421;
+    --text-secondary: #756575;
+    --text-muted: #a397a3;
+    --text-white: #ffffff;
+
+    /* Border Colors */
+
+    --border: #f1dce9;
+    --border-light: #f8eaf2;
+    --border-focus: #ec4899;
+
+    /* Status Colors */
+
+    --success: #16a34a;
+    --success-soft: #dcfce7;
+
+    --danger: #dc2626;
+    --danger-soft: #fee2e2;
+
+    --warning: #d97706;
+    --warning-soft: #fef3c7;
+
+    --info: #2563eb;
+    --info-soft: #dbeafe;
+
+    /* Shadows */
+
+    --shadow-xs:
+        0 2px 6px rgba(236, 72, 153, 0.04);
+
+    --shadow-sm:
+        0 4px 12px rgba(236, 72, 153, 0.07);
+
+    --shadow-md:
+        0 8px 24px rgba(236, 72, 153, 0.10);
+
+    --shadow-lg:
+        0 14px 40px rgba(236, 72, 153, 0.13);
+
+    --shadow-xl:
+        0 20px 55px rgba(236, 72, 153, 0.17);
+
+    /* Radius */
+
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-2xl: 36px;
+    --radius-full: 999px;
+
+    /* Spacing */
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+
+    /* Typography */
+
+    --font-primary: "Poppins", sans-serif;
+    --font-secondary: "DM Sans", sans-serif;
+
+    --font-xs: 11px;
+    --font-sm: 13px;
+    --font-base: 15px;
+    --font-md: 16px;
+    --font-lg: 18px;
+    --font-xl: 22px;
+    --font-2xl: 28px;
+    --font-3xl: 36px;
+    --font-4xl: 46px;
+
+    /* Layout */
+
+    --container-width: 1200px;
+    --header-height: 76px;
+
+    /* Transitions */
+
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+}
+
+
+/* ==========================================================
+   02. CSS RESET
+========================================================== */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 100px;
+
+    font-size: 16px;
+
+}
+
+
+body {
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background: var(--background);
+
+    color: var(--text-primary);
+
+    font-family: var(--font-secondary);
+
+    font-size: var(--font-base);
+
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+
+    text-rendering: optimizeLegibility;
+
+}
+
+
+body,
+button,
+input,
+textarea,
+select {
+
+    font-family: var(--font-secondary);
+
+}
+
+
+button,
+input,
+textarea,
+select {
+
+    font-size: inherit;
+
+}
+
+
+button {
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    background: none;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+img,
+picture,
+video,
+canvas,
+svg {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+
+img {
+
+    height: auto;
+
+}
+
+
+ul,
+ol {
+
+    list-style: none;
+
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: var(--font-primary);
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    color: var(--text-primary);
+
+}
+
+
+p {
+
+    color: var(--text-secondary);
+
+}
+
+
+::selection {
+
+    background: var(--primary-light);
+
+    color: var(--primary-dark);
+
+}
+
+
+:focus-visible {
+
+    outline: 3px solid rgba(236, 72, 153, 0.35);
+
+    outline-offset: 3px;
+
+}
+
+
+/* ==========================================================
+   03. WEBSITE WRAPPER
+========================================================== */
+
+.website-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+}
+
+
+.main-content {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+
+.container {
+
+    width: min(
+        calc(100% - 40px),
+        var(--container-width)
+    );
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+.section-container {
+
+    width: min(
+        calc(100% - 40px),
+        1100px
+    );
+
+    margin: 0 auto;
+
+}
+
+
+/* ==========================================================
+   04. GLOBAL SECTION STYLING
+========================================================== */
+
+section {
+
+    position: relative;
+
+}
+
+
+.section-heading {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    margin: 0 auto 48px;
+
+    text-align: center;
+
+}
+
+
+.section-eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+
+    padding: 7px 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-full);
+
+    background: var(--primary-soft);
+
+    color: var(--primary-dark);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.section-heading h2 {
+
+    margin-bottom: 14px;
+
+    font-size: clamp(26px, 4vw, 38px);
+
+    font-weight: 800;
+
+    letter-spacing: -1.2px;
+
+}
+
+
+.section-heading p {
+
+    max-width: 570px;
+
+    margin: 0 auto;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ==========================================================
+   05. GRADIENT TEXT
+========================================================== */
+
+.gradient-text {
+
+    display: inline;
+
+    background: linear-gradient(
+        120deg,
+        #ec4899 0%,
+        #d946ef 48%,
+        #9333ea 100%
+    );
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    color: transparent;
+
+}
+
+
+/* ==========================================================
+   06. GLOBAL BUTTON SYSTEM
+========================================================== */
+
+.primary-button,
+.secondary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 48px;
+
+    padding: 12px 24px;
+
+    border-radius: var(--radius-full);
+
+    font-family: var(--font-primary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        background var(--transition-normal);
+
+}
+
+
+.primary-button {
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: var(--text-white);
+
+    box-shadow:
+        0 7px 18px rgba(236, 72, 153, 0.22);
+
+}
+
+
+.primary-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(236, 72, 153, 0.30);
+
+}
+
+
+.primary-button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+.secondary-button {
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+}
+
+
+.secondary-button:hover {
+
+    border-color: var(--primary);
+
+    background: var(--primary-soft);
+
+    color: var(--primary-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+.secondary-button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+.button-arrow {
+
+    font-size: 19px;
+
+    transition: transform var(--transition-normal);
+
+}
+
+
+.primary-button:hover .button-arrow {
+
+    transform: translateX(4px);
+
+}
+
+
+/* ==========================================================
+   07. ICON BUTTON
+========================================================== */
+
+.icon-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+    font-size: 18px;
+
+    transition: all var(--transition-normal);
+
+}
+
+
+.icon-button:hover {
+
+    border-color: var(--primary-light);
+
+    background: var(--primary-soft);
+
+    transform: translateY(-2px);
+
+}
+
+
+.icon-button:active {
+
+    transform: scale(0.92);
+
+}
+
+
+/* ==========================================================
+   08. COMMON CARD DESIGN
+========================================================== */
+
+.card {
+
+    position: relative;
+
+    padding: 24px;
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        border-color var(--transition-normal);
+
+}
+
+
+.card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--primary-light);
+
+    box-shadow: var(--shadow-md);
+
+}
+
+
+.card-title {
+
+    margin-bottom: 10px;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+}
+
+
+.card-description {
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ==========================================================
+   09. COMMON BADGES
+========================================================== */
+
+.badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 6px 12px;
+
+    border-radius: var(--radius-full);
+
+    background: var(--primary-soft);
+
+    color: var(--primary-dark);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+.badge-success {
+
+    background: var(--success-soft);
+
+    color: var(--success);
+
+}
+
+
+.badge-warning {
+
+    background: var(--warning-soft);
+
+    color: var(--warning);
+
+}
+
+
+.badge-danger {
+
+    background: var(--danger-soft);
+
+    color: var(--danger);
+
+}
+
+
+/* ==========================================================
+   10. FORM ELEMENTS
+========================================================== */
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+    font-size: 14px;
+
+    transition:
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal),
+        background var(--transition-normal);
+
+}
+
+
+input::placeholder,
+textarea::placeholder {
+
+    color: var(--text-muted);
+
+    opacity: 1;
+
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color: var(--primary);
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 4px rgba(236, 72, 153, 0.10);
+
+}
+
+
+textarea {
+
+    min-height: 130px;
+
+    resize: vertical;
+
+}
+
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+
+    cursor: not-allowed;
+
+    opacity: 0.6;
+
+}
+
+
+/* ==========================================================
+   11. DIVIDERS
+========================================================== */
+
+.divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    background: var(--border-light);
+
+}
+
+
+.gradient-divider {
+
+    width: 100%;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary-light),
+        var(--secondary-light),
+        transparent
+    );
+
+}
+
+
+/* ==========================================================
+   12. COMMON FLEX UTILITIES
+========================================================== */
+
+.flex {
+
+    display: flex;
+
+}
+
+
+.flex-center {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.flex-between {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.flex-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.align-center {
+
+    align-items: center;
+
+}
+
+
+.justify-center {
+
+    justify-content: center;
+
+}
+
+
+.text-center {
+
+    text-align: center;
+
+}
+
+
+.w-100 {
+
+    width: 100%;
+
+}
+
+
+.h-100 {
+
+    height: 100%;
+
+}
+
+
+/* ==========================================================
+   13. SCROLLBAR DESIGN
+========================================================== */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: var(--background-soft);
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    border: 2px solid var(--background-soft);
+
+    border-radius: var(--radius-full);
+
+    background: linear-gradient(
+        180deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: var(--primary-dark);
+
+}
+
+
+/* ==========================================================
+   14. SELECTION AND DISABLED STATES
+========================================================== */
+
+.no-select {
+
+    -webkit-user-select: none;
+
+    user-select: none;
+
+}
+
+
+.no-scroll {
+
+    overflow: hidden;
+
+}
+
+
+.disabled {
+
+    pointer-events: none;
+
+    opacity: 0.5;
+
+}
+
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+/* ==========================================================
+   15. IMAGE PLACEHOLDER
+========================================================== */
+
+.image-placeholder {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+
+    background: linear-gradient(
+        135deg,
+        #fce7f3,
+        #f3e8ff
+    );
+
+    color: var(--primary-dark);
+
+    font-size: 34px;
+
+}
+
+
+.image-placeholder img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* ==========================================================
+   16. LOADING SPINNER
+========================================================== */
+
+.spinner {
+
+    width: 24px;
+
+    height: 24px;
+
+    border: 3px solid var(--primary-light);
+
+    border-top-color: var(--primary);
+
+    border-radius: 50%;
+
+    animation: mainSpinner 0.8s linear infinite;
+
+}
+
+
+@keyframes mainSpinner {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* ==========================================================
+   17. TOAST MESSAGE BASE
+========================================================== */
+
+.toast-message {
+
+    position: fixed;
+
+    z-index: 9999;
+
+    right: 20px;
+
+    bottom: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    max-width: min(380px, calc(100% - 40px));
+
+    padding: 14px 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+    box-shadow: var(--shadow-lg);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.toast-success {
+
+    border-left: 4px solid var(--success);
+
+}
+
+
+.toast-error {
+
+    border-left: 4px solid var(--danger);
+
+}
+
+
+.toast-warning {
+
+    border-left: 4px solid var(--warning);
+
+}
+
+
+/* ==========================================================
+   18. BACK TO TOP BUTTON
+========================================================== */
+
+.back-to-top {
+
+    position: fixed;
+
+    z-index: 1000;
+
+    right: 24px;
+
+    bottom: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 46px;
+
+    height: 46px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    box-shadow: var(--shadow-md);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition: all var(--transition-normal);
+
+}
+
+
+.back-to-top.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+
+.back-to-top:hover {
+
+    transform: translateY(-4px);
+
+}
+
+
+/* ==========================================================
+   19. ACCESSIBILITY
+========================================================== */
+
+.visually-hidden {
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 1px;
+
+    padding: 0;
+
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+
+}
+
+
+[aria-hidden="true"] {
+
+    pointer-events: none;
+
+}
+
+
+/* ==========================================================
+   20. PRINT STYLES
+========================================================== */
+
+@media print {
+
+    body {
+
+        background: #ffffff;
+
+        color: #000000;
+
+    }
+
+    .main-header,
+    .main-footer,
+    .mobile-bottom-navigation,
+    .back-to-top,
+    .website-loader {
+
+        display: none !important;
+
+    }
+
+    a {
+
+        text-decoration: underline;
+
+    }
+
+}
+
+
+/* ==========================================================
+   END OF MAIN CSS
+========================================================== */
+
