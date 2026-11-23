@@ -854,17 +854,48 @@
 
             try {
 
-                const existing =
-                    JSON.parse(
-                        localStorage.getItem(
-                            ReelsConfig.storageKey
-                        ) || "[]"
-                    );
+                const storedHistory =
+    JSON.parse(
+        localStorage.getItem(
+            ReelsConfig.storageKey
+        ) || "[]"
+    );
 
-                const filtered =
-                    existing.filter(
-                        (item) => item.url !== url
-                    );
+const existing =
+    Array.isArray(storedHistory)
+        ? storedHistory
+        : [];
+
+const filtered =
+    existing.filter((item) => {
+
+        if (
+            !item ||
+            typeof item !== "object" ||
+            typeof item.url !== "string" ||
+            typeof item.date !== "string"
+        ) {
+            return false;
+        }
+
+        const validation =
+            this.validateReelURL(item.url);
+
+        if (!validation.valid) {
+            return false;
+        }
+
+        if (
+            Number.isNaN(
+                new Date(item.date).getTime()
+            )
+        ) {
+            return false;
+        }
+
+        return item.url !== url;
+
+    });
 
                 filtered.unshift({
 
