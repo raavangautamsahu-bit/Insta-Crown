@@ -635,14 +635,24 @@
            12. SAFE MEDIA URL
         ---------------------------------------------------- */
 
-        safeMediaURL(value) {
+                safeMediaURL(value) {
 
             try {
 
-                const url = new URL(value);
+                if (
+                    typeof value !== "string" ||
+                    !value.trim()
+                ) {
+                    return null;
+                }
+
+                const url = new URL(value.trim());
 
                 if (
-                    !["https:", "http:"].includes(url.protocol)
+                    url.protocol !== "https:" ||
+                    !url.hostname ||
+                    url.username ||
+                    url.password
                 ) {
                     return null;
                 }
@@ -653,7 +663,7 @@
 
                 return null;
             }
-        }
+                }
 
 
         /* ----------------------------------------------------
