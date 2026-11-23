@@ -262,9 +262,23 @@
 
             }
 
-            try {
+                        try {
 
                 const parsed = new URL(value.trim());
+
+                if (
+                    parsed.protocol !== "https:" ||
+                    !parsed.hostname ||
+                    parsed.username ||
+                    parsed.password
+                ) {
+
+                    return {
+                        valid: false,
+                        message: "Please use a secure HTTPS Instagram URL."
+                    };
+
+                }
 
                 const hostname =
                     parsed.hostname.toLowerCase();
