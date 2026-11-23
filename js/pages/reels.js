@@ -714,45 +714,109 @@
                 return;
             }
 
-            this.resultContainer.hidden = false;
+            const isSafeMediaURL = (value) => {
 
-            this.resultContainer.classList.add(
-                "result-visible"
-            );
+    if (
+        typeof value !== "string" ||
+        !value.trim()
+    ) {
+        return false;
+    }
 
-            const resultLink =
-                this.resultContainer.querySelector(
-                    ReelsConfig.selectors.resultLink
-                );
+    try {
 
-            const resultVideo =
-                this.resultContainer.querySelector(
-                    ReelsConfig.selectors.resultVideo
-                );
+        const parsed = new URL(value.trim());
 
-            if (
-                resultLink &&
-                result.downloadUrl
-            ) {
+        return (
+            parsed.protocol === "https:" &&
+            Boolean(parsed.hostname) &&
+            !parsed.username &&
+            !parsed.password
+        );
 
-                resultLink.href =
-                    result.downloadUrl;
+    } catch (error) {
 
-                resultLink.hidden = false;
+        return false;
 
-            }
+    }
 
-            if (
-                resultVideo &&
-                result.previewUrl
-            ) {
+};
 
-                resultVideo.src =
-                    result.previewUrl;
+const safeDownloadURL =
+    isSafeMediaURL(result.downloadUrl)
+        ? result.downloadUrl
+        : "";
 
-                resultVideo.hidden = false;
+const safePreviewURL =
+    isSafeMediaURL(result.previewUrl)
+        ? result.previewUrl
+        : "";
 
-            }
+const resultLink =
+    this.resultContainer.querySelector(
+        ReelsConfig.selectors.resultLink
+    );
+
+const resultVideo =
+    this.resultContainer.querySelector(
+        ReelsConfig.selectors.resultVideo
+    );
+
+if (resultLink) {
+
+    resultLink.removeAttribute("href");
+
+    resultLink.hidden = true;
+
+    if (safeDownloadURL) {
+
+        resultLink.href = safeDownloadURL;
+
+        resultLink.target = "_blank";
+
+        resultLink.rel = "noopener noreferrer";
+
+        resultLink.hidden = false;
+
+    }
+
+}
+
+if (resultVideo) {
+
+    resultVideo.pause();
+
+    resultVideo.removeAttribute("src");
+
+    resultVideo.hidden = true;
+
+    if (safePreviewURL) {
+
+        resultVideo.src = safePreviewURL;
+
+        resultVideo.hidden = false;
+
+    }
+
+}
+
+if (!safeDownloadURL && !safePreviewURL) {
+
+    this.showError(
+        "The server returned an invalid media link. Please try again."
+    );
+
+    this.hideResult();
+
+    return;
+
+}
+
+this.resultContainer.hidden = false;
+
+this.resultContainer.classList.add(
+    "result-visible"
+);
 
             this.resultContainer.scrollIntoView({
 
