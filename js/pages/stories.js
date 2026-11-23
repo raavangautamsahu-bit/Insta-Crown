@@ -556,7 +556,7 @@
 
             if (this.galleryBox) {
 
-                this.galleryBox.innerHTML = "";
+                this.galleryBox.replaceChildren();
 
                 const mediaItems = Array.isArray(data.media)
                     ? data.media
