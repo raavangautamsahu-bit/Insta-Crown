@@ -581,11 +581,20 @@
 
                 }
 
-                if (result && result.success) {
+                if (
+    !result ||
+    typeof result !== "object" ||
+    result.success !== true
+) {
 
-                    this.displayResult(result);
+    throw new Error(
+        result?.error ||
+        "The server returned an invalid response. Please try again."
+    );
 
-                }
+}
+
+this.displayResult(result);
 
             } catch (error) {
 
