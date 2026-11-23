@@ -530,7 +530,7 @@
             }
 
 
-            this.resultBox.innerHTML = "";
+            this.resultBox.replaceChildren();
 
 
             const wrapper = document.createElement("div");
@@ -751,11 +751,11 @@
 
                 this.resultBox.hidden = true;
 
-                this.resultBox.innerHTML = "";
+                this.resultBox.replaceChildren();
             }
 
             if (this.galleryBox) {
-                this.galleryBox.innerHTML = "";
+                this.galleryBox.replaceChildren();
             }
         }
 
@@ -840,7 +840,7 @@
             }
 
 
-            this.historyBox.innerHTML = "";
+            this.historyBox.replaceChildren();
 
 
             if (this.history.length === 0) {
