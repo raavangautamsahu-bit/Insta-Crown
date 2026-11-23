@@ -480,6 +480,8 @@
 
             this.input.value = "";
 
+            this.currentRequest = null;
+
             this.input.removeAttribute(
                 "aria-invalid"
             );
@@ -558,9 +560,17 @@
 
             this.saveHistory(url);
 
+           const requestToken = {};
+
+this.currentRequest = requestToken;
+
 this.isDownloading = true;
 
             this.showLoading();
+
+           if (this.currentRequest !== requestToken) {
+    return;
+           }
 
             this.setButtonLoading(true);
 
@@ -598,10 +608,14 @@ this.displayResult(result);
 
             } catch (error) {
 
-                this.showError(
-                    error.message ||
-                    "Something went wrong while processing the Reel."
-                );
+                if (this.currentRequest === requestToken) {
+
+    this.showError(
+        error.message ||
+        "Something went wrong while processing the Reel."
+    );
+
+                }
 
             } finally {
 
