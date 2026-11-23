@@ -214,10 +214,14 @@
 
             document.addEventListener(
                 "click",
-                (event) => {
+(event) => {
 
-                    const pasteButton =
-                        event.target.closest(
+    if (!(event.target instanceof Element)) {
+        return;
+    }
+
+    const pasteButton =
+        event.target.closest(
                             ReelsConfig.selectors.pasteButton
                         );
 
