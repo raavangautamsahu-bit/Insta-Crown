@@ -772,14 +772,46 @@
                     StoriesConfig.storageKey
                 );
 
-                this.history = stored
+                                const parsedHistory = stored
                     ? JSON.parse(stored)
                     : [];
 
+                this.history = Array.isArray(parsedHistory)
+                    ? parsedHistory.filter((entry) => {
 
-                if (!Array.isArray(this.history)) {
-                    this.history = [];
-                }
+                        if (
+                            !entry ||
+                            typeof entry !== "object" ||
+                            typeof entry.url !== "string" ||
+                            typeof entry.username !== "string" ||
+                            typeof entry.date !== "string" ||
+                            !["success", "failed"].includes(entry.status)
+                        ) {
+                            return false;
+                        }
+
+                        const validation =
+                            this.validateURL(entry.url);
+
+                        if (
+                            !validation.valid ||
+                            validation.username !== entry.username
+                        ) {
+                            return false;
+                        }
+
+                        if (
+                            Number.isNaN(
+                                new Date(entry.date).getTime()
+                            )
+                        ) {
+                            return false;
+                        }
+
+                        return true;
+
+                    }).slice(0, StoriesConfig.maxHistory)
+                    : [];
 
             } catch (error) {
 
