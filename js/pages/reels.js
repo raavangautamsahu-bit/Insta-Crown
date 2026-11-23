@@ -556,9 +556,7 @@
 
             }
 
-            this.isDownloading = true;
-
-           this.saveHistory(url);
+            this.saveHistory(url);
 
 this.isDownloading = true;
 
