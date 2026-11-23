@@ -619,11 +619,17 @@ this.displayResult(result);
 
             } finally {
 
-                this.isDownloading = false;
+    if (this.currentRequest === requestToken) {
 
-                this.hideLoading();
+        this.isDownloading = false;
 
-                this.setButtonLoading(false);
+        this.hideLoading();
+
+        this.setButtonLoading(false);
+
+        this.currentRequest = null;
+
+    }
 
             }
 
