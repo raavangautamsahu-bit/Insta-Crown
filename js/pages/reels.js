@@ -1312,7 +1312,9 @@ const filtered =
 
             this.isDownloading = false;
 
-            this.setButtonLoading(false);
+this.currentRequest = null;
+
+this.setButtonLoading(false);
 
         }
 
