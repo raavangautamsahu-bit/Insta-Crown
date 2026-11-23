@@ -907,18 +907,44 @@
 
             try {
 
-                this.history =
+                                const storedHistory =
                     JSON.parse(
                         localStorage.getItem(
                             ReelsConfig.storageKey
                         ) || "[]"
                     );
 
-                if (!Array.isArray(this.history)) {
+                this.history = Array.isArray(storedHistory)
+                    ? storedHistory.filter((item) => {
 
-                    this.history = [];
+                        if (
+                            !item ||
+                            typeof item !== "object" ||
+                            typeof item.url !== "string" ||
+                            typeof item.date !== "string"
+                        ) {
+                            return false;
+                        }
 
-                }
+                        const validation =
+                            this.validateReelURL(item.url);
+
+                        if (!validation.valid) {
+                            return false;
+                        }
+
+                        if (
+                            Number.isNaN(
+                                new Date(item.date).getTime()
+                            )
+                        ) {
+                            return false;
+                        }
+
+                        return true;
+
+                    }).slice(0, ReelsConfig.maximumHistory)
+                    : [];
 
                 this.renderHistory();
 
