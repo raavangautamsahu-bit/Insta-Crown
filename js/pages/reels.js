@@ -568,16 +568,16 @@ this.isDownloading = true;
 
             this.showLoading();
 
-           if (this.currentRequest !== requestToken) {
-    return;
-           }
-
             this.setButtonLoading(true);
 
             try {
 
                 const result =
-                    await window.startDownload(url);
+    await window.startDownload(url);
+
+if (this.currentRequest !== requestToken) {
+    return;
+}
 
                 if (
                     result &&
