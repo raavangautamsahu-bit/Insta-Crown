@@ -543,8 +543,6 @@
 
             this.hideResult();
 
-            this.saveHistory(url);
-
             if (
                 !window.InstaCrownDownloader ||
                 typeof window.startDownload !== "function"
@@ -559,6 +557,10 @@
             }
 
             this.isDownloading = true;
+
+           this.saveHistory(url);
+
+this.isDownloading = true;
 
             this.showLoading();
 
